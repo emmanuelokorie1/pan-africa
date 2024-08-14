@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: lightFont;
+  src: url(./assets/font/ibm/IBMPlexSans-Light.ttf)
+    format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: RegularFont;
+  src: url(./assets//font/ibm/IBMPlexSans-Regular.ttf)
+    format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: MediumFont;
+  src: url(./assets//font/ibm/IBMPlexSans-Medium.ttf)
+    format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: MediumItalic;
+  src: url(./assets//font/ibm/IBMPlexSans-MediumItalic.ttf)
+    format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: bold1;
+  src: url(./assets//font/ibm/IBMPlexSans-Bold.ttf)
+    format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: semibold1;
+  src: url(./assets//font/ibm/IBMPlexSans-SemiBold.ttf)
+    format("woff2");
+  font-display: swap;
+}
+/* @font-face {
+  font-family: bold2;
+  src: url(./assets/fonts/mollen-personal-use-family/mollen-personal-use.bold-narrow.otf)
+    format("woff2");
+  font-display: swap;
+}
+@font-face {
+  font-family: bold3;
+  src: url(./assets/fonts/mollen-personal-use-family/mollen-personal-use.bold.otf)
+    format("woff2");
+  font-display: swap;
+} */
+
+body{
+    font-family: RegularFont;
+}
+
+.mySwiper {
+  width: 80%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+
+@media screen and (max-width: 700px) {
+  .mySwiper {
+    width: 100%;
+  }
+  .swiper-slide {
+    width: 500px;
+  }
+}
+
+.swiper-slide {
+  background-position: center;
+  background-size: cover;
+  width: 420px;
+}
+
+.swiper-slide img {
+  display: block;
+  width: 100%;
+}
+
+.marquee {
+  display: flex;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.marquee div {
+  display: inline-block;
+  padding-right: 100%; /* adjust this to create space between the content */
+}
+
+.marquee img {
+  display: inline-block;
+  padding-right: 100px; /* Space between images */
+  height: 100px; /* Adjust height as needed */
+  object-fit: contain;
+}
+
+
+.containers {
+  @apply s1000:px-[7rem] s900:px-[5rem] md:px-[3rem] sm:px-[2rem] px-[1rem];
+}
