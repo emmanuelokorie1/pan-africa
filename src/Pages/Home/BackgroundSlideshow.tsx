@@ -137,7 +137,7 @@ const BackgroundSlideshow = () => {
         style={{ display: "none" }}
         onLoad={() => handleImageLoad(2)}
       />
-      <TextOverlay isActive={activeImage === 2}>
+      <TextOverlay isActive={activeImage === 2} >
         <div className="text-[3.5rem]">
           Re-writing the <span className="text-textColor">African</span>{" "}
           connectivity story

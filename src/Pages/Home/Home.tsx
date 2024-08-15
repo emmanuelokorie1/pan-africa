@@ -61,7 +61,7 @@ function Home() {
     <div >
       <BackgroundSlideshow />
 
-      <div className="flex justify-center bg-gray-50">
+      <div className="flex justify-center bg-gray-50" data-aos="zoom-in">
         <div className="text-textColor py-[4rem] w-[70%] text-[1.3rem] text-center">
           We aim to follow an unconventional approach by collaborating with
           partners in a new eco system to meet African data consumption needs.

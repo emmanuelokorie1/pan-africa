@@ -44,6 +44,7 @@ const BackgroundContainer = styled.div`
   width: 100%;
   height: 500px; // Ensure it covers the full viewport height
   overflow: hidden;
+  background-color: #C07C63;
 `;
 
 // Common style for all images with zoom in and out effect

@@ -27,7 +27,7 @@ const HeaderNav: React.FC<customProps> = ({
     <div className=" pb-[6rem]">
       <BackgroundImg className="bg-background pt-[6rem]">
         {noImage ? (
-          <div className="flex justify-center items-center text-center">
+          <div className="flex justify-center items-center text-center" data-aos="fade-up">
             <div className="w-[40%] pt-[3rem]">
               <div className="text-textColor text-[1.3rem] ps-2">{title}</div>
               <div className="text-[2rem] pt-2">{headerText}</div>
@@ -37,7 +37,7 @@ const HeaderNav: React.FC<customProps> = ({
             </div>
           </div>
         ) : (
-          <div className="flex justify-between mt-[3rem]">
+          <div className="flex justify-between mt-[3rem]" data-aos="fade-left">
             <div className="w-[58%] ps-[8rem]">
               <div className="text-textColor border-l-[2px] border-textColor ps-2">
                 {title}
@@ -53,7 +53,7 @@ const HeaderNav: React.FC<customProps> = ({
               </div>
             </div>
             <div className="w-[40%]">
-              <div className="w-[400px]">
+              <div className="w-[400px]" data-aos="fade-up">
                 {/* <img src={Img} alt="" className="w-[100%]" /> */}
                 <Image
                   {...imageSize}

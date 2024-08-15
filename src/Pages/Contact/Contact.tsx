@@ -45,7 +45,7 @@ function Contact() {
       </div>
 
       <section className="containers p-[2rem]">
-        <div>
+        <div data-aos="fade-right">
           <div
             className="text-textColor  text-[1.1rem] mt-[2rem]"
             style={{ fontFamily: "MediumItalic" }}
@@ -66,7 +66,7 @@ function Contact() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-2" data-aos="fade-left">
           <aside className="grid grid-cols-2 h-[400px]">
             {data?.map((e, i) => {
               return (
@@ -97,7 +97,7 @@ function Contact() {
               );
             })}
           </aside>
-          <FormContainer>
+          <FormContainer data-aos="fade-up">
             <div className="bg-[white] w-[100%] p-[2rem] shadow-lg rounded-xl">
               <div className="grid grid-cols-2 gap-[2rem]">
                 <div>

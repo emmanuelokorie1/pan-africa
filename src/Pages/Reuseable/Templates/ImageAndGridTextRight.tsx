@@ -31,7 +31,7 @@ const ImageAndGridTextRight: React.FC<customProps> = ({
 }) => {
   return (
     <div className="flex gap-[2rem] justify-between containers py-[5rem]">
-      <div className="w-[55%]">
+      <div className="w-[55%]" data-aos="fade-right">
         <div
           className="text-textColor border-l-[2px] border-textColor text-[1.1rem] ps-2 mt-[2rem]"
           style={{ fontFamily: "MediumItalic" }}
@@ -93,7 +93,7 @@ const ImageAndGridTextRight: React.FC<customProps> = ({
         )}
       </div>
 
-      <div className="w-[40%] h-[600px]">
+      <div className="w-[40%] h-[600px]" data-aos="fade-up">
         {/* <img src={img || img2} alt="" className="h-[100%]" /> */}
         <Image
           {...imageSize}

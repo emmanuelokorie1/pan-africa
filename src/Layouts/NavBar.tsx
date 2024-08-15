@@ -65,7 +65,11 @@ function NavBar() {
               </div>
 
               {activeDropdown === i && e.dropdown && (
-                <div className="absolute top-full left-[-50%] py-1 bg-white text-gray-700 shadow-lg rounded-md w-[220px]">
+                <div
+                  className="absolute top-full left-[-50%] py-1 bg-white text-gray-700 shadow-lg rounded-md w-[220px]"
+                  data-aos="zoom-in"
+                  data-aos-duration="1000"
+                >
                   {e.dropdown.map((item: any, index: number) => (
                     <NavLink
                       key={index}

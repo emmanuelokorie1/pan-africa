@@ -32,7 +32,7 @@ const ImageAndTextGrid: React.FC<customProps> = ({
 }) => {
   return (
     <div className="flex gap-[2rem] justify-between p-[5rem]">
-      <div className="w-[40%]">
+      <div className="w-[40%]" data-aos="fade-up">
         {/* <img src={img || img2} alt="" /> */}
         <Image
           {...imageSize}
@@ -51,7 +51,7 @@ const ImageAndTextGrid: React.FC<customProps> = ({
           }
         />
       </div>
-      <div className="w-[55%]">
+      <div className="w-[55%]" data-aos="fade-left">
         <div
           className="text-textColor border-l-[2px] border-textColor text-[1.1rem] ps-2 mt-[2rem]"
           style={{ fontFamily: "MediumItalic" }}
