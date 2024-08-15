@@ -94,7 +94,7 @@ function Footer() {
           </div>
 
           <FlexContainer>
-            {Source?.map((e, i) => {
+            {Source?.map((e: any, i: number) => {
               return (
                 <IconContainer key={i}>
                   <a href={e.url} target="_blank" rel="noopener noreferrer">
@@ -107,12 +107,12 @@ function Footer() {
         </aside>
         <aside className="w-[65%]">
           <div className="flex justify-between">
-            {tabs?.map((e, i) => {
+            {tabs?.map((e: any, i: number) => {
               return (
                 <div key={i}>
                   <div className="text-textColor">{e?.name}</div>
                   <div className="text-[.85rem] ">
-                    {e?.minidata?.map((item, i) => {
+                    {e?.minidata?.map((item: any, i: number) => {
                       return (
                         <div key={i} className="py-[.3rem]">
                           {"tab" in item ? (

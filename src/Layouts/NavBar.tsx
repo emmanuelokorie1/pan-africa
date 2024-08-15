@@ -52,7 +52,7 @@ function NavBar() {
 
       <div className="flex gap-[3rem]">
         <div className="flex gap-[3rem]">
-          {Links1.map((e, i) => (
+          {Links1.map((e: any, i: number) => (
             <div
               key={i}
               className="relative flex items-center gap-2 cursor-pointer"
@@ -66,7 +66,7 @@ function NavBar() {
 
               {activeDropdown === i && e.dropdown && (
                 <div className="absolute top-full left-[-50%] py-1 bg-white text-gray-700 shadow-lg rounded-md w-[220px]">
-                  {e.dropdown.map((item, index) => (
+                  {e.dropdown.map((item: any, index: number) => (
                     <NavLink
                       key={index}
                       to={`${item.link}`}
@@ -83,7 +83,7 @@ function NavBar() {
           ))}
         </div>
         <section className="flex gap-[3rem]">
-          {Links2?.map((e, i) => (
+          {Links2?.map((e: any, i: number) => (
             <div key={i}>
               <NavLink to={e?.link}>
                 <div>{e?.name}</div>
