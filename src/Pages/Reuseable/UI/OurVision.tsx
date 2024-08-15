@@ -33,7 +33,7 @@ function OurVision() {
   ];
 
   return (
-    <div className="containers py-[4rem] mt-[2rem] bg-[#FBF5F3]">
+    <div className="containers py-[4rem] mt-[2rem] bg-secback">
       <div className="flex gap-4">
         {values?.map((e, i) => {
           return (

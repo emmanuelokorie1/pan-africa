@@ -8,7 +8,6 @@ import customer3 from "../../../assets/ourcore/customer3.svg";
 import story from "../../../assets/ourcore/story.svg";
 import { useState } from "react";
 import OurVision from "../../Reuseable/UI/OurVision";
-import ImageAndTextGrid from "../../Reuseable/Templates/ImageAndTextGrid";
 import ImageAndGridTextRight from "../../Reuseable/Templates/ImageAndGridTextRight";
 
 function OurCoreValue() {

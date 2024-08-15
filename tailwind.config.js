@@ -8,6 +8,7 @@ export default {
     extend: {
       colors: {
         background: '#431101',
+        secback: '#FBF5F3',
         textColor: '#E75425',
       },
       screens: {

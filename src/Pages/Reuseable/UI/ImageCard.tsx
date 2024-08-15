@@ -3,7 +3,7 @@ import { GoArrowUpRight } from "react-icons/go";
 import styled from "styled-components";
 
 interface customProps {
-  image?: string;
+  image?: any;
   text?: string;
   link?: any;
 }
