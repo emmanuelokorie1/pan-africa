@@ -2,6 +2,7 @@ import React from "react";
 import img2 from "../../../assets/home/whoarewe.svg";
 import { Link } from "react-router-dom";
 import { GoDot } from "react-icons/go";
+import { Image, Skeleton } from "@arco-design/web-react";
 
 interface customProps {
   title?: String;
@@ -15,6 +16,8 @@ interface customProps {
   img?: any;
 }
 
+const imageSize = { width: 420, height: 500 };
+
 const ImageAndGridTextRight: React.FC<customProps> = ({
   img,
   title,
@@ -24,7 +27,7 @@ const ImageAndGridTextRight: React.FC<customProps> = ({
   link,
   text1Head,
   text2Head,
-  prevtext
+  prevtext,
 }) => {
   return (
     <div className="flex gap-[2rem] justify-between containers py-[5rem]">
@@ -45,7 +48,6 @@ const ImageAndGridTextRight: React.FC<customProps> = ({
 
         {prevtext && <div className="text-[#3F3F3F] pb-[2rem]">{prevtext}</div>}
 
-
         {text1Head && (
           <div
             style={{ fontFamily: "semibold1" }}
@@ -59,8 +61,6 @@ const ImageAndGridTextRight: React.FC<customProps> = ({
         )}
 
         <div className="text-[#3F3F3F]">{text}</div>
-
-      
 
         {text2Head && (
           <div
@@ -94,7 +94,23 @@ const ImageAndGridTextRight: React.FC<customProps> = ({
       </div>
 
       <div className="w-[40%] h-[600px]">
-        <img src={img || img2} alt="" className="h-[100%]" />
+        {/* <img src={img || img2} alt="" className="h-[100%]" /> */}
+        <Image
+          {...imageSize}
+          // className="h-[100%]"
+          src={img || img2}
+          alt=""
+          preview={false}
+          lazyload={{ threshold: 0.5 }}
+          loader={
+            <Skeleton
+              image={{ style: imageSize }}
+              // className="h-[100%]"
+              text={false}
+              animation
+            />
+          }
+        />
       </div>
     </div>
   );

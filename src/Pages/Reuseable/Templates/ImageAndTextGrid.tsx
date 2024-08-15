@@ -2,6 +2,7 @@ import React from "react";
 import img2 from "../../../assets/home/whoarewe.svg";
 import { Link } from "react-router-dom";
 import { GoDot } from "react-icons/go";
+import { Image, Skeleton } from "@arco-design/web-react";
 
 interface customProps {
   title?: String;
@@ -15,6 +16,8 @@ interface customProps {
   text2Head?: String;
   prevtext?: String;
 }
+
+const imageSize = { width: 420, height: 500 };
 
 const ImageAndTextGrid: React.FC<customProps> = ({
   img,
@@ -30,7 +33,23 @@ const ImageAndTextGrid: React.FC<customProps> = ({
   return (
     <div className="flex gap-[2rem] justify-between p-[5rem]">
       <div className="w-[40%]">
-        <img src={img || img2} alt="" />
+        {/* <img src={img || img2} alt="" /> */}
+        <Image
+          {...imageSize}
+          // className="h-[100%]"
+          src={img || img2}
+          alt=""
+          preview={false}
+          lazyload={{ threshold: 0.5 }}
+          loader={
+            <Skeleton
+              image={{ style: imageSize }}
+              // className="h-[100%]"
+              text={false}
+              animation
+            />
+          }
+        />
       </div>
       <div className="w-[55%]">
         <div

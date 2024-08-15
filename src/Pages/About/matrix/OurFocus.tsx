@@ -13,6 +13,7 @@ import tower from "../../../assets/focus/path/tower.svg";
 import infra from "../../../assets/focus/path/infra.svg";
 import power from "../../../assets/focus/path/power.svg";
 import ContactTemp from "../../Reuseable/UI/ContactTemp";
+import { Image, Skeleton } from "@arco-design/web-react";
 
 interface Tab {
   name: string;
@@ -59,6 +60,8 @@ function OurFocus() {
       img: power,
     },
   ];
+
+  const imageSize = { width: "100%", height: "100%" };
 
   const [tabValue, setTabValue] = useState("TowerCo");
   return (
@@ -172,10 +175,27 @@ function OurFocus() {
                       </aside>
                       <aside className="flex justify-end items-center w-[50%]">
                         <div className="w-[450px]">
-                          <img
+                          {/* <img
                             src={e?.img}
                             alt=""
                             className="w-[100%] h-[100%]"
+                          /> */}
+
+                          <Image
+                            {...imageSize}
+                            // className="h-[100%]"
+                            src={e?.img}
+                            alt=""
+                            preview={false}
+                            lazyload={{ threshold: 0.5 }}
+                            loader={
+                              <Skeleton
+                                image={{ style: imageSize }}
+                                // className="h-[100%]"
+                                text={false}
+                                animation
+                              />
+                            }
                           />
                         </div>
                       </aside>

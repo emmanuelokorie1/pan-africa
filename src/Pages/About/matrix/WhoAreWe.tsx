@@ -19,12 +19,13 @@ import chisom from "../../../assets/WhoAreWe/teams/chisom.svg";
 import abimbola from "../../../assets/WhoAreWe/teams/abimbola.svg";
 import ife from "../../../assets/WhoAreWe/teams/ife.svg";
 
-
 import saya from "../../../assets/WhoAreWe/teams/saya.svg";
 import daniel from "../../../assets/WhoAreWe/teams/daniel.svg";
 import marc from "../../../assets/WhoAreWe/teams/marc.svg";
 
 import TeemCard from "../../Reuseable/UI/TeemCard";
+
+import { Image, Skeleton } from "@arco-design/web-react";
 
 interface Tab {
   name: string;
@@ -36,6 +37,8 @@ interface Tab {
     img: any;
   };
 }
+
+const imageSize = { width: '100%', height: '100%' };
 
 function WhoAreWe() {
   const tabs: Tab[] = [
@@ -146,7 +149,7 @@ function WhoAreWe() {
                           ) : (
                             <div>
                               <div className="pt-[1rem]">
-                                {e?.data?.text?.map((item, i) => {
+                                {e?.data?.text?.map((item: any, i: number) => {
                                   return (
                                     <div className="flex gap-2 items-center text-[#d7d7d7] text-[.9rem] py-[.3rem]">
                                       <div>
@@ -163,10 +166,26 @@ function WhoAreWe() {
                       </aside>
                       <aside className="flex justify-center items-center w-[50%]">
                         <div className="w-[500px]">
-                          <img
+                          {/* <img
                             src={e?.data?.img}
                             alt=""
                             className="w-[100%] h-[100%]"
+                          /> */}
+                          <Image
+                            {...imageSize}
+                            // className="h-[100%]"
+                            src={e?.data?.img}
+                            alt=""
+                            preview={false}
+                            lazyload={{ threshold: 0.5 }}
+                            loader={
+                              <Skeleton
+                                image={{ style: imageSize }}
+                                // className="h-[100%]"
+                                text={true}
+                                animation
+                              />
+                            }
                           />
                         </div>
                       </aside>
@@ -239,13 +258,9 @@ function WhoAreWe() {
       </section>
 
       <section className="containers py-[6rem]">
-        <div
-          className="text-[1.6rem]"
-          style={{ fontFamily: "semibold1" }}
-        >
+        <div className="text-[1.6rem]" style={{ fontFamily: "semibold1" }}>
           Meet the board members
         </div>
-
 
         <section className="flex justify-center">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-[1rem]">
@@ -273,7 +288,6 @@ function WhoAreWe() {
               role="Non Executive.D"
               fullrole="Non Executive Director"
             />
-           
           </div>
         </section>
       </section>

@@ -1,6 +1,8 @@
+import { Image, Skeleton } from "@arco-design/web-react";
 import React from "react";
 import { GoArrowUpRight } from "react-icons/go";
 import styled from "styled-components";
+const imageSize = { width: 380, height: 500 };
 
 interface customProps {
   image?: any;
@@ -11,13 +13,24 @@ interface customProps {
 const ImageCard: React.FC<customProps> = ({ image, text, link }) => {
   return (
     <Card>
-      <CardImage src={image} alt="Card" />
+      {/* <CardImage src={image} alt="Card" /> */}
+      <Image
+        {...imageSize}
+        src={image}
+        alt=""
+        preview={false}
+        lazyload={{ threshold: 0.5 }}
+        loader={
+          <Skeleton image={{ style: imageSize }} text={false} animation />
+        }
+      />
+
       <CardText>
         <div className=" text-[.9rem] h-[75px] font-semibold">{text}</div>
         <div className=" cursor-pointer flex justify-end items-center gap-2 text-[.8rem] mt-3">
           <div>{link}</div>
           <div>
-            <GoArrowUpRight size={15}/>
+            <GoArrowUpRight size={15} />
           </div>
         </div>
       </CardText>
@@ -57,7 +70,7 @@ const CardText = styled.div`
 
   ${Card}:hover & {
     transform: translate(-50%, -30px); /* Slide up the text on hover */
-    background-color: #E75425;
+    background-color: #e75425;
     color: white;
   }
 `;

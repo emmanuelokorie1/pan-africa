@@ -10,6 +10,8 @@ import { useState } from "react";
 import OurVision from "../../Reuseable/UI/OurVision";
 import ImageAndGridTextRight from "../../Reuseable/Templates/ImageAndGridTextRight";
 
+import { Image, Skeleton } from "@arco-design/web-react";
+
 function OurCoreValue() {
   const [customerTab, setCustomerTab] = useState("Customer Focus");
   const customer = [
@@ -29,6 +31,8 @@ function OurCoreValue() {
       text: "At Pan African Towers, we believe that technology is the key to innovation and success. Our Technology Driven core value emphasizes our commitment to leveraging cutting-edge technology to enhance our services and deliver exceptional value to our customers.",
     },
   ];
+
+  const imageSize = { width: 420, height: 500 };
   return (
     <section>
       <div>
@@ -52,7 +56,25 @@ function OurCoreValue() {
                 <div key={i}>
                   <div className="transition-all">
                     {customerTab === e?.name && (
-                      <img src={e?.img} alt={e?.name} className="w-[400px]" />
+                      <div className="w-[400px]">
+                        {" "}
+                        <Image
+                          {...imageSize}
+                          // className="h-[100%]"
+                          src={e?.img}
+                          alt=""
+                          preview={false}
+                          lazyload={{ threshold: 0.5 }}
+                          loader={
+                            <Skeleton
+                              image={{ style: imageSize }}
+                              // className="h-[100%]"
+                              text={false}
+                              animation
+                            />
+                          }
+                        />
+                      </div>
                     )}
                   </div>
                 </div>
@@ -65,11 +87,16 @@ function OurCoreValue() {
                 <div
                   className="py-[1rem] my-1 px-[1rem] w-[85%] transition-all"
                   key={i}
-                  style={{
-                    background: customerTab === e?.name ? "white" : undefined,
-                    cursor: customerTab === e?.name ? "text" : 'pointer',
-                    borderLeft: customerTab === e?.name ? "3px solid #E75425" : '3px solid #fce5dd',
-                  } as { background?: string, borderLeft?: string  }}
+                  style={
+                    {
+                      background: customerTab === e?.name ? "white" : undefined,
+                      cursor: customerTab === e?.name ? "text" : "pointer",
+                      borderLeft:
+                        customerTab === e?.name
+                          ? "3px solid #E75425"
+                          : "3px solid #fce5dd",
+                    } as { background?: string; borderLeft?: string }
+                  }
                   onClick={() => setCustomerTab(e?.name)}
                 >
                   <div>
@@ -97,7 +124,9 @@ function OurCoreValue() {
       <div className="bg-gray-50">
         <ImageAndGridTextRight
           title={"Our Proposition to our clients"}
-          headerText={"Our business model is centred around creating unique services that meet the needs of our customers"}
+          headerText={
+            "Our business model is centred around creating unique services that meet the needs of our customers"
+          }
           text={
             "We make use of cutting edge technology to provide premium service quality with superior cost advanatge. Our use of cutting-edge technology and renewable energy, will enable our clients across Africa lower costs and deliver high quality and reliable service levels across their operations."
           }
