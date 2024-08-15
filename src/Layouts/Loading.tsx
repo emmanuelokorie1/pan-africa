@@ -1,7 +1,7 @@
 // src/components/Loading.js
 
 import React from "react";
-import logo from "../assets/logo.svg";
+import logo from "../assets/favicon.svg";
 import styled from "styled-components";
 
 const Loading = () => {
@@ -18,7 +18,7 @@ const Loading = () => {
         src={logo}
         alt="Loading..."
         className="logo"
-        style={{ width: "100px", height: "100px" }}
+        style={{ width: "120px", height: "120px", borderRadius: '100%' }}
       />
     </Container>
   );
@@ -38,6 +38,6 @@ const Container = styled.div`
   }
 
   .logo {
-    animation: zoomInOut 2s infinite ease-in-out;
+    animation: zoomInOut 1.4s infinite ease-in-out;
   }
 `;

@@ -1,46 +1,116 @@
+import React, { Suspense, lazy } from "react";
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
-import Layouts from "./Layouts/Layouts"
-import Home from "./Pages/Home/Home";
-import Contact from "./Pages/Contact/Contact";
-// import About from "./Pages/About/About";
-// import Services from "./Pages/Services/Services";
-import EGS from "./Pages/EGS/EGS";
-import Career from "./Pages/Career/Career";
-import News from "./Pages/News/News";
-import WhoAreWe from "./Pages/About/matrix/WhoAreWe";
-import OurCoreValue from "./Pages/About/matrix/OurCoreValue";
-import OurFocus from "./Pages/About/matrix/OurFocus";
-import CoreServices from "./Pages/Services/Metrix/CoreServices";
-import ValueAddedServices from "./Pages/Services/Metrix/ValueAddedServices";
-import { Suspense } from "react";
+import Layouts from "./Layouts/Layouts";
 import Loading from "./Layouts/Loading";
+
+const Home = lazy(() => import("./Pages/Home/Home"));
+const Contact = lazy(() => import("./Pages/Contact/Contact"));
+const EGS = lazy(() => import("./Pages/EGS/EGS"));
+const Career = lazy(() => import("./Pages/Career/Career"));
+const News = lazy(() => import("./Pages/News/News"));
+const WhoAreWe = lazy(() => import("./Pages/About/matrix/WhoAreWe"));
+const OurCoreValue = lazy(() => import("./Pages/About/matrix/OurCoreValue"));
+const OurFocus = lazy(() => import("./Pages/About/matrix/OurFocus"));
+const CoreServices = lazy(() => import("./Pages/Services/Metrix/CoreServices"));
+const ValueAddedServices = lazy(() => import("./Pages/Services/Metrix/ValueAddedServices"));
+
 
 function App() {
   const router = createBrowserRouter(
     createRoutesFromElements(
       <Route>
-         <Route path="/" element={<Layouts />}>
-            <Route index element={<Home />} />
-            <Route path="contact" element={<Contact />} />
-            <Route path="who-are-we" element={<WhoAreWe />} />
-            <Route path="our-core-values" element={<OurCoreValue />} />
-            <Route path="our-focus" element={<OurFocus />} />
-            <Route path="core-services" element={<CoreServices />} />
-            <Route path="value-added-services" element={<ValueAddedServices />} />
-            <Route path="egs" element={<EGS />} />
-            <Route path="career" element={<Career />} />
-            <Route path="news" element={<News />} />
-          </Route>
+        <Route path="/" element={<Layouts />}>
+          <Route
+            index
+            element={
+              <Suspense fallback={<Loading />}>
+                <Home />
+              </Suspense>
+            }
+          />
+          <Route
+            path="contact"
+            element={
+              <Suspense fallback={<Loading />}>
+                <Contact />
+              </Suspense>
+            }
+          />
+          <Route
+            path="who-are-we"
+            element={
+              <Suspense fallback={<Loading />}>
+                <WhoAreWe />
+              </Suspense>
+            }
+          />
+          <Route
+            path="our-core-values"
+            element={
+              <Suspense fallback={<Loading />}>
+                <OurCoreValue />
+              </Suspense>
+            }
+          />
+          <Route
+            path="our-focus"
+            element={
+              <Suspense fallback={<Loading />}>
+                <OurFocus />
+              </Suspense>
+            }
+          />
+          <Route
+            path="core-services"
+            element={
+              <Suspense fallback={<Loading />}>
+                <CoreServices />
+              </Suspense>
+            }
+          />
+          <Route
+            path="value-added-services"
+            element={
+              <Suspense fallback={<Loading />}>
+                <ValueAddedServices />
+              </Suspense>
+            }
+          />
+          <Route
+            path="egs"
+            element={
+              <Suspense fallback={<Loading />}>
+                <EGS />
+              </Suspense>
+            }
+          />
+          <Route
+            path="career"
+            element={
+              <Suspense fallback={<Loading />}>
+                <Career />
+              </Suspense>
+            }
+          />
+          <Route
+            path="news"
+            element={
+              <Suspense fallback={<Loading />}>
+                <News />
+              </Suspense>
+            }
+          />
+        </Route>
       </Route>
     )
   );
+
   return (
     <div className="App">
-       <Suspense fallback={<Loading />}>
-        <RouterProvider router={router} />
-      </Suspense>
+      <RouterProvider router={router} />
     </div>
   );
 }
 
 export default App;
+

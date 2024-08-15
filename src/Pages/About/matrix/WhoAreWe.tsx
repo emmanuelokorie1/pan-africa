@@ -131,7 +131,7 @@ function WhoAreWe() {
         <div>
           {tabs?.map((e, i) => {
             return (
-              <div key={i}>
+              <div key={i} >
                 <div className=" bg-[#AE3A20] ">
                   {tabValue === e?.name && (
                     <div className="flex justify-between  h-[600px]">
