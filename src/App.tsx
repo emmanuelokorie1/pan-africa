@@ -12,6 +12,8 @@ import OurCoreValue from "./Pages/About/matrix/OurCoreValue";
 import OurFocus from "./Pages/About/matrix/OurFocus";
 import CoreServices from "./Pages/Services/Metrix/CoreServices";
 import ValueAddedServices from "./Pages/Services/Metrix/ValueAddedServices";
+import { Suspense } from "react";
+import Loading from "./Layouts/Loading";
 
 function App() {
   const router = createBrowserRouter(
@@ -34,7 +36,9 @@ function App() {
   );
   return (
     <div className="App">
-      <RouterProvider router={router} />
+       <Suspense fallback={<Loading />}>
+        <RouterProvider router={router} />
+      </Suspense>
     </div>
   );
 }

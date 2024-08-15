@@ -55,22 +55,17 @@ const ImageBase = styled.div`
   animation: ${({ isExiting }) => (isExiting ? slideOutLeft : slideInRight)} 2s ease, ${zoomInOut} 10s ease-in-out infinite;
   opacity: ${({ isActive }) => (isActive ? 1 : 0)};
   transition: opacity 1s;
+  background-color: ${({ isLoading }) => (isLoading ? "#431101" : "transparent")}; /* Apply black background when loading */
 `;
 
 // Styled component for the first image
-const ImageOne = styled(ImageBase)`
-  background-image: url(${back1});
-`;
+const ImageOne = styled(ImageBase)``;
 
 // Styled component for the second image
-const ImageTwo = styled(ImageBase)`
-  background-image: url(${back2});
-`;
+const ImageTwo = styled(ImageBase)``;
 
 // Styled component for the third image
-const ImageThree = styled(ImageBase)`
-  background-image: url(${back3});
-`;
+const ImageThree = styled(ImageBase)``;
 
 // Styled component for the text overlay
 const TextOverlay = styled.div`
@@ -89,6 +84,7 @@ const TextOverlay = styled.div`
 const BackgroundSlideshow = () => {
   const [activeImage, setActiveImage] = useState(1);
   const [isExiting, setIsExiting] = useState(false);
+  const [loading, setLoading] = useState({ 1: true, 2: true, 3: true });
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -102,11 +98,23 @@ const BackgroundSlideshow = () => {
     return () => clearInterval(interval);
   }, []);
 
+  const handleImageLoad = (index) => {
+    setLoading((prev) => ({ ...prev, [index]: false }));
+  };
+
   return (
     <BackgroundContainer>
       <ImageOne
         isActive={activeImage === 1}
         isExiting={isExiting && activeImage === 1}
+        style={{ backgroundImage: `url(${back1})` }}
+        isLoading={loading[1]}
+      />
+      <img
+        src={back1}
+        alt="background 1"
+        style={{ display: "none" }}
+        onLoad={() => handleImageLoad(1)}
       />
       <TextOverlay isActive={activeImage === 1}>
         <div className="text-[3.5rem]">
@@ -120,6 +128,14 @@ const BackgroundSlideshow = () => {
       <ImageTwo
         isActive={activeImage === 2}
         isExiting={isExiting && activeImage === 2}
+        style={{ backgroundImage: `url(${back2})` }}
+        isLoading={loading[2]}
+      />
+      <img
+        src={back2}
+        alt="background 2"
+        style={{ display: "none" }}
+        onLoad={() => handleImageLoad(2)}
       />
       <TextOverlay isActive={activeImage === 2}>
         <div className="text-[3.5rem]">
@@ -136,6 +152,14 @@ const BackgroundSlideshow = () => {
       <ImageThree
         isActive={activeImage === 3}
         isExiting={isExiting && activeImage === 3}
+        style={{ backgroundImage: `url(${back3})` }}
+        isLoading={loading[3]}
+      />
+      <img
+        src={back3}
+        alt="background 3"
+        style={{ display: "none" }}
+        onLoad={() => handleImageLoad(3)}
       />
       <TextOverlay isActive={activeImage === 3}>
         <div className="text-[3.5rem]">
