@@ -115,11 +115,11 @@ function Footer() {
                     {e?.minidata?.map((item, i) => {
                       return (
                         <div key={i} className="py-[.3rem]">
-                          {e?.name === "Company" || e?.name === "Services" ? (
+                          {"tab" in item ? (
                             <div>
                               <NavLink to={item?.tab}>{item?.name}</NavLink>
                             </div>
-                          ) : e?.name === "Reach Us" ? (
+                          ) : (
                             <div>
                               {item?.name.includes("@") ? (
                                 <div>
@@ -136,8 +136,6 @@ function Footer() {
                                 </div>
                               )}
                             </div>
-                          ) : (
-                            <div>{item?.name}</div>
                           )}
                         </div>
                       );
@@ -169,6 +167,7 @@ function Footer() {
 }
 
 export default Footer;
+
 
 const FlexContainer = styled.div`
   display: flex;
