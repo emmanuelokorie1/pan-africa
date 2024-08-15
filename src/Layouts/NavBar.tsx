@@ -35,7 +35,7 @@ function NavBar() {
   // console.log(location);
 
   const [activeDropdown, setActiveDropdown] = useState(null);
-
+  // "build": "tsc -b && vite build",
   // ${
   //   location === "/" ? "bg-background" : ""
   // }
