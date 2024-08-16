@@ -3,7 +3,9 @@ import HeaderNav from "../Reuseable/UI/HeaderNav";
 import gram from "../../assets/egs/Gram.png";
 import Timelines from "./Timelines";
 
+
 function EGS() {
+
   return (
     <div>
       <div>
@@ -29,11 +31,17 @@ function EGS() {
         </div>
       </div>
 
-      <div><Timelines /></div>
+      <div>
+        <Timelines />
+      </div>
 
       <div className="py-[2rem]">
         <ContactTemp />
       </div>
+
+     
+
+      {/* <SeeMoreModal /> */}
     </div>
   );
 }

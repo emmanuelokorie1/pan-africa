@@ -49,7 +49,9 @@ body {
   font-family: RegularFont;
 }
 
-
+.body-active-modal{
+  overflow-y: hidden;
+}
 
 /* swipper styles */
 
