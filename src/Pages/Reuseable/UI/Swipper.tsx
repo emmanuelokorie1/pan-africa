@@ -17,9 +17,9 @@ const MySwiperComponent = () => {
       centeredSlides={true}
       slidesPerView="auto"
       coverflowEffect={{
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
+        rotate: 30,
+        stretch: 50,
+        depth: 150,
         modifier: 1,
         slideShadows: true,
       }}
@@ -30,12 +30,78 @@ const MySwiperComponent = () => {
       modules={[EffectCoverflow, Autoplay]}
       className="mySwiper"
     >
-      <SwiperSlide><img src={gallery1} alt="Gallery 1" /></SwiperSlide>
-      <SwiperSlide><img src={gallery2} alt="Gallery 2" /></SwiperSlide>
-      <SwiperSlide><img src={gallery3} alt="Gallery 3" /></SwiperSlide>
-      <SwiperSlide><img src={gallery1} alt="Gallery 1" /></SwiperSlide>
-      <SwiperSlide><img src={gallery2} alt="Gallery 2" /></SwiperSlide>
-      <SwiperSlide><img src={gallery3} alt="Gallery 3" /></SwiperSlide>
+      <SwiperSlide>
+        <div className="slide-content">
+          <img src={gallery1} alt="Gallery 1" />
+          <p className="slide-text">Focus on Connectivity</p>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="slide-content">
+          <img src={gallery2} alt="Gallery 2" />
+          <p className="slide-text">Core Services</p>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="slide-content">
+          <img src={gallery3} alt="Gallery 3" />
+          <p className="slide-text">Our Core Values</p>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="slide-content">
+          <img src={gallery1} alt="Gallery 1" />
+          <p className="slide-text">Focus on Connectivity</p>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="slide-content">
+          <img src={gallery2} alt="Gallery 2" />
+          <p className="slide-text">Core Services</p>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="slide-content">
+          <img src={gallery3} alt="Gallery 3" />
+          <p className="slide-text">Our Core Values</p>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="slide-content">
+          <img src={gallery1} alt="Gallery 1" />
+          <p className="slide-text">Focus on Connectivity</p>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="slide-content">
+          <img src={gallery2} alt="Gallery 2" />
+          <p className="slide-text">Core Services</p>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="slide-content">
+          <img src={gallery3} alt="Gallery 3" />
+          <p className="slide-text">Our Core Values</p>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="slide-content">
+          <img src={gallery1} alt="Gallery 1" />
+          <p className="slide-text">Focus on Connectivity</p>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="slide-content">
+          <img src={gallery2} alt="Gallery 2" />
+          <p className="slide-text">Core Services</p>
+        </div>
+      </SwiperSlide>
+      <SwiperSlide>
+        <div className="slide-content">
+          <img src={gallery3} alt="Gallery 3" />
+          <p className="slide-text">Our Core Values</p>
+        </div>
+      </SwiperSlide>
     </Swiper>
   );
 };

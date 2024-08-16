@@ -25,7 +25,7 @@ function NavBar() {
     },
   ];
   const Links2 = [
-    { name: "EGS", link: "egs" },
+    { name: "ESG", link: "esg" },
     { name: "Career", link: "career" },
     { name: "News", link: "news" },
   ];
@@ -68,7 +68,6 @@ function NavBar() {
                 <div
                   className="absolute top-full left-[-50%] py-1 bg-white text-gray-700 shadow-lg rounded-md w-[220px]"
                   data-aos="zoom-in"
-                  data-aos-duration="800"
                 >
                   {e.dropdown.map((item: any, index: number) => (
                     <NavLink

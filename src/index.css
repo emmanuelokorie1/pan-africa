@@ -49,6 +49,18 @@ body {
   font-family: RegularFont;
 }
 
+
+
+/* swipper styles */
+
+.swiper-wrapper {
+  position: relative;
+  width: 40% !important;
+  height: 100%;
+  z-index: 1;
+  display: flex;
+}
+
 .mySwiper {
   width: 80%;
   padding-top: 50px;
@@ -67,13 +79,36 @@ body {
 .swiper-slide {
   background-position: center;
   background-size: cover;
-  width: 420px;
+  width: 300px;
+  background-color: white;
 }
 
 .swiper-slide img {
   display: block;
   width: 100%;
+  border-radius: 10px;
 }
+
+.slide-content {
+  text-align: center;
+  position: relative;
+}
+
+.slide-text {
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.swiper-slide-active .slide-text {
+  opacity: 1;
+color: #e75425;
+font-family: semibold1;
+font-size: 1.2rem;
+}
+
+
+
 
 .marquee {
   display: flex;

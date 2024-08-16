@@ -20,7 +20,7 @@ function Footer() {
         { name: "About Us", tab: "about-us" },
         { name: "Career", tab: "career" },
         { name: "News", tab: "news" },
-        { name: "EGS", tab: "egs" },
+        { name: "ESG", tab: "esg" },
         { name: "Core values", tab: "our-core-values" },
         { name: "Our focus", tab: "our-focus" },
       ],

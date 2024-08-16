@@ -77,7 +77,7 @@ function App() {
             }
           />
           <Route
-            path="egs"
+            path="esg"
             element={
               <Suspense fallback={<Loading />}>
                 <EGS />

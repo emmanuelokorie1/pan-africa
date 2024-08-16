@@ -107,7 +107,7 @@ function Home() {
         <ImageAndTextGrid
           title={"Who we are"}
           headerText={
-            "Pan African Towers Limited is a Telecommunication Infrastructure and  ervice Facilitator"
+            "Pan African Towers Limited is a Telecommunication Infrastructure and  service Facilitator"
           }
           text={
             "Pan-African Towers is a multiple award-winning telecommunications infrastructure company and wireless service facilitator in Nigeria aimed at catering to the telecommunication needs ranging from broadband, mobile telephony to other local value-added services in Africa."
