@@ -401,7 +401,7 @@ function TeamTemplate() {
   return (
     <div className="mt-[5rem]">
       <div className="containers py-[4rem]">
-        <div>
+        {Number(id) > data.length ? (
           <div className="flex ">
             <div onClick={() => navigate(-1)} className="cursor-pointer pe-2">
               <MdOutlineKeyboardBackspace size={30} />
@@ -410,75 +410,91 @@ function TeamTemplate() {
               mt="0"
               py="1rem"
               title={"Our Team"}
-              text={"Meet the management team"}
-              text2={
-                "Our industry experience and specialist insight allow us to maintain market leadership"
-              }
+              text={"Team ID not found"}
             />
           </div>
+        ) : (
+          <div>
+            <div className="flex ">
+              <div onClick={() => navigate(-1)} className="cursor-pointer pe-2">
+                <MdOutlineKeyboardBackspace size={30} />
+              </div>
+              <LeftHeader
+                mt="0"
+                py="1rem"
+                title={"Our Team"}
+                text={"Meet the management team"}
+                text2={
+                  "Our industry experience and specialist insight allow us to maintain market leadership"
+                }
+              />
+            </div>
 
-          <div className="pt-[5rem]">
-            {data
-              ?.filter((e) => Number(e.id) === Number(id))
-              .map((e, i) => {
-                return (
-                  <div key={i} className="flex justify-between">
-                    <div className="w-[25%]">
-                      <div className="flex justify-center flex-wrap">
-                        <div className="w-[400px] flex justify-center items-center">
-                          {/* <img src={Img} alt="" className="w-[100%]" /> */}
-                          <Image
-                            {...imageSize}
-                            src={e?.img}
-                            alt=""
-                            preview={false}
-                            lazyload={{ threshold: 0.5 }}
-                            loader={
-                              <Skeleton
-                                image={{ style: imageSize }}
-                                // className="h-[100%]"
-                                text={true}
-                                animation
-                              />
-                            }
-                          />
+            <div className="pt-[5rem]">
+              {data
+                ?.filter((e) => Number(e.id) === Number(id))
+                .map((e, i) => {
+                  return (
+                    <div key={i} className="flex justify-between">
+                      <div className="w-[25%]">
+                        <div className="flex justify-center flex-wrap">
+                          <div className="w-[400px] flex justify-center items-center">
+                            {/* <img src={Img} alt="" className="w-[100%]" /> */}
+                            <Image
+                              {...imageSize}
+                              src={e?.img}
+                              alt=""
+                              preview={false}
+                              lazyload={{ threshold: 0.5 }}
+                              loader={
+                                <Skeleton
+                                  image={{ style: imageSize }}
+                                  // className="h-[100%]"
+                                  text={true}
+                                  animation
+                                />
+                              }
+                            />
+                          </div>
+                          <div className="flex justify-around items-center text-textColor gap-[.4rem]">
+                            <div className="w-[30px] border-t-[2px] border-textColor"></div>
+                            <div className="bg-[#FAEBE7] p-[.6rem] rounded-[50%] cursor-pointer">
+                              <FaFacebookF size={10} />
+                            </div>
+                            <div className="bg-[#FAEBE7] p-[.6rem] rounded-[50%] cursor-pointer">
+                              <FaXTwitter size={10} />
+                            </div>
+                            <div className="bg-[#FAEBE7] p-[.6rem] rounded-[50%] cursor-pointer">
+                              <FaLinkedinIn size={10} />
+                            </div>
+
+                            <div className="w-[30px] border-t-[2px] border-textColor"></div>
+                          </div>
                         </div>
-                        <div className="flex justify-around items-center text-textColor gap-[.4rem]">
-                          <div className="w-[30px] border-t-[2px] border-textColor"></div>
-                          <div className="bg-[#FAEBE7] p-[.6rem] rounded-[50%] cursor-pointer">
-                            <FaFacebookF size={10} />
+                      </div>
+                      <div className="w-[70%]">
+                        <div className="border-l-[.8rem] border-textColor px-[.6rem]">
+                          <div
+                            className="text-textColor text-[1.5rem]"
+                            style={{ fontFamily: "semibold1" }}
+                          >
+                            {e?.name}
                           </div>
-                          <div className="bg-[#FAEBE7] p-[.6rem] rounded-[50%] cursor-pointer">
-                            <FaXTwitter size={10} />
+                          <div className="font-bold text-[1.1rem]">
+                            {e?.role}
                           </div>
-                          <div className="bg-[#FAEBE7] p-[.6rem] rounded-[50%] cursor-pointer">
-                            <FaLinkedinIn size={10} />
-                          </div>
+                        </div>
 
-                          <div className="w-[30px] border-t-[2px] border-textColor"></div>
+                        <div className="text-gray-600 text-[1rem] py-[3rem]">
+                          {e?.content}
                         </div>
                       </div>
                     </div>
-                    <div className="w-[70%]">
-                      <div className="border-l-[.8rem] border-textColor px-[.6rem]">
-                        <div
-                          className="text-textColor text-[1.5rem]"
-                          style={{ fontFamily: "semibold1" }}
-                        >
-                          {e?.name}
-                        </div>
-                        <div className="font-bold text-[1.1rem]">{e?.role}</div>
-                      </div>
-
-                      <div className="text-gray-600 text-[1rem] py-[3rem]">
-                        {e?.content}
-                      </div>
-                    </div>
-                  </div>
-                );
-              })}
+                  );
+                })}
+            </div>
           </div>
-        </div>
+        )}
       </div>
       <div>
         <ContactTemp />

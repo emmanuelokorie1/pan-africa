@@ -162,17 +162,17 @@ function Home() {
         <ImageCard
           image={cardImg1}
           text="Pan African Towers Appoints Azeez Amida as CEO"
-          link={<div>Learn more</div>}
+          link={'/see-news/1'}
         />
         <ImageCard
           image={cardImg2}
           text="DPI and Verod Capital partner to back management of Pan African Towers."
-          link={<div>Learn more</div>}
+          link={'/see-news/2'}
         />
         <ImageCard
           image={cardImg3}
           text="Pan African Towers becomes one of the leading telecommunication companies in Africa"
-          link={<div>Learn more</div>}
+          link={'/see-news/3'}
         />
       </div>
 

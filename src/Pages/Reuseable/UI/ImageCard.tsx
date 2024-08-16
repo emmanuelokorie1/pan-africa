@@ -1,6 +1,7 @@
 import { Image, Skeleton } from "@arco-design/web-react";
 import React from "react";
 import { GoArrowUpRight } from "react-icons/go";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 const imageSize = { width: 380, height: 500 };
 
@@ -27,12 +28,12 @@ const ImageCard: React.FC<customProps> = ({ image, text, link }) => {
 
       <CardText>
         <div className=" text-[.9rem] h-[75px] font-semibold">{text}</div>
-        <div className=" cursor-pointer flex justify-end items-center gap-2 text-[.8rem] mt-3">
-          <div>{link}</div>
+        <Link to={link} className=" cursor-pointer flex justify-end items-center gap-2 text-[.8rem] mt-3">
+          <div>Learn more</div>
           <div>
             <GoArrowUpRight size={15} />
           </div>
-        </div>
+        </Link>
       </CardText>
     </Card>
   );
@@ -46,13 +47,6 @@ const Card = styled.div`
   height: 500px;
   border-radius: 10px;
   transition: transform 0.3s ease;
-`;
-
-const CardImage = styled.img`
-  width: 100%;
-  height: auto;
-  display: block;
-  background-color: transparent;
 `;
 
 const CardText = styled.div`

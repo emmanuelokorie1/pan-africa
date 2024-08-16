@@ -4,6 +4,7 @@ import Layouts from "./Layouts/Layouts";
 import Loading from "./Layouts/Loading";
 import TeamTemplate from "./Pages/About/TeamTemplate";
 import Privacy from "./Pages/Contact/Privacy";
+import NewsTemplate from "./Pages/News/NewsTemplate";
 
 const Home = lazy(() => import("./Pages/Home/Home"));
 const Contact = lazy(() => import("./Pages/Contact/Contact"));
@@ -51,6 +52,14 @@ function App() {
             element={
               <Suspense fallback={<Loading />}>
                 <TeamTemplate />
+              </Suspense>
+            }
+          />
+          <Route
+            path="see-news/:id"
+            element={
+              <Suspense fallback={<Loading />}>
+                <NewsTemplate />
               </Suspense>
             }
           />
