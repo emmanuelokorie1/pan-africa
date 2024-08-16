@@ -323,7 +323,7 @@ function Timelines() {
               date={
                 <div className="text-start px-[1rem]">
                   <div>{e?.text}</div>
-                  {e?.text !== "Community Relations" ? (
+                  {e?.title !== "Community Relations" ? (
                     <div
                       className="text-textColor mt-[1rem] cursor-pointer"
                       onClick={() => {
