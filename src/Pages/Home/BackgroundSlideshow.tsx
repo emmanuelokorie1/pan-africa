@@ -75,7 +75,7 @@ const TextOverlay = styled.div`
   transform: translateX(0, -50%);
   color: white;
   font-size: 26px;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); */
   z-index: 2; // Ensure the text is always on top
   opacity: ${({ isActive }) => (isActive ? 1 : 0)};
   transition: opacity 1s;
