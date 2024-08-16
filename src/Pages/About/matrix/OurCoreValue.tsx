@@ -6,7 +6,7 @@ import cosumer2 from "../../../assets/ourcore/cosumer2.svg";
 import customer3 from "../../../assets/ourcore/customer3.svg";
 
 import story from "../../../assets/ourcore/story.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import OurVision from "../../Reuseable/UI/OurVision";
 import ImageAndGridTextRight from "../../Reuseable/Templates/ImageAndGridTextRight";
 
@@ -31,6 +31,10 @@ function OurCoreValue() {
       text: "At Pan African Towers, we believe that technology is the key to innovation and success. Our Technology Driven core value emphasizes our commitment to leveraging cutting-edge technology to enhance our services and deliver exceptional value to our customers.",
     },
   ];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const imageSize = { width: 420, height: 500 };
   return (

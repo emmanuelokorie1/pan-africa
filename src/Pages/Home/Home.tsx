@@ -36,6 +36,7 @@ import sys from "../../assets/home/marquee/sys.svg";
 import LeftHeader from "../Reuseable/Templates/LeftHeader";
 import ImageCard from "../Reuseable/UI/ImageCard";
 import ContactTemp from "../Reuseable/UI/ContactTemp";
+import { useEffect } from "react";
 
 function Home() {
   const imageUrls = [
@@ -56,6 +57,10 @@ function Home() {
     // spec,
     // sys,
   ];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <div >
@@ -112,6 +117,7 @@ function Home() {
           text={
             "Pan-African Towers is a multiple award-winning telecommunications infrastructure company and wireless service facilitator in Nigeria aimed at catering to the telecommunication needs ranging from broadband, mobile telephony to other local value-added services in Africa."
           }
+          link={'/who-are-we'}
         />
       </div>
 
@@ -181,6 +187,7 @@ function Home() {
             "We are always open to new talent joining our team of experts operating in Nigeria and across Africa. We are looking for people to help us grow our business, join our team"
           }
           img={careerr}
+          link={'/career'}
         />
       </div>
 

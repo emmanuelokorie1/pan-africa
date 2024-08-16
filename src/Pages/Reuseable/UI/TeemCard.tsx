@@ -1,4 +1,5 @@
 import { GoArrowUpRight } from "react-icons/go";
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 interface customProps {
@@ -7,6 +8,7 @@ interface customProps {
   fullrole?: string;
   role?: string;
   link?: any;
+  id: number;
 }
 
 const TeemCard: React.FC<customProps> = ({
@@ -15,9 +17,10 @@ const TeemCard: React.FC<customProps> = ({
   link,
   fullrole,
   role,
+  id,
 }) => {
   return (
-    <div className="my-[3rem] cursor-pointer">
+    <Link to={`/our-team/${id}`} className="my-[3rem] cursor-pointer">
       <Card>
       <div>
         <CardImage src={image} alt="Card" />
@@ -42,7 +45,7 @@ const TeemCard: React.FC<customProps> = ({
         </div>
       </CardText>
     </Card>
-    </div>
+    </Link>
   );
 };
 

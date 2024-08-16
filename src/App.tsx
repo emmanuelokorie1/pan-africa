@@ -2,6 +2,8 @@ import React, { Suspense, lazy } from "react";
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from "react-router-dom";
 import Layouts from "./Layouts/Layouts";
 import Loading from "./Layouts/Loading";
+import TeamTemplate from "./Pages/About/TeamTemplate";
+import Privacy from "./Pages/Contact/Privacy";
 
 const Home = lazy(() => import("./Pages/Home/Home"));
 const Contact = lazy(() => import("./Pages/Contact/Contact"));
@@ -41,6 +43,14 @@ function App() {
             element={
               <Suspense fallback={<Loading />}>
                 <WhoAreWe />
+              </Suspense>
+            }
+          />
+          <Route
+            path="our-team/:id"
+            element={
+              <Suspense fallback={<Loading />}>
+                <TeamTemplate />
               </Suspense>
             }
           />
@@ -85,6 +95,14 @@ function App() {
             }
           />
           <Route
+            path="/privacy"
+            element={
+              <Suspense fallback={<Loading />}>
+                <Privacy />
+              </Suspense>
+            }
+          />
+          <Route
             path="career"
             element={
               <Suspense fallback={<Loading />}>
@@ -107,6 +125,7 @@ function App() {
 
   return (
     <div className="App">
+      
       <RouterProvider router={router} />
     </div>
   );

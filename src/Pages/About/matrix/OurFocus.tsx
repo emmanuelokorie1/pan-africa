@@ -3,7 +3,7 @@ import Img from "../../../assets/focus.svg";
 import focus1 from "../../../assets/focus/focus1.svg";
 import focus2 from "../../../assets/focus/focus2.svg";
 import focus3 from "../../../assets/focus/focus3.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import towericon from "../../../assets/focus/path/towericon.svg";
 import infraicon from "../../../assets/focus/path/infraicon.svg";
@@ -42,6 +42,10 @@ function OurFocus() {
       text: "To become a truly African focused infrastructure company with services that enable businesses succeed in communities where we operate",
     },
   ];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const tabs: Tab[] = [
     {

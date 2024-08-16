@@ -2,10 +2,13 @@ import ContactTemp from "../Reuseable/UI/ContactTemp";
 import HeaderNav from "../Reuseable/UI/HeaderNav";
 import gram from "../../assets/egs/Gram.png";
 import Timelines from "./Timelines";
+import { useEffect } from "react";
 
 
 function EGS() {
-
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <div>

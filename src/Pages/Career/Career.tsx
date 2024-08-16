@@ -4,8 +4,12 @@ import ImageAndTextGrid from "../Reuseable/Templates/ImageAndTextGrid";
 
 import career from "../../assets/career/careerTemp.svg";
 import ContactTemp from "../Reuseable/UI/ContactTemp";
+import { useEffect } from "react";
 
 function Career() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <div>
       <div>

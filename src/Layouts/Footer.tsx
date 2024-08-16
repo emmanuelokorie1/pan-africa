@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.svg";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
@@ -155,7 +155,7 @@ function Footer() {
           </div>
         </aside>
         <aside className="flex gap-[1rem]">
-          <div className="underline">Privacy Policy</div>
+          <Link to={"/privacy"} className="underline">Privacy Policy</Link>
           <div>
             <span className="font-semibold">© 2024 Pan African tower.</span> All
             rights reserved

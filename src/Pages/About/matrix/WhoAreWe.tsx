@@ -7,7 +7,7 @@ import why from "../../../assets/WhoAreWe/why.svg";
 import achiveIcon from "../../../assets/WhoAreWe/achiveIcon.svg";
 import companyIcon from "../../../assets/WhoAreWe/companyIcon.svg";
 import whyIcon from "../../../assets/WhoAreWe/whyIcon.svg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { LuDot } from "react-icons/lu";
 import LeftHeader from "../../Reuseable/Templates/LeftHeader";
 
@@ -84,6 +84,10 @@ function WhoAreWe() {
       },
     },
   ];
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const [tabValue, setTabValue] = useState("Company Profile");
   return (
@@ -216,42 +220,49 @@ function WhoAreWe() {
               name="Azeez Amida"
               role="MD & CEO"
               fullrole="Managing Director & Chief Executive Officer"
+              id={1}
             />
             <TeemCard
               image={oladipo}
               name="Oladipo Badru"
               role="CFO"
               fullrole="Chief Financial Officer"
+              id={2}
             />
             <TeemCard
               image={panda}
               name="Arun Panda"
               role="CTO"
               fullrole="Chief Technology Officer"
+              id={3}
             />
             <TeemCard
               image={babatunde}
-              name="Azeez Amida"
+              name="Babatunde Omoyemi Olaniyan"
               role="GC"
               fullrole="General Counsel"
+              id={4}
             />
             <TeemCard
               image={chisom}
               name="Chisom Ndukwe"
               role="S.V President HR"
               fullrole="Senior Vice President Human Resources"
+              id={5}
             />
             <TeemCard
               image={abimbola}
               name="Abimbola Folape"
               role="S.V President Commercial"
               fullrole="Senior Vice President Commercial"
+              id={6}
             />
             <TeemCard
               image={ife}
               name="Ife-Olorun Ajayi"
               role="HSS"
               fullrole="Head Shared Services"
+              id={7}
             />
           </div>
         </section>
@@ -269,24 +280,28 @@ function WhoAreWe() {
               name="Adefolarin Ogunsaya"
               role="Non Executive.D"
               fullrole="Non Executive Director"
+              id={8}
             />
             <TeemCard
               image={cardImg1}
               name="Azeez Amida"
               role="MD & CEO"
               fullrole="Managing Director & Chief Executive Officer"
+              id={1}
             />
             <TeemCard
               image={daniel}
               name="Daniel Adeoye"
               role="Non Executive.D"
               fullrole="Non Executive Director"
+              id={9}
             />
             <TeemCard
               image={marc}
               name="Marc Stoneham"
               role="Non Executive.D"
               fullrole="Non Executive Director"
+              id={10}
             />
           </div>
         </section>
