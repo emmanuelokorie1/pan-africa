@@ -52,7 +52,8 @@ const ImageBase = styled.div`
   background-size: cover;
   background-position: center;
   z-index: ${({ isActive }) => (isActive ? 1 : -1)};
-  animation: ${({ isExiting }) => (isExiting ? slideOutLeft : slideInRight)} 2s ease, ${zoomInOut} 10s ease-in-out infinite;
+  animation: ${({ isExiting }) => (isExiting ? slideOutLeft : slideInRight)} 2s ease,
+    ${zoomInOut} 10s ease-in-out infinite;
   opacity: ${({ isActive }) => (isActive ? 1 : 0)};
   transition: opacity 1s;
   background-color: ${({ isLoading }) => (isLoading ? "#431101" : "transparent")}; /* Apply black background when loading */
@@ -75,10 +76,57 @@ const TextOverlay = styled.div`
   transform: translateX(0, -50%);
   color: white;
   font-size: 26px;
-  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); */
   z-index: 2; // Ensure the text is always on top
   opacity: ${({ isActive }) => (isActive ? 1 : 0)};
   transition: opacity 1s;
+
+  // Media queries for responsive design
+  @media (max-width: 768px) {
+    font-size: 20px;
+    bottom: 35%;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 16px;
+    bottom: 30%;
+    text-align: center;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+  }
+
+  @media (max-width: 360px) {
+    font-size: 14px;
+  }
+
+  .text-large {
+    font-size: 3.5rem;
+
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
+
+    @media (max-width: 480px) {
+      font-size: 2rem;
+    }
+
+    @media (max-width: 360px) {
+      font-size: 1.5rem;
+    }
+  }
+
+  .text-small {
+    width: 70%;
+
+    @media (max-width: 768px) {
+      width: 90%;
+    }
+
+    @media (max-width: 480px) {
+      width: 100%;
+      font-size: 14px;
+    }
+  }
 `;
 
 const BackgroundSlideshow = () => {
@@ -117,10 +165,10 @@ const BackgroundSlideshow = () => {
         onLoad={() => handleImageLoad(1)}
       />
       <TextOverlay isActive={activeImage === 1}>
-        <div className="text-[3.5rem]">
+        <div className="text-large">
           Welcome to <span className="text-textColor">Pan African Towers</span>
         </div>
-        <div className="w-[70%]">
+        <div className="text-small">
           A telecommunications infrastructure and wireless service facilitator.
         </div>
       </TextOverlay>
@@ -137,15 +185,15 @@ const BackgroundSlideshow = () => {
         style={{ display: "none" }}
         onLoad={() => handleImageLoad(2)}
       />
-      <TextOverlay isActive={activeImage === 2} >
-        <div className="text-[3.5rem]">
+      <TextOverlay isActive={activeImage === 2}>
+        <div className="text-large">
           Re-writing the <span className="text-textColor">African</span>{" "}
           connectivity story
         </div>
-        <div className="w-[70%]">
+        <div className="text-small">
           We provide sustainable, dynamic and innovative infrastructure
           solutions and platforms to transform communities through technology in
-          an efficient manner
+          an efficient manner.
         </div>
       </TextOverlay>
 
@@ -162,13 +210,13 @@ const BackgroundSlideshow = () => {
         onLoad={() => handleImageLoad(3)}
       />
       <TextOverlay isActive={activeImage === 3}>
-        <div className="text-[3.5rem]">
+        <div className="text-large">
           Cutting edge{" "}
-          <span className="text-textColor">telecommunications</span> technology
+          <span className="text-textColor">telecommunications</span> technology.
         </div>
-        <div className="w-[70%]">
+        <div className="text-small">
           We aim to follow an unconventional approach by collaborating with
-          partners in a new eco system to meet African data consumption needs.
+          partners in a new ecosystem to meet African data consumption needs.
         </div>
       </TextOverlay>
     </BackgroundContainer>

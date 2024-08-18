@@ -63,17 +63,17 @@ function Home() {
   }, []);
 
   return (
-    <div >
+    <div className="overflow-x-hidden">
       <BackgroundSlideshow />
 
       <div className="flex justify-center bg-gray-50" data-aos="zoom-in">
-        <div className="text-textColor py-[4rem] w-[70%] text-[1.3rem] text-center">
+        <div className="text-textColor md:py-[4rem] py-[2rem] md:w-[70%] sm:w-[80%] w-[90%] text-[1.3rem] text-center">
           We aim to follow an unconventional approach by collaborating with
           partners in a new eco system to meet African data consumption needs.
         </div>
       </div>
 
-      <div className="grid grid-cols-4 ">
+      <div className="grid s1000:grid-cols-4 gap-4 sm:grid-cols-2 grid-cols-1 px-[2rem] s1000:px-0">
         <div>
           <ZoomImage
             images={[{ url: zoom1 }, { url: zoom2 }]}
@@ -117,7 +117,7 @@ function Home() {
           text={
             "Pan-African Towers is a multiple award-winning telecommunications infrastructure company and wireless service facilitator in Nigeria aimed at catering to the telecommunication needs ranging from broadband, mobile telephony to other local value-added services in Africa."
           }
-          link={'/who-are-we'}
+          link={"/who-are-we"}
         />
       </div>
 
@@ -136,8 +136,8 @@ function Home() {
         </div>
       </div>
 
-      <div className=" px-[10rem] py-[3rem]">
-      <div className="pb-[2rem]">
+      <div className=" md:px-[7rem] s900:px-[10rem] sm:px-[5rem] px-[3rem] py-[3rem]">
+        <div className="pb-[2rem]">
           <CenteredHeader
             title={"Our clients"}
             text={
@@ -149,7 +149,7 @@ function Home() {
         <Marquee images={imageUrls} speed={0.5} />
       </div>
 
-      <div className="w-[55%] ps-[7rem]">
+      <div className="md:w-[55%] w-[100%] md:ps-[7rem] sm:ps-[5rem] ps-[3rem]">
         <LeftHeader
           title={"News"}
           text={
@@ -158,22 +158,24 @@ function Home() {
         />
       </div>
 
-      <div className="flex gap-[1rem] px-[7rem] pb-[2rem]">
-        <ImageCard
-          image={cardImg1}
-          text="Pan African Towers Appoints Azeez Amida as CEO"
-          link={'/see-news/1'}
-        />
-        <ImageCard
-          image={cardImg2}
-          text="DPI and Verod Capital partner to back management of Pan African Towers."
-          link={'/see-news/2'}
-        />
-        <ImageCard
-          image={cardImg3}
-          text="Pan African Towers becomes one of the leading telecommunication companies in Africa"
-          link={'/see-news/3'}
-        />
+      <div className="containers flex justify-center pb-[2rem]">
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[1rem]">
+          <ImageCard
+            image={cardImg1}
+            text="Pan African Towers Appoints Azeez Amida as CEO"
+            link={"/see-news/1"}
+          />
+          <ImageCard
+            image={cardImg2}
+            text="DPI and Verod Capital partner to back management of Pan African Towers."
+            link={"/see-news/2"}
+          />
+          <ImageCard
+            image={cardImg3}
+            text="Pan African Towers becomes one of the leading telecommunication companies in Africa"
+            link={"/see-news/3"}
+          />
+        </div>
       </div>
 
       <div className="bg-gray-50">
@@ -187,11 +189,11 @@ function Home() {
             "We are always open to new talent joining our team of experts operating in Nigeria and across Africa. We are looking for people to help us grow our business, join our team"
           }
           img={careerr}
-          link={'/career'}
+          link={"/career"}
         />
       </div>
 
-      <div className="py-[2rem]">
+      <div className="">
         <ContactTemp />
       </div>
     </div>

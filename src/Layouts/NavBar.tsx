@@ -3,6 +3,8 @@ import logo from "../assets/logo.svg";
 import { IoIosArrowDown } from "react-icons/io";
 import { useState } from "react";
 import { RxDotFilled } from "react-icons/rx";
+import { RiMenu3Fill } from "react-icons/ri";
+import { LiaTimesSolid } from "react-icons/lia";
 
 function NavBar() {
   const Links1 = [
@@ -30,54 +32,45 @@ function NavBar() {
     { name: "News", link: "news" },
   ];
 
-  // const location = window.location.pathname;
-
-  // console.log(location);
-
   const [activeDropdown, setActiveDropdown] = useState(null);
-  // "build": "tsc -b && vite build",
-  // ${
-  //   location === "/" ? "bg-background" : ""
-  // }
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <div
-      className={`flex absolute top-0 z-50 w-[100%] justify-between items-center bg-background text-white px-[4rem] py-[1rem]`}
+      className={`flex absolute top-0 z-50 w-full justify-between items-center bg-background text-white px-4 md:px-16 py-4`}
     >
       <NavLink to={"/"}>
-        <div className="w-[120px]">
-          {" "}
-          <img src={logo} alt="logo" className="w-[100%]" />
+        <div className="w-[80px] md:w-[120px]">
+          <img src={logo} alt="logo" className="w-full" />
         </div>
       </NavLink>
 
-      <div className="flex gap-[3rem]">
-        <div className="flex gap-[3rem]">
-          {Links1.map((e: any, i: number) => (
+      <div className="hidden md:flex gap-8">
+        <div className="flex gap-8">
+          {Links1.map((e, i) => (
             <div
               key={i}
               className="relative flex items-center gap-2 cursor-pointer"
               onMouseEnter={() => setActiveDropdown(i)}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <div className="">{e?.name}</div>
-              <div>
-                <IoIosArrowDown />
-              </div>
+              <div>{e?.name}</div>
+              <IoIosArrowDown />
 
               {activeDropdown === i && e.dropdown && (
                 <div
-                  className="absolute top-full left-[-50%] py-1 bg-white text-gray-700 shadow-lg rounded-md w-[220px]"
+                  className="absolute top-full left-0 md:left-[-50%] py-2 bg-white text-gray-700 shadow-lg rounded-md w-[220px]"
                   data-aos="zoom-in"
                 >
-                  {e.dropdown.map((item: any, index: number) => (
+                  {e.dropdown.map((item, index) => (
                     <NavLink
                       key={index}
                       to={`${item.link}`}
                       onClick={() => setActiveDropdown(null)}
-                      className=" p-2 flex items-center gap-2 hover:bg-red-100"
+                      className="p-2 flex items-center gap-2 hover:bg-red-100"
                     >
-                      <RxDotFilled size={20} className="text-textColor" />{" "}
-                      <div className="text-[.9rem]">{item.name}</div>
+                      <RxDotFilled size={20} className="text-textColor" />
+                      <div className="text-sm">{item.name}</div>
                     </NavLink>
                   ))}
                 </div>
@@ -85,8 +78,8 @@ function NavBar() {
             </div>
           ))}
         </div>
-        <section className="flex gap-[3rem]">
-          {Links2?.map((e: any, i: number) => (
+        <section className="flex gap-8">
+          {Links2.map((e, i) => (
             <div key={i}>
               <NavLink to={e?.link}>
                 <div>{e?.name}</div>
@@ -96,13 +89,71 @@ function NavBar() {
         </section>
       </div>
 
-      <div>
+      <div className="hidden md:block">
         <NavLink to={"contact"}>
-          <div className="bg-textColor px-[1.4rem] py-[.5rem] rounded-md">
-            Contact
-          </div>
+          <div className="bg-textColor px-6 py-2 rounded-md">Contact</div>
         </NavLink>
       </div>
+
+      {/* Mobile Menu Toggle */}
+      <div className="md:hidden">
+        <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+        
+          <div>{isMobileMenuOpen ? <LiaTimesSolid size={30} /> :  <RiMenu3Fill size={30} />}</div>
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden absolute top-full left-0 w-full bg-background text-white flex flex-col gap-4 p-4" data-aos="fade-down">
+          {Links1.map((e, i) => (
+            <div key={i}>
+              <div
+                className="flex items-center justify-between"
+                onClick={() =>
+                  setActiveDropdown(activeDropdown === i ? null : i)
+                }
+              >
+                <span>{e.name}</span>
+                <IoIosArrowDown />
+              </div>
+              {activeDropdown === i && e.dropdown && (
+                <div className="mt-2 flex flex-col gap-2 pl-4">
+                  {e.dropdown.map((item, index) => (
+                    <NavLink
+                      key={index}
+                      to={`${item.link}`}
+                      onClick={() => {
+                        setIsMobileMenuOpen(false);
+                        setActiveDropdown(null);
+                      }}
+                    >
+                      <div className="flex items-center gap-2">
+                        <RxDotFilled size={20} className="text-textColor" />
+                        <div className="text-sm">{item.name}</div>
+                      </div>
+                    </NavLink>
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+          {Links2.map((e, i) => (
+            <NavLink
+              key={i}
+              to={e?.link}
+              onClick={() => setIsMobileMenuOpen(false)}
+            >
+              <div className="mt-4">{e?.name}</div>
+            </NavLink>
+          ))}
+          <NavLink to={"contact"} onClick={() => setIsMobileMenuOpen(false)}>
+            <div className="bg-textColor px-4 py-2 rounded-md mt-4 text-center">
+              Contact
+            </div>
+          </NavLink>
+        </div>
+      )}
     </div>
   );
 }

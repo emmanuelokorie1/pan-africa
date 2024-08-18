@@ -17,7 +17,7 @@ interface customProps {
   prevtext?: String;
 }
 
-const imageSize = { width: 420, height: 500 };
+const imageSize = { width: "100%", height: "100%" };
 
 const ImageAndTextGrid: React.FC<customProps> = ({
   img,
@@ -31,42 +31,42 @@ const ImageAndTextGrid: React.FC<customProps> = ({
   prevtext,
 }) => {
   return (
-    <div className="flex gap-[2rem] justify-between p-[5rem]">
-      <div className="w-[40%]" data-aos="fade-up">
+    <div className="flex flex-col lg:flex-row gap-[2rem] justify-between p-[2rem] lg:p-[5rem]">
+      <div className="w-full lg:w-[40%] flex justify-center items-center" data-aos="fade-up">
         {/* <img src={img || img2} alt="" /> */}
-        <Image
-          {...imageSize}
-          // className="h-[100%]"
-          src={img || img2}
-          alt=""
-          preview={false}
-          lazyload={{ threshold: 0.5 }}
-          loader={
-            <Skeleton
-              image={{ style: imageSize }}
-              // className="h-[100%]"
-              text={false}
-              animation
-            />
-          }
-        />
+        <div className="w-[80%] md:w-[100%]">
+          <Image
+            {...imageSize}
+            src={img || img2}
+            alt=""
+            preview={false}
+            lazyload={{ threshold: 0.5 }}
+            loader={
+              <Skeleton image={{ style: imageSize }} text={false} animation />
+            }
+          />
+        </div>
       </div>
-      <div className="w-[55%]" data-aos="fade-left">
+      <div className="w-full lg:w-[55%]" data-aos="fade-left">
         <div
-          className="text-textColor border-l-[2px] border-textColor text-[1.1rem] ps-2 mt-[2rem]"
+          className="text-textColor border-l-[2px] border-textColor text-[1rem] lg:text-[1.1rem] ps-2 mt-[2rem]"
           style={{ fontFamily: "MediumItalic" }}
         >
           {title}
         </div>
 
         <div
-          className="text-[1.6rem] py-[2rem]"
+          className="text-[1.4rem] lg:text-[1.6rem] py-[1.5rem] lg:py-[2rem]"
           style={{ fontFamily: "semibold1" }}
         >
           {headerText}
         </div>
 
-        {prevtext && <div className="text-[#3F3F3F] pb-[2rem]">{prevtext}</div>}
+        {prevtext && (
+          <div className="text-[#3F3F3F] pb-[1.5rem] lg:pb-[2rem]">
+            {prevtext}
+          </div>
+        )}
 
         {text1Head && (
           <div
@@ -76,7 +76,7 @@ const ImageAndTextGrid: React.FC<customProps> = ({
             <div className="text-textColor">
               <GoDot width={70} size={22} />
             </div>
-            <div className="text-[1.2rem">{text1Head}</div>
+            <div className="text-[1rem] lg:text-[1.2rem]">{text1Head}</div>
           </div>
         )}
 
@@ -90,7 +90,7 @@ const ImageAndTextGrid: React.FC<customProps> = ({
             <div className="text-textColor">
               <GoDot width={70} size={22} />
             </div>
-            <div className="text-[1.2rem">{text2Head}</div>
+            <div className="text-[1rem] lg:text-[1.2rem]">{text2Head}</div>
           </div>
         )}
 
@@ -102,7 +102,7 @@ const ImageAndTextGrid: React.FC<customProps> = ({
         </div>
 
         {link && (
-          <div className=" mt-[4rem]">
+          <div className="mt-[2rem] lg:mt-[4rem]">
             <Link
               to={link || "who-are-we"}
               className="bg-textColor text-white px-[2rem] py-[.7rem] rounded-lg"

@@ -54,46 +54,45 @@ function Footer() {
   ];
 
   return (
-    <div className="bg-background text-white px-[8rem] py-[2rem]">
-      <section className="flex gap-[1rem] items-start border-b border-[#694134] pb-[2rem]">
-        <aside className="w-[55%]">
-          <div className="text-[2rem] font-semibold">
+    <div className="bg-background text-white px-[2rem] md:px-[4rem] lg:px-[8rem] py-[2rem]">
+      <section className="flex flex-col lg:flex-row gap-[1rem] items-start border-b border-[#694134] pb-[2rem]">
+        <aside className="w-full lg:w-[55%]">
+          <div className="text-[1.5rem] md:text-[2rem] font-semibold">
             Sign up for our newsletter
           </div>
-          <div className="pt-[1.5rem] text-[.8rem]">
+          <div className="pt-[1rem] md:pt-[1.5rem] text-[.8rem] md:text-[.9rem]">
             Be the first to know about releases and industry news and insights.
             Be the first to know about releases and industry news and insights.
             Be the first to know about releases and industry news and insights.
           </div>
         </aside>
-        <aside className="w-[45%] flex justify-center items-center gap-[1rem]">
-          <div>
+        <aside className="w-full lg:w-[45%] flex flex-col md:flex-row justify-center items-center gap-[1rem] mt-[1rem] lg:mt-0">
+          <div className="w-full md:w-auto">
             <input
               type="text"
               placeholder="Enter your email address"
-              className="w-[300px] outline-none px-[1rem] py-[.7rem] rounded-lg text-gray-700"
+              className="w-full md:w-[300px] outline-none px-[1rem] py-[.7rem] rounded-lg text-gray-700"
             />
           </div>
-          <div className="bg-textColor px-[2rem] h-fit py-[.7rem] rounded-lg cursor-pointer ">
+          <div className="bg-textColor px-[2rem] h-fit py-[.7rem] rounded-lg cursor-pointer text-center">
             Submit
           </div>
         </aside>
       </section>
 
-      <section className="py-[2rem] flex justify-between border-b border-[#694134]">
-        <aside className="w-[35%]">
+      <section className="py-[2rem] flex flex-col lg:flex-row justify-between border-b border-[#694134]">
+        <aside className="w-full lg:w-[35%] text-center lg:text-left">
           <NavLink to={"/"}>
-            <div className="w-[120px]">
-              {" "}
+            <div className="w-[80px] md:w-[100px] lg:w-[120px] mx-auto lg:mx-0">
               <img src={logo} alt="logo" className="w-[100%]" />
             </div>
           </NavLink>
 
-          <div className="py-[2rem]">
+          <div className="py-[2rem] text-sm">
             23, Water Corporation Drive, Victoria Island, Lagos
           </div>
 
-          <FlexContainer>
+          <FlexContainer className="justify-center lg:justify-start">
             {Source?.map((e: any, i: number) => {
               return (
                 <IconContainer key={i}>
@@ -105,13 +104,13 @@ function Footer() {
             })}
           </FlexContainer>
         </aside>
-        <aside className="w-[65%]">
-          <div className="flex justify-between">
+        <aside className="w-full lg:w-[65%] mt-[2rem] lg:mt-0">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[1rem]">
             {tabs?.map((e: any, i: number) => {
               return (
                 <div key={i}>
                   <div className="text-textColor">{e?.name}</div>
-                  <div className="text-[.85rem] ">
+                  <div className="text-[.85rem]">
                     {e?.minidata?.map((item: any, i: number) => {
                       return (
                         <div key={i} className="py-[.3rem]">
@@ -123,15 +122,28 @@ function Footer() {
                             <div>
                               {item?.name.includes("@") ? (
                                 <div>
-                                  <a href={`mailto:${item?.name}`} className="flex items-center gap-[.3rem]">
-                                    <span className="text-[1.5rem]">{item?.icon}</span>
-                                    {item?.name}
+                                  <a
+                                    href={`mailto:${item?.name}`}
+                                    className="flex items-center gap-[.3rem] text-ellipsis overflow-hidden whitespace-normal break-words"
+                                  >
+                                    <span className="text-[1.5rem]">
+                                      {item?.icon}
+                                    </span>
+                                    <span className="break-all">
+                                      {item?.name}
+                                    </span>
                                   </a>
                                 </div>
                               ) : (
                                 <div>
-                                  <a href={`tel:+${item?.name}`} className="flex items-center gap-[.3rem]">
-                                    <span className="text-[1.5rem]">{item?.icon}</span> +{item?.name}
+                                  <a
+                                    href={`tel:+${item?.name}`}
+                                    className="flex items-center gap-[.3rem]"
+                                  >
+                                    <span className="text-[1.5rem]">
+                                      {item?.icon}
+                                    </span>{" "}
+                                    +{item?.name}
                                   </a>
                                 </div>
                               )}
@@ -148,14 +160,16 @@ function Footer() {
         </aside>
       </section>
 
-      <section className="flex justify-between pt-[1rem] text-[.9rem]">
-        <aside>
+      <section className="flex flex-col md:flex-row justify-between items-center pt-[1rem] text-[.8rem] md:text-[.9rem] text-center lg:text-left">
+        <aside className="mb-[1rem] md:mb-0">
           <div>
             Powered by <span className="text-textColor">Pan African tower</span>
           </div>
         </aside>
-        <aside className="flex gap-[1rem]">
-          <Link to={"/privacy"} className="underline">Privacy Policy</Link>
+        <aside className="flex flex-col md:flex-row gap-[1rem]">
+          <Link to={"/privacy"} className="underline">
+            Privacy Policy
+          </Link>
           <div>
             <span className="font-semibold">© 2024 Pan African tower.</span> All
             rights reserved
@@ -167,7 +181,6 @@ function Footer() {
 }
 
 export default Footer;
-
 
 const FlexContainer = styled.div`
   display: flex;
