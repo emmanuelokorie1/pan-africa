@@ -45,7 +45,6 @@ function Home() {
     mtn,
     nat,
     smile,
-    smile,
     spec,
     sys,
     eti,
