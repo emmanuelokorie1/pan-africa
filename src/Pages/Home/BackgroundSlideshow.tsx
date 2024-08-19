@@ -53,7 +53,7 @@ const ImageBase = styled.div`
   background-position: center;
   z-index: ${({ isActive }) => (isActive ? 1 : -1)};
   animation: ${({ isExiting }) => (isExiting ? slideOutLeft : slideInRight)} 2s ease,
-    ${zoomInOut} 10s ease-in-out infinite;
+    ${zoomInOut} 7s ease-in-out infinite;
   opacity: ${({ isActive }) => (isActive ? 1 : 0)};
   transition: opacity 1s;
   background-color: ${({ isLoading }) => (isLoading ? "#431101" : "transparent")}; /* Apply black background when loading */
@@ -140,8 +140,8 @@ const BackgroundSlideshow = () => {
       setTimeout(() => {
         setActiveImage((prev) => (prev === 1 ? 2 : prev === 2 ? 3 : 1));
         setIsExiting(false);
-      }, 2000); // Wait for the slide-out animation to finish
-    }, 12000); // Change image every 12 seconds
+      }, 1500); // Wait for the slide-out animation to finish
+    }, 7000); // Change image every 12 seconds
 
     return () => clearInterval(interval);
   }, []);

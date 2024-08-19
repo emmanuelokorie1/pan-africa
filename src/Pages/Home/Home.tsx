@@ -16,7 +16,7 @@ import cardImg1 from "../../assets/home/cardImgs/cardImg1.svg";
 import cardImg2 from "../../assets/home/cardImgs/cardImg2.svg";
 import cardImg3 from "../../assets/home/cardImgs/cardImg3.svg";
 
-import careerr from "../..//assets/career/careerr.svg";
+import careerr from "../../assets/career/careerr.svg";
 
 import Icon1 from "../../assets/home/zooms/icons/tower.svg";
 import infra from "../../assets/home/zooms/icons/infra.svg";
