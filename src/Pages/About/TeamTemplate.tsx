@@ -435,11 +435,13 @@ function TeamTemplate() {
                 ?.filter((e) => Number(e.id) === Number(id))
                 .map((e, i) => {
                   return (
-                    <div key={i} className="flex justify-between">
-                      <div className="w-[25%]">
-                        <div className="flex justify-center flex-wrap">
-                          <div className="w-[400px] flex justify-center items-center">
-                            {/* <img src={Img} alt="" className="w-[100%]" /> */}
+                    <div
+                      key={i}
+                      className="flex flex-col lg:flex-row justify-between gap-[2rem] lg:gap-0"
+                    >
+                      <div className="w-full lg:w-[25%]">
+                        <div className="flex flex-col items-center lg:items-start">
+                          <div className="w-full lg:w-[400px] flex justify-center items-center">
                             <Image
                               {...imageSize}
                               src={e?.img}
@@ -449,14 +451,13 @@ function TeamTemplate() {
                               loader={
                                 <Skeleton
                                   image={{ style: imageSize }}
-                                  // className="h-[100%]"
                                   text={true}
                                   animation
                                 />
                               }
                             />
                           </div>
-                          <div className="flex justify-around items-center text-textColor gap-[.4rem]">
+                          <div className="flex justify-around items-center text-textColor gap-[.4rem] mt-[1rem]">
                             <div className="w-[30px] border-t-[2px] border-textColor"></div>
                             <div className="bg-[#FAEBE7] p-[.6rem] rounded-[50%] cursor-pointer">
                               <FaFacebookF size={10} />
@@ -467,12 +468,11 @@ function TeamTemplate() {
                             <div className="bg-[#FAEBE7] p-[.6rem] rounded-[50%] cursor-pointer">
                               <FaLinkedinIn size={10} />
                             </div>
-
                             <div className="w-[30px] border-t-[2px] border-textColor"></div>
                           </div>
                         </div>
                       </div>
-                      <div className="w-[70%]">
+                      <div className="w-full lg:w-[70%]">
                         <div className="border-l-[.8rem] border-textColor px-[.6rem]">
                           <div
                             className="text-textColor text-[1.5rem]"
@@ -485,7 +485,7 @@ function TeamTemplate() {
                           </div>
                         </div>
 
-                        <div className="text-gray-600 text-[1rem] py-[3rem]">
+                        <div className="text-gray-600 text-[1rem] py-[2rem] lg:py-[3rem]">
                           {e?.content}
                         </div>
                       </div>

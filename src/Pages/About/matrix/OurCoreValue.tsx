@@ -36,7 +36,7 @@ function OurCoreValue() {
     window.scrollTo(0, 0);
   }, []);
 
-  const imageSize = { width: 420, height: 500 };
+  const imageSize = { width: '100%', height: '100%' };
   return (
     <section>
       <div>
@@ -52,19 +52,17 @@ function OurCoreValue() {
         />
       </div>
 
-      <section className="containers mt-[6rem]">
-        <div className="flex justify-evenly">
-          <div className="w-[50%] flex justify-center">
+      <section className="containers md:mt-[6rem] mt-[1rem]">
+        <div className="flex flex-col lg:flex-row xl:justify-evenly justify-between items-center">
+          <div className="w-full lg:w-[50%] flex justify-center mb-[2rem] lg:mb-0">
             {customer?.map((e, i) => {
               return (
-                <div key={i}>
-                  <div className="transition-all">
+                <div key={i} className="w-full lg:w-auto">
+                  <div className="transition-all flex justify-center items-center w-[100%]">
                     {customerTab === e?.name && (
                       <div className="w-[400px]">
-                        {" "}
                         <Image
                           {...imageSize}
-                          // className="h-[100%]"
                           src={e?.img}
                           alt=""
                           preview={false}
@@ -72,7 +70,6 @@ function OurCoreValue() {
                           loader={
                             <Skeleton
                               image={{ style: imageSize }}
-                              // className="h-[100%]"
                               text={false}
                               animation
                             />
@@ -85,27 +82,26 @@ function OurCoreValue() {
               );
             })}
           </div>
-          <div className="w-[50%] ">
+
+          <div className="w-full lg:w-[50%]">
             {customer?.map((e, i) => {
               return (
                 <div
-                  className="py-[1rem] my-1 px-[1rem] w-[85%] transition-all"
+                  className="py-[1rem] my-1 px-[1rem] w-full lg:w-[85%] transition-all"
                   key={i}
-                  style={
-                    {
-                      background: customerTab === e?.name ? "white" : undefined,
-                      cursor: customerTab === e?.name ? "text" : "pointer",
-                      borderLeft:
-                        customerTab === e?.name
-                          ? "3px solid #E75425"
-                          : "3px solid #fce5dd",
-                    } as { background?: string; borderLeft?: string }
-                  }
+                  style={{
+                    background: customerTab === e?.name ? "white" : undefined,
+                    cursor: customerTab === e?.name ? "text" : "pointer",
+                    borderLeft:
+                      customerTab === e?.name
+                        ? "3px solid #E75425"
+                        : "3px solid #fce5dd",
+                  }}
                   onClick={() => setCustomerTab(e?.name)}
                 >
                   <div>
                     <div
-                      className="text-[1.4rem] "
+                      className="text-[1.4rem]"
                       style={{ fontFamily: "semibold1" }}
                     >
                       {e?.name}

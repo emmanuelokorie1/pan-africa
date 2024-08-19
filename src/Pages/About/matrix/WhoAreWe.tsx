@@ -38,7 +38,7 @@ interface Tab {
   };
 }
 
-const imageSize = { width: '100%', height: '100%' };
+const imageSize = { width: "100%", height: "100%" };
 
 function WhoAreWe() {
   const tabs: Tab[] = [
@@ -106,16 +106,18 @@ function WhoAreWe() {
       </div>
 
       <div className="my-[4rem]">
-        <div className="grid grid-cols-3 ">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {tabs?.map((e, i) => {
             return (
               <div key={i}>
                 <div
-                  className={`flex justify-center items-center py-[1.5rem] gap-[.6rem] text-[1.1rem] transition-all border-b border-[#bebebe]`}
+                  className={`flex justify-center items-center py-[1.5rem] gap-[.6rem] text-[1.1rem] transition-all border-b border-[#bebebe] ${
+                    tabValue === e?.name
+                      ? "bg-[#AE3A20] text-white"
+                      : "text-[#494949]"
+                  }`}
                   style={{
-                    background: tabValue === e?.name ? "#AE3A20" : "",
                     cursor: tabValue === e?.name ? "default" : "pointer",
-                    color: tabValue === e?.name ? "white" : "#494949",
                   }}
                   onClick={() => setTabValue(e?.name)}
                 >
@@ -125,7 +127,7 @@ function WhoAreWe() {
                     </div>
                   )}
 
-                  <div className="">{e?.name}</div>
+                  <div>{e?.name}</div>
                 </div>
               </div>
             );
@@ -135,67 +137,55 @@ function WhoAreWe() {
         <div>
           {tabs?.map((e, i) => {
             return (
-              <div key={i} >
-                <div className=" bg-[#AE3A20] ">
-                  {tabValue === e?.name && (
-                    <div className="flex justify-between  h-[600px]">
-                      <aside className="w-[50%] mt-[7rem] ps-[7rem]">
-                        <div className="text-[1.3rem] text-white pe-[2rem]">
-                          {e?.data?.headerText}
-                        </div>
-                        <div>
-                          {e?.name === "Company Profile" ||
-                          e?.name === "Why Pan African Towers?" ? (
-                            <div className="text-[#d7d7d7] text-[.9rem]">
-                              <div className="py-[1rem]">{e?.data?.text}</div>
-                              <div>{e?.data?.text2}</div>
-                            </div>
-                          ) : (
-                            <div>
-                              <div className="pt-[1rem]">
-                                {e?.data?.text?.map((item: any, i: number) => {
-                                  return (
-                                    <div className="flex gap-2 items-center text-[#d7d7d7] text-[.9rem] py-[.3rem]">
-                                      <div>
-                                        <LuDot />
-                                      </div>
-                                      <div key={i}>{item}</div>
-                                    </div>
-                                  );
-                                })}
+              <div key={i}>
+                {tabValue === e?.name && (
+                  <div className="bg-[#AE3A20] flex flex-col lg:flex-row justify-between h-auto lg:h-[600px]">
+                    <aside className="w-full lg:w-[50%] mt-[2rem] lg:mt-[7rem] px-[2rem] xl:px-[7rem] lg:px-[3rem] ">
+                      <div className="text-[1.3rem] text-white">
+                        {e?.data?.headerText}
+                      </div>
+                      <div className="text-[#d7d7d7] text-[.9rem] pt-[1rem]">
+                        {e?.name === "Company Profile" ||
+                        e?.name === "Why Pan African Towers?" ? (
+                          <>
+                            <div className="py-[1rem]">{e?.data?.text}</div>
+                            <div>{e?.data?.text2}</div>
+                          </>
+                        ) : (
+                          <div>
+                            {e?.data?.text?.map((item, i) => (
+                              <div
+                                key={i}
+                                className="flex gap-2 items-center text-[#d7d7d7] text-[.9rem] py-[.3rem]"
+                              >
+                                <LuDot />
+                                <div>{item}</div>
                               </div>
-                            </div>
-                          )}
-                        </div>
-                      </aside>
-                      <aside className="flex justify-center items-center w-[50%]">
-                        <div className="w-[500px]">
-                          {/* <img
-                            src={e?.data?.img}
-                            alt=""
-                            className="w-[100%] h-[100%]"
-                          /> */}
-                          <Image
-                            {...imageSize}
-                            // className="h-[100%]"
-                            src={e?.data?.img}
-                            alt=""
-                            preview={false}
-                            lazyload={{ threshold: 0.5 }}
-                            loader={
-                              <Skeleton
-                                image={{ style: imageSize }}
-                                // className="h-[100%]"
-                                text={true}
-                                animation
-                              />
-                            }
-                          />
-                        </div>
-                      </aside>
-                    </div>
-                  )}
-                </div>
+                            ))}
+                          </div>
+                        )}
+                      </div>
+                    </aside>
+                    <aside className="w-full lg:w-[50%] flex justify-center items-center">
+                      <div className="w-[400px] px-[1rem] pt-[1rem] md:w-[400px] lg:w-[500px]">
+                        <Image
+                          className="w-full h-[350px] lg:h-auto"
+                          src={e?.data?.img}
+                          alt=""
+                          preview={false}
+                          lazyload={{ threshold: 0.5 }}
+                          loader={
+                            <Skeleton
+                              image={{ style: imageSize }}
+                              text={true}
+                              animation
+                            />
+                          }
+                        />
+                      </div>
+                    </aside>
+                  </div>
+                )}
               </div>
             );
           })}
@@ -203,7 +193,7 @@ function WhoAreWe() {
       </div>
 
       <section className="containers">
-        <div className="w-[30%]">
+        <div className="w-[100%] md:w-[50%] s1000:w-[30%]">
           <LeftHeader
             title={"Our Team"}
             text={"Meet the management team"}

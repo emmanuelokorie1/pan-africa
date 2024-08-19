@@ -23,18 +23,18 @@ function EGS() {
       </div>
 
       <div
-        className="flex justify-center text-[2rem] pb-[2rem]"
+        className="flex justify-center md:text-[2rem] text-[1.5rem] pb-[2rem]"
         style={{ fontFamily: "semibold1" }}
       >
         ESG Governance Structure
       </div>
-      <div className="flex justify-center">
+      <div className="flex justify-center px-[1rem]">
         <div className=" w-[800px]">
           <img src={gram} alt="" className="w-[100%]" />
         </div>
       </div>
 
-      <div>
+      <div className="overflow-x-auto">
         <Timelines />
       </div>
 

@@ -17,12 +17,12 @@ function Footer() {
     {
       name: "Company",
       minidata: [
-        { name: "About Us", tab: "about-us" },
-        { name: "Career", tab: "career" },
-        { name: "News", tab: "news" },
-        { name: "ESG", tab: "esg" },
-        { name: "Core values", tab: "our-core-values" },
-        { name: "Our focus", tab: "our-focus" },
+        { name: "About Us", tab: "/who-are-we" },
+        { name: "Career", tab: "/career" },
+        { name: "News", tab: "/news" },
+        { name: "ESG", tab: "/esg" },
+        { name: "Core values", tab: "/our-core-values" },
+        { name: "Our focus", tab: "/our-focus" },
       ],
     },
     {
@@ -89,7 +89,7 @@ function Footer() {
           </NavLink>
 
           <div className="py-[2rem] text-sm">
-            23, Water Corporation Drive, Victoria Island, Lagos
+            999c Danmole Street, Victoria Island Lagos
           </div>
 
           <FlexContainer className="justify-center lg:justify-start">

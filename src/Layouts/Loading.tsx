@@ -17,8 +17,8 @@ const Loading = () => {
       <img
         src={logo}
         alt="Loading..."
-        className="logo"
-        style={{ width: "120px", height: "120px", borderRadius: '100%' }}
+        className="logo md:w-[120px] md:h-[100px] sm:w-[120px] sm:h-[100px] w-[70px] h-[70px]"
+        style={{ borderRadius: '50%' }}
       />
     </Container>
   );

@@ -90,7 +90,7 @@ function Contact() {
   };
 
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <div>
         <HeaderNav
           title={"Contact us"}
@@ -104,7 +104,7 @@ function Contact() {
       <section className="containers p-[2rem]">
         <div data-aos="fade-right">
           <div
-            className="text-textColor  text-[1.1rem] mt-[2rem]"
+            className="text-textColor  text-[1.1rem] md:mt-[2rem] mt-0"
             style={{ fontFamily: "MediumItalic" }}
           >
             Contact us
@@ -123,7 +123,7 @@ function Contact() {
           </div>
         </div>
 
-        <div className="grid grid-cols-2" data-aos="fade-left">
+        <div className="grid md:grid-cols-2 grid-cols-1" data-aos="fade-left">
           <aside className="grid grid-cols-2 h-[400px]">
             {data?.map((e, i) => {
               return (

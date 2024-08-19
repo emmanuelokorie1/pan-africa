@@ -345,7 +345,10 @@ function NewsTemplate() {
       <div className="containers py-[4rem]">
         {Number(id) > data.length ? (
           <div className="flex ">
-            <div onClick={() => navigate('/news')} className="cursor-pointer pe-2">
+            <div
+              onClick={() => navigate("/news")}
+              className="cursor-pointer pe-2"
+            >
               <MdOutlineKeyboardBackspace size={30} />
             </div>
             <LeftHeader
@@ -358,7 +361,10 @@ function NewsTemplate() {
         ) : (
           <div>
             <div className="flex ">
-              <div onClick={() => navigate('/news')} className="cursor-pointer pe-2">
+              <div
+                onClick={() => navigate("/news")}
+                className="cursor-pointer pe-2"
+              >
                 <MdOutlineKeyboardBackspace size={30} />
               </div>
               <LeftHeader
@@ -374,11 +380,13 @@ function NewsTemplate() {
                 ?.filter((e) => Number(e.id) === Number(id))
                 .map((e, i) => {
                   return (
-                    <div key={i} className="flex justify-between">
-                      <div className="w-[25%]">
-                        <div className="flex justify-center flex-wrap sticky top-0">
-                          <div className="w-[400px] flex justify-center items-center">
-                            {/* <img src={Img} alt="" className="w-[100%]" /> */}
+                    <div
+                      key={i}
+                      className="flex flex-col lg:flex-row justify-between gap-[2rem] lg:gap-0"
+                    >
+                      <div className="w-full lg:w-[25%]">
+                        <div className="flex flex-col lg:justify-center lg:flex-wrap sticky top-0">
+                          <div className="w-full lg:w-[400px] flex justify-center items-center mb-[2rem] lg:mb-0">
                             <Image
                               {...imageSize}
                               src={e?.img}
@@ -388,7 +396,6 @@ function NewsTemplate() {
                               loader={
                                 <Skeleton
                                   image={{ style: imageSize }}
-                                  // className="h-[100%]"
                                   text={true}
                                   animation
                                 />
@@ -400,7 +407,7 @@ function NewsTemplate() {
                           </div>
                         </div>
                       </div>
-                      <div className="w-[70%]">
+                      <div className="w-full lg:w-[70%]">
                         <div className="border-l-[.8rem] border-textColor px-[.6rem]">
                           <div
                             className="text-textColor text-[1.5rem]"
@@ -408,7 +415,7 @@ function NewsTemplate() {
                           >
                             Pan African Towers
                           </div>
-                          <div className="flex gap-4 items-center text-[1.1rem] ">
+                          <div className="flex gap-4 items-center text-[1.1rem] mt-[1rem] lg:mt-0">
                             <div>Next post</div>
                             <Link to={e?.next}>
                               <FaArrowRightLong />
@@ -416,7 +423,7 @@ function NewsTemplate() {
                           </div>
                         </div>
 
-                        <div className="text-gray-600 text-[1rem] py-[3rem]">
+                        <div className="text-gray-600 text-[1rem] py-[2rem] lg:py-[3rem]">
                           {e?.content}
                         </div>
                       </div>

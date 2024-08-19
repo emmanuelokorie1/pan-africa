@@ -11,7 +11,7 @@ function Career() {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <div>
         <HeaderNav
           title={"Our career"}

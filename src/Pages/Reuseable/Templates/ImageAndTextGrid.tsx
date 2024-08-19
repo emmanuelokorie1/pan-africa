@@ -34,7 +34,7 @@ const ImageAndTextGrid: React.FC<customProps> = ({
     <div className="flex flex-col lg:flex-row gap-[2rem] justify-between p-[2rem] lg:p-[5rem]">
       <div className="w-full lg:w-[40%] flex justify-center items-center" data-aos="fade-up">
         {/* <img src={img || img2} alt="" /> */}
-        <div className="w-[80%] md:w-[100%]">
+        <div className="w-[100%] sm:w-[80%] md:w-[60%] lg:w-[100%]">
           <Image
             {...imageSize}
             src={img || img2}

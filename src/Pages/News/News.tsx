@@ -24,7 +24,7 @@ function News() {
         />
       </div>
 
-      <div className="containers flex justify-center my-[5rem]">
+      <div className="containers flex justify-center mt-[5rem] md:mt-0">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[1rem]">
           <ImageCard
             image={cardImg1}

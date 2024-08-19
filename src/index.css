@@ -76,6 +76,16 @@ body {
   .swiper-slide {
     width: 500px;
   }
+
+  /* .swiper-wrapper {
+    width: 50% !important;
+  } */
+}
+@media screen and (max-width: 1000px) {
+
+  .swiper-wrapper {
+    width: 50% !important;
+  }
 }
 
 .swiper-slide {

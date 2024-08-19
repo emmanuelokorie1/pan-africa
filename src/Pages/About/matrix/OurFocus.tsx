@@ -83,25 +83,25 @@ function OurFocus() {
         />
       </div>
 
-      <div className="px-[4rem] py-[3rem]">
-        <div className="grid grid-cols-3 containers gap-[3rem] rounded-sm h-[430px]">
+      <div className=" s1100:px-[2rem] xl:px-[4rem] py-[2rem] md:py-[3rem]">
+        <div className="grid grid-cols-1 px-[2rem] sm:px-0 sm:grid-cols-2 s1100:grid-cols-3 containers gap-[1.5rem] md:gap-[3rem] rounded-sm h-auto s1100:h-[430px]">
           {focus?.map((e, i) => {
             return (
-              <div key={i} className="bg-white p-[2rem] ">
+              <div key={i} className="bg-white p-[1rem] md:p-[2rem]">
                 <div className="text-end text-textColor text-[1.5rem]">
                   {e?.num}
                 </div>
-                <div className="flex justify-center py-[2rem]">
+                <div className="flex justify-center py-[1.5rem] md:py-[2rem]">
                   <img src={e?.img} alt="" />
                 </div>
                 <div className="text-center">
                   <div
-                    className="text-[1.1rem]"
+                    className="text-[1rem] md:text-[1.1rem]"
                     style={{ fontFamily: "semibold1" }}
                   >
                     {e?.name}
                   </div>
-                  <div className="text-gray-500 py-[1rem] text-[.95rem]">
+                  <div className="text-gray-500 py-[1rem] text-[.9rem] md:text-[.95rem]">
                     {e?.text}
                   </div>
                 </div>
@@ -112,7 +112,7 @@ function OurFocus() {
       </div>
 
       <div className="my-[4rem] containers">
-        <div className="grid grid-cols-3  bg-[#FDF5F2] shadow-sm rounded-lg">
+        <div className="grid grid-cols-1 sm:grid-cols-3 bg-[#FDF5F2] shadow-sm rounded-lg">
           {tabs?.map((e, i) => {
             return (
               <div key={i}>
@@ -140,10 +140,10 @@ function OurFocus() {
           {tabs?.map((e, i) => {
             return (
               <div key={i}>
-                <div className=" ">
+                <div className="">
                   {tabValue === e?.name && (
-                    <div className="flex justify-between  h-[600px]">
-                      <aside className="w-[50%] mt-[7rem] ">
+                    <div className="flex flex-col lg:flex-row justify-between h-auto lg:h-[600px]">
+                      <aside className="w-full lg:w-[50%] mt-[2rem] lg:mt-[7rem]">
                         <div
                           className="text-textColor border-l-[2px] border-textColor text-[1.1rem] ps-2 mt-[2rem]"
                           style={{ fontFamily: "MediumItalic" }}
@@ -177,17 +177,10 @@ function OurFocus() {
                           </div>
                         </div>
                       </aside>
-                      <aside className="flex justify-end items-center w-[50%]">
-                        <div className="w-[450px]">
-                          {/* <img
-                            src={e?.img}
-                            alt=""
-                            className="w-[100%] h-[100%]"
-                          /> */}
-
+                      <aside className="flex justify-center lg:justify-end items-center w-full lg:w-[50%]">
+                        <div className="w-[300px] md:w-[450px]">
                           <Image
                             {...imageSize}
-                            // className="h-[100%]"
                             src={e?.img}
                             alt=""
                             preview={false}
@@ -195,7 +188,6 @@ function OurFocus() {
                             loader={
                               <Skeleton
                                 image={{ style: imageSize }}
-                                // className="h-[100%]"
                                 text={false}
                                 animation
                               />

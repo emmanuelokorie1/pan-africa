@@ -37,10 +37,16 @@ function NavBar() {
 
   return (
     <div
-      className={`flex absolute top-0 z-50 w-full justify-between items-center bg-background text-white px-4 md:px-16 py-4`}
+      className={`flex fixed top-0 z-50 w-full justify-between items-center bg-background text-white px-4 md:px-16 py-4`}
     >
       <NavLink to={"/"}>
-        <div className="w-[80px] md:w-[120px]">
+        <div
+          className="w-[100px] md:w-[120px]"
+          onClick={() => {
+            setIsMobileMenuOpen(false);
+            setActiveDropdown(null);
+          }}
+        >
           <img src={logo} alt="logo" className="w-full" />
         </div>
       </NavLink>
@@ -98,14 +104,22 @@ function NavBar() {
       {/* Mobile Menu Toggle */}
       <div className="md:hidden">
         <button onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
-        
-          <div>{isMobileMenuOpen ? <LiaTimesSolid size={30} /> :  <RiMenu3Fill size={30} />}</div>
+          <div>
+            {isMobileMenuOpen ? (
+              <LiaTimesSolid size={30} />
+            ) : (
+              <RiMenu3Fill size={30} />
+            )}
+          </div>
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="md:hidden absolute top-full left-0 w-full bg-background text-white flex flex-col gap-4 p-4" data-aos="fade-down">
+        <div
+          className="md:hidden absolute top-full left-0 w-full bg-background text-white flex flex-col gap-4 p-4 shadow-sm"
+          data-aos="fade-down"
+        >
           {Links1.map((e, i) => (
             <div key={i}>
               <div
