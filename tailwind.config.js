@@ -7,9 +7,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: '#431101',
+        background: '#E75325',
+        background1: '#431101',
+        background2: '#DED9C9',
         secback: '#FBF5F3',
         textColor: '#E75425',
+        textColor2: '#0A0A0A',
       },
       screens: {
         's450': '450px',     // Customizing sm breakpoint

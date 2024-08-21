@@ -56,7 +56,7 @@ const ImageBase = styled.div`
     ${zoomInOut} 7s ease-in-out infinite;
   opacity: ${({ isActive }) => (isActive ? 1 : 0)};
   transition: opacity 1s;
-  background-color: ${({ isLoading }) => (isLoading ? "#431101" : "transparent")}; /* Apply black background when loading */
+  background-color: ${({ isLoading }) => (isLoading ? "#DED9C9" : "transparent")}; /* Apply black background when loading */
 `;
 
 // Styled component for the first image

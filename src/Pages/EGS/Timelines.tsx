@@ -339,7 +339,7 @@ function Timelines() {
               }
               icon={<PiPlantThin />}
             >
-              <div style={{ fontFamily: "bold1" }} className="text-[2rem]">
+              <div style={{ fontFamily: "bold1" }} className="md:text-[2rem] sm:text-[1.5rem] text-[1.2rem]">
                 {e?.title}
               </div>
             </VerticalTimelineElement>

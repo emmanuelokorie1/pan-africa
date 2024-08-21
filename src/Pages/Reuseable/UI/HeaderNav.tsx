@@ -24,13 +24,13 @@ const HeaderNav: React.FC<customProps> = ({
 }) => {
   return (
     <div className={`${!noImage ? 'lg:pb-[6rem] md:pb-[8rem] pb-[5rem]' : 'pb-[2rem]'}`}>
-      <BackgroundImg className="bg-background pt-[6rem]">
+      <BackgroundImg className="bg-background2 pt-[6rem]">
         {noImage ? (
           <div className="flex justify-center items-center text-center" data-aos="fade-up">
             <div className="w-[80%] md:w-[60%] lg:w-[40%] pt-[3rem] pb-[2rem]">
               <div className="text-textColor text-[1.3rem] ps-2">{title}</div>
-              <div className="text-[2rem] pt-2 text-white">{headerText}</div>
-              <div className="text-[.9rem] text-[#FFFFFF] pt-[1rem]">
+              <div className="text-[2rem] pt-2 text-textColor2">{headerText}</div>
+              <div className="text-[.9rem] text-gray-700 pt-[1rem]">
                 {text}
               </div>
             </div>
@@ -41,13 +41,13 @@ const HeaderNav: React.FC<customProps> = ({
               <div className="text-textColor border-l-[2px] border-textColor ps-2">
                 {title}
               </div>
-              <div className={`text-[${size || "1.6rem"}] pt-2 font-bold text-white`}>
+              <div className={`text-[${size || "1.6rem"}] pt-2 font-bold text-textColor2`}>
                 {headerText}
               </div>
-              <div className="text-[.9rem] text-[#FFFFFF] pt-[1rem]">
+              <div className="text-[.9rem] text-gray-700 pt-[1rem]">
                 {text}
               </div>
-              <div className="text-[.9rem] text-[#FFFFFF] pt-[1rem]">
+              <div className="text-[.9rem] text-gray-700 pt-[1rem]">
                 {text2}
               </div>
             </div>

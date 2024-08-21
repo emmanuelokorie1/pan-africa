@@ -9,27 +9,27 @@
 }
 @font-face {
   font-family: RegularFont;
-  src: url(./assets//font/ibm/IBMPlexSans-Regular.ttf) format("woff2");
+  src: url(./assets/font/ibm/IBMPlexSans-Regular.ttf) format("woff2");
   font-display: swap;
 }
 @font-face {
   font-family: MediumFont;
-  src: url(./assets//font/ibm/IBMPlexSans-Medium.ttf) format("woff2");
+  src: url(./assets/font/ibm/IBMPlexSans-Medium.ttf) format("woff2");
   font-display: swap;
 }
 @font-face {
   font-family: MediumItalic;
-  src: url(./assets//font/ibm/IBMPlexSans-MediumItalic.ttf) format("woff2");
+  src: url(./assets/font/ibm/IBMPlexSans-MediumItalic.ttf) format("woff2");
   font-display: swap;
 }
 @font-face {
   font-family: bold1;
-  src: url(./assets//font/ibm/IBMPlexSans-Bold.ttf) format("woff2");
+  src: url(./assets/font/ibm/IBMPlexSans-Bold.ttf) format("woff2");
   font-display: swap;
 }
 @font-face {
   font-family: semibold1;
-  src: url(./assets//font/ibm/IBMPlexSans-SemiBold.ttf) format("woff2");
+  src: url(./assets/font/ibm/IBMPlexSans-SemiBold.ttf) format("woff2");
   font-display: swap;
 }
 /* @font-face {

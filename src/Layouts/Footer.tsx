@@ -74,7 +74,7 @@ function Footer() {
               className="w-full md:w-[300px] outline-none px-[1rem] py-[.7rem] rounded-lg text-gray-700"
             />
           </div>
-          <div className="bg-textColor px-[2rem] h-fit py-[.7rem] rounded-lg cursor-pointer text-center">
+          <div className=" px-[2rem] h-fit py-[.7rem] rounded-lg cursor-pointer text-center text-white font-bold bg-background2">
             Submit
           </div>
         </aside>

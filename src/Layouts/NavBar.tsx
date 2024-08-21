@@ -37,7 +37,7 @@ function NavBar() {
 
   return (
     <div
-      className={`flex fixed top-0 z-50 w-full justify-between items-center bg-background text-white px-4 md:px-16 py-4`}
+      className={`flex fixed top-0 z-50 w-full justify-between items-center bg-background2 text-textColor2 px-4 md:px-16 py-4`}
     >
       <NavLink to={"/"}>
         <div
@@ -97,7 +97,7 @@ function NavBar() {
 
       <div className="hidden md:block">
         <NavLink to={"contact"}>
-          <div className="bg-textColor px-6 py-2 rounded-md">Contact</div>
+          <div className="bg-textColor text-white px-6 py-2 rounded-md">Contact</div>
         </NavLink>
       </div>
 
@@ -117,7 +117,7 @@ function NavBar() {
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
         <div
-          className="md:hidden absolute top-full left-0 w-full bg-background text-white flex flex-col gap-4 p-4 shadow-sm"
+          className="md:hidden absolute top-full left-0 w-full bg-background2 text-textColor2 flex flex-col gap-4 p-4 shadow-sm"
           data-aos="fade-down"
         >
           {Links1.map((e, i) => (
@@ -162,7 +162,7 @@ function NavBar() {
             </NavLink>
           ))}
           <NavLink to={"contact"} onClick={() => setIsMobileMenuOpen(false)}>
-            <div className="bg-textColor px-4 py-2 rounded-md mt-4 text-center">
+            <div className="bg-textColor text-white px-4 py-2 rounded-md mt-4 text-center">
               Contact
             </div>
           </NavLink>
