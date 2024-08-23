@@ -1,9 +1,9 @@
 import HeaderNav from "../../Reuseable/UI/HeaderNav";
-import Img from "../../../assets/whoarewe.svg";
+import Img from "../../../assets/whoarewe.png";
 import ContactTemp from "../../Reuseable/UI/ContactTemp";
-import company from "../../../assets/WhoAreWe/company.svg";
-import achievement from "../../../assets/WhoAreWe/achievement.svg";
-import why from "../../../assets/WhoAreWe/why.svg";
+import company from "../../../assets/WhoAreWe/company.png";
+import achievement from "../../../assets/WhoAreWe/achievement.png";
+import why from "../../../assets/WhoAreWe/why.png";
 import achiveIcon from "../../../assets/WhoAreWe/achiveIcon.svg";
 import companyIcon from "../../../assets/WhoAreWe/companyIcon.svg";
 import whyIcon from "../../../assets/WhoAreWe/whyIcon.svg";
@@ -11,17 +11,17 @@ import { useEffect, useState } from "react";
 import { LuDot } from "react-icons/lu";
 import LeftHeader from "../../Reuseable/Templates/LeftHeader";
 
-import cardImg1 from "../../../assets/WhoAreWe/teams/team1.svg";
-import oladipo from "../../../assets/WhoAreWe/teams/oladipo.svg";
-import panda from "../../../assets/WhoAreWe/teams/panda.svg";
-import babatunde from "../../../assets/WhoAreWe/teams/babatunde.svg";
-import chisom from "../../../assets/WhoAreWe/teams/chisom.svg";
-import abimbola from "../../../assets/WhoAreWe/teams/abimbola.svg";
-import ife from "../../../assets/WhoAreWe/teams/ife.svg";
+import cardImg1 from "../../../assets/WhoAreWe/teams/team1.png";
+import oladipo from "../../../assets/WhoAreWe/teams/oladipo.png";
+import panda from "../../../assets/WhoAreWe/teams/panda.png";
+import babatunde from "../../../assets/WhoAreWe/teams/babatunde.png";
+import chisom from "../../../assets/WhoAreWe/teams/chisom.png";
+import abimbola from "../../../assets/WhoAreWe/teams/abimbola.png";
+import ife from "../../../assets/WhoAreWe/teams/ife.png";
 
-import saya from "../../../assets/WhoAreWe/teams/saya.svg";
-import daniel from "../../../assets/WhoAreWe/teams/daniel.svg";
-import marc from "../../../assets/WhoAreWe/teams/marc.svg";
+import saya from "../../../assets/WhoAreWe/teams/saya.png";
+import daniel from "../../../assets/WhoAreWe/teams/daniel.png";
+import marc from "../../../assets/WhoAreWe/teams/marc.png";
 
 import TeemCard from "../../Reuseable/UI/TeemCard";
 
@@ -135,7 +135,7 @@ function WhoAreWe() {
         </div>
 
         <div>
-          {tabs?.map((e, i) => {
+          {tabs?.map((e: Tab, i: number) => {
             return (
               <div key={i}>
                 {tabValue === e?.name && (

@@ -1,8 +1,8 @@
 import HeaderNav from "../Reuseable/UI/HeaderNav";
-import Img from "../../assets/career/careerr.svg";
+import Img from "../../assets/career/careerr1.png";
 import ImageAndTextGrid from "../Reuseable/Templates/ImageAndTextGrid";
 
-import career from "../../assets/career/careerTemp.svg";
+import career from "../../assets/career/careerTemp.png";
 import ContactTemp from "../Reuseable/UI/ContactTemp";
 import { useEffect } from "react";
 

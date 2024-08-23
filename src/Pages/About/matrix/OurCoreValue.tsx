@@ -1,11 +1,11 @@
 import HeaderNav from "../../Reuseable/UI/HeaderNav";
-import Img from "../../../assets/coreValue.svg";
+import Img from "../../../assets/coreValue.png";
 
-import customer1 from "../../../assets/ourcore/customer.svg";
-import cosumer2 from "../../../assets/ourcore/cosumer2.svg";
-import customer3 from "../../../assets/ourcore/customer3.svg";
+import customer1 from "../../../assets/ourcore/customer.png";
+import cosumer2 from "../../../assets/ourcore/cosumer2.png";
+import customer3 from "../../../assets/ourcore/customer3.png";
 
-import story from "../../../assets/ourcore/story.svg";
+import story from "../../../assets/ourcore/story.png";
 import { useEffect, useState } from "react";
 import OurVision from "../../Reuseable/UI/OurVision";
 import ImageAndGridTextRight from "../../Reuseable/Templates/ImageAndGridTextRight";

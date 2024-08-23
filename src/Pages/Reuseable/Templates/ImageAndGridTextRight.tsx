@@ -1,5 +1,5 @@
 import React from "react";
-import img2 from "../../../assets/home/whoarewe.svg";
+import img2 from "../../../assets/home/whoarewe.png";
 import { Link } from "react-router-dom";
 import { GoDot } from "react-icons/go";
 import { Image, Skeleton } from "@arco-design/web-react";
@@ -30,7 +30,7 @@ const ImageAndGridTextRight: React.FC<customProps> = ({
   prevtext,
 }) => {
   return (
-    <div  className="flex flex-col lg:flex-row py-[2rem] gap-[2rem] justify-between containers">
+    <div  className="flex flex-col lg:flex-row py-[2rem] gap-[2rem] justify-between items-center containers">
       <div className="w-full lg:w-[55%]" data-aos="fade-right">
         <div
           className="text-textColor border-l-[2px] border-textColor text-[1.1rem] ps-2 mt-[2rem]"
@@ -95,7 +95,7 @@ const ImageAndGridTextRight: React.FC<customProps> = ({
 
       <div className="w-full lg:w-[40%] flex justify-center items-center">
         <div
-          className="w-[100%] sm:w-[80%] md:w-[60%] lg:w-[100%]"
+          className="w-[100%] sm:w-[80%] md:w-[60%] lg:w-[420px]"
           data-aos="fade-up"
         >
           {/* <img src={img || img2} alt="" className="h-[100%]" /> */}

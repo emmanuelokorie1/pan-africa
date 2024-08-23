@@ -1,5 +1,5 @@
 import HeaderNav from "../../Reuseable/UI/HeaderNav";
-import Img from "../../../assets/focus.svg";
+import Img from "../../../assets/focus.png";
 import focus1 from "../../../assets/focus/focus1.svg";
 import focus2 from "../../../assets/focus/focus2.svg";
 import focus3 from "../../../assets/focus/focus3.svg";
@@ -9,9 +9,9 @@ import towericon from "../../../assets/focus/path/towericon.svg";
 import infraicon from "../../../assets/focus/path/infraicon.svg";
 import powericon from "../../../assets/focus/path/powericon.svg";
 
-import tower from "../../../assets/focus/path/tower.svg";
-import infra from "../../../assets/focus/path/infra.svg";
-import power from "../../../assets/focus/path/power.svg";
+import tower from "../../../assets/focus/path/tower.png";
+import infra from "../../../assets/focus/path/infra.png";
+import power from "../../../assets/focus/path/power.png";
 import ContactTemp from "../../Reuseable/UI/ContactTemp";
 import { Image, Skeleton } from "@arco-design/web-react";
 

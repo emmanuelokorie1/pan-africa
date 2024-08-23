@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
-import back1 from "../../assets/home/back1.svg";
-import back2 from "../../assets/home/back2.svg";
-import back3 from "../../assets/home/back3.svg";
+import back1 from "../../assets/home/back1.png";
+import back2 from "../../assets/home/back2.png";
+import back3 from "../../assets/home/back3.png";
 
 // Zoom in and out animation
 const zoomInOut = keyframes`

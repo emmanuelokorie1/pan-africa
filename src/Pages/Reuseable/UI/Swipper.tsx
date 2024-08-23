@@ -5,9 +5,12 @@ import { EffectCoverflow, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/effect-coverflow";
 
-import gallery1 from "../../../assets/focus.svg";
-import gallery2 from "../../../assets/coreServices.svg";
-import gallery3 from "../../../assets/coreValue.svg";
+import gallery1 from "../../../assets/homeSwipper/img1.png";
+import gallery2 from "../../../assets/homeSwipper/img2.png";
+import gallery3 from "../../../assets/homeSwipper/img3.png";
+import gallery4 from "../../../assets/homeSwipper/img4.png";
+import gallery5 from "../../../assets/homeSwipper/img5.png";
+import gallery6 from "../../../assets/homeSwipper/img6.png";
 
 const MySwiperComponent = () => {
   return (
@@ -23,6 +26,7 @@ const MySwiperComponent = () => {
         modifier: 1,
         slideShadows: true,
       }}
+      loop={true}
       autoplay={{
         delay: 4000,
         disableOnInteraction: false,
@@ -50,19 +54,19 @@ const MySwiperComponent = () => {
       </SwiperSlide>
       <SwiperSlide>
         <div className="slide-content">
-          <img src={gallery1} alt="Gallery 1" />
+          <img src={gallery4} alt="Gallery 1" />
           <p className="slide-text">Focus on Connectivity</p>
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className="slide-content">
-          <img src={gallery2} alt="Gallery 2" />
+          <img src={gallery5} alt="Gallery 2" />
           <p className="slide-text">Core Services</p>
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className="slide-content">
-          <img src={gallery3} alt="Gallery 3" />
+          <img src={gallery6} alt="Gallery 3" />
           <p className="slide-text">Our Core Values</p>
         </div>
       </SwiperSlide>
@@ -86,19 +90,19 @@ const MySwiperComponent = () => {
       </SwiperSlide>
       <SwiperSlide>
         <div className="slide-content">
-          <img src={gallery1} alt="Gallery 1" />
+          <img src={gallery4} alt="Gallery 1" />
           <p className="slide-text">Focus on Connectivity</p>
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className="slide-content">
-          <img src={gallery2} alt="Gallery 2" />
+          <img src={gallery5} alt="Gallery 2" />
           <p className="slide-text">Core Services</p>
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className="slide-content">
-          <img src={gallery3} alt="Gallery 3" />
+          <img src={gallery6} alt="Gallery 3" />
           <p className="slide-text">Our Core Values</p>
         </div>
       </SwiperSlide>

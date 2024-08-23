@@ -1,22 +1,22 @@
 import BackgroundSlideshow from "./BackgroundSlideshow";
 import ZoomImage from "./ZoomImage";
-import zoom1 from "../../assets/home/zooms/zoom1.svg";
-import zoom2 from "../../assets/home/zooms/zoom2.svg";
+import zoom1 from "../../assets/home/zooms/zoom1.png";
+import zoom2 from "../../assets/home/zooms/zoom2.png";
 
-import zoom3 from "../../assets/home/zooms/zoom3.svg";
-import zoom4 from "../../assets/home/zooms/zoom4.svg";
+import zoom3 from "../../assets/home/zooms/zoom3.png";
+import zoom4 from "../../assets/home/zooms/zoom4.png";
 
-import zoom5 from "../../assets/home/zooms/zoom5.svg";
-import zoom6 from "../../assets/home/zooms/zoom6.svg";
+import zoom5 from "../../assets/home/zooms/zoom5.png";
+import zoom6 from "../../assets/home/zooms/zoom6.png";
 
-import zoom7 from "../../assets/home/zooms/zoom7.svg";
-import zoom8 from "../../assets/home/zooms/zoom8.svg";
+import zoom7 from "../../assets/home/zooms/zoom7.png";
+import zoom8 from "../../assets/home/zooms/zoom8.png";
 
-import cardImg1 from "../../assets/home/cardImgs/cardImg1.svg";
-import cardImg2 from "../../assets/home/cardImgs/cardImg2.svg";
-import cardImg3 from "../../assets/home/cardImgs/cardImg3.svg";
+import cardImg1 from "../../assets/home/cardImgs/cardImg1.png";
+import cardImg2 from "../../assets/home/cardImgs/cardImg2.png";
+import cardImg3 from "../../assets/home/cardImgs/cardImg3.png";
 
-import careerr from "../../assets/career/careerr.svg";
+import careerr from "../../assets/career/careerr.png";
 
 import Icon1 from "../../assets/home/zooms/icons/tower.svg";
 import infra from "../../assets/home/zooms/icons/infra.svg";

@@ -1,11 +1,11 @@
 import HeaderNav from "../../Reuseable/UI/HeaderNav";
-import Img from "../../../assets/coreServices.svg";
+import Img from "../../../assets/valueAdded.png";
 import ContactTemp from "../../Reuseable/UI/ContactTemp";
 
-import broadband from "../../../assets/valueservice/broadband.svg";
-import utility from "../../../assets/valueservice/utility.svg";
-import content from "../../../assets/valueservice/content.svg";
-import support from "../../../assets/valueservice/support.svg";
+import broadband from "../../../assets/valueservice/broadband.png";
+import utility from "../../../assets/valueservice/utility.png";
+import content from "../../../assets/valueservice/content.png";
+import support from "../../../assets/valueservice/support.png";
 
 import ImageAndGridTextRight from "../../Reuseable/Templates/ImageAndGridTextRight";
 import ImageAndTextGrid from "../../Reuseable/Templates/ImageAndTextGrid";

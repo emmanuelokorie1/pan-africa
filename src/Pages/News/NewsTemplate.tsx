@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import cardImg3 from "../../assets/home/cardImgs/cardImg1.svg";
-import cardImg2 from "../../assets/home/cardImgs/cardImg2.svg";
-import cardImg1 from "../../assets/home/cardImgs/cardImg3.svg";
+import cardImg3 from "../../assets/home/cardImgs/cardImg1.png";
+import cardImg2 from "../../assets/home/cardImgs/cardImg2.png";
+import cardImg1 from "../../assets/home/cardImgs/cardImg3.png";
 
 import ContactTemp from "../Reuseable/UI/ContactTemp";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";

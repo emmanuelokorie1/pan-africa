@@ -1,12 +1,12 @@
 import HeaderNav from "../../Reuseable/UI/HeaderNav";
-import Img from "../../../assets/valueAdded.svg";
+import Img from "../../../assets/coreServices.png";
 import ImageAndTextGrid from "../../Reuseable/Templates/ImageAndTextGrid";
 
-import colocation from "../../../assets/coreService/colocation.svg";
-import built from "../../../assets/coreService/built.svg";
-import manage from "../../../assets/coreService/manage.svg";
-import buy from "../../../assets/coreService/buy.svg";
-import das from "../../../assets/coreService/das.svg";
+import colocation from "../../../assets/coreService/colocation.png";
+import built from "../../../assets/coreService/built.png";
+import manage from "../../../assets/coreService/manage.png";
+import buy from "../../../assets/coreService/buy.png";
+import das from "../../../assets/coreService/das.png";
 import ImageAndGridTextRight from "../../Reuseable/Templates/ImageAndGridTextRight";
 import ContactTemp from "../../Reuseable/UI/ContactTemp";
 

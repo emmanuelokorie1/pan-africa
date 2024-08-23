@@ -1,5 +1,5 @@
 import { Link, NavLink } from "react-router-dom";
-import logo from "../assets/logo.svg";
+import logo from "../assets/logo2.png";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
 import styled from "styled-components";
@@ -74,7 +74,7 @@ function Footer() {
               className="w-full md:w-[300px] outline-none px-[1rem] py-[.7rem] rounded-lg text-gray-700"
             />
           </div>
-          <div className=" px-[2rem] h-fit py-[.7rem] rounded-lg cursor-pointer text-center text-white font-bold bg-background2">
+          <div className=" px-[2rem] h-fit py-[.7rem] rounded-lg cursor-pointer text-center text-white font-bold bg-[rgba(255,255,255,0.4)]">
             Submit
           </div>
         </aside>

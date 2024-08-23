@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import logo from "../assets/logo.svg";
+import logo from "../assets/logo.png";
 import { IoIosArrowDown } from "react-icons/io";
 import { useState } from "react";
 import { RxDotFilled } from "react-icons/rx";

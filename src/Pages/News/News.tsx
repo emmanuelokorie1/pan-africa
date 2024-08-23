@@ -1,11 +1,11 @@
 import HeaderNav from "../Reuseable/UI/HeaderNav";
-import Img from "../../assets/news/newsHead.svg";
+import Img from "../../assets/news/newsHead.png";
 import ImageCard from "../Reuseable/UI/ImageCard";
 import ContactTemp from "../Reuseable/UI/ContactTemp";
 
-import cardImg1 from "../../assets/home/cardImgs/cardImg1.svg";
-import cardImg2 from "../../assets/home/cardImgs/cardImg2.svg";
-import cardImg3 from "../../assets/home/cardImgs/cardImg3.svg";
+import cardImg1 from "../../assets/home/cardImgs/cardImg1.png";
+import cardImg2 from "../../assets/home/cardImgs/cardImg2.png";
+import cardImg3 from "../../assets/home/cardImgs/cardImg3.png";
 import cardImg4 from "../../assets/news/pan.svg";
 
 function News() {

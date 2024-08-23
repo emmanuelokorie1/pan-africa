@@ -1,6 +1,6 @@
-import value from "../../../assets/ourcore/vision/value.svg";
-import mission from "../../../assets/ourcore/vision/mission.svg";
-import vision from "../../../assets/ourcore/vision/vision.svg";
+import value from "../../../assets/ourcore/vision/values.png";
+import mission from "../../../assets/ourcore/vision/mission.png";
+import vision from "../../../assets/ourcore/vision/vision.png";
 import { useState } from "react";
 
 function OurVision() {
@@ -8,7 +8,7 @@ function OurVision() {
 
   const values = [
     {
-      img: vision,
+      img: value,
       name: "Our Values",
       text: [
         "Innovation",
@@ -26,7 +26,7 @@ function OurVision() {
       ],
     },
     {
-      img: value,
+      img: vision,
       name: "Our Vision",
       text: ["To become the best infrastructure solution provider in Africa."],
     },
