@@ -23,8 +23,8 @@ const HeaderNav: React.FC<customProps> = ({
   size,
 }) => {
   return (
-    <div className={`${!noImage ? 'lg:pb-[6rem] md:pb-[8rem] pb-[5rem]' : 'pb-[2rem]'}`}>
-      <BackgroundImg className="bg-background2 pt-[6rem]">
+    <div className={`${!noImage ? 'lg:pb-[6rem] md:pb-[8rem] pb-[5rem] ' : 'pb-[2rem]'}`}>
+      <BackgroundImg className="bg-background2 pt-[3rem]">
         {noImage ? (
           <div className="flex justify-center items-center text-center" data-aos="fade-up">
             <div className="w-[80%] md:w-[60%] lg:w-[40%] pt-[3rem] pb-[2rem]">
@@ -36,7 +36,7 @@ const HeaderNav: React.FC<customProps> = ({
             </div>
           </div>
         ) : (
-          <div className="flex flex-col lg:flex-row justify-between mt-[3rem] px-[2rem] pb-[2rem] lg:px-0" data-aos="fade-left">
+          <div className="flex flex-col lg:flex-row justify-between  px-[2rem] pb-[2rem] lg:px-0" data-aos="fade-left">
             <div className="w-full lg:w-[58%] lg:ps-[8rem] text-center lg:text-left">
               <div className="text-textColor border-l-[2px] border-textColor ps-2">
                 {title}
@@ -88,6 +88,12 @@ const BackgroundImg = styled.div`
     height: 60vh;
     border-radius: 0;
     padding-top: 4rem;
+  }
+  @media (min-width: 1500px) {
+    height: 100%;
+    border-radius: 0;
+    padding-top: 4rem;
+    padding-bottom: 1rem;
   }
 
   @media (max-width: 768px) {

@@ -45,8 +45,15 @@
   font-display: swap;
 } */
 
+* {
+  outline: 1px solid red;
+}
+
+
 body {
   font-family: RegularFont;
+  /* max-width: 1600px;
+  margin: auto; */
 }
 
 .body-active-modal{
@@ -213,4 +220,16 @@ font-size: 1.2rem;
 
 .vertical-timeline::before{
   background-color: #e75425;
+}
+
+@media screen and (min-width: 1500px) {
+  body {
+    font-size: 1.2rem; 
+    padding: 1rem;
+  }
+
+  .containerMain {
+    max-width: 1400px; 
+    margin: auto;
+  }
 }

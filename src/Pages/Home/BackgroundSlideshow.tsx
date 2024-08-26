@@ -38,7 +38,7 @@ const slideInRight = keyframes`
 const BackgroundContainer = styled.div`
   position: relative;
   width: 100%;
-  height: 100vh;
+  /* height: 100vh; */
   overflow: hidden;
 `;
 
@@ -151,7 +151,7 @@ const BackgroundSlideshow = () => {
   };
 
   return (
-    <BackgroundContainer>
+    <BackgroundContainer className="h-[100vh] 2xl:h-[40vh]">
       <ImageOne
         isActive={activeImage === 1}
         isExiting={isExiting && activeImage === 1}

@@ -8,9 +8,9 @@ function Layouts() {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div className="bg-gray-50">
+    <div className="bg-gray-50 containerMain">
       <NavBar />
-      <div data-aos="fade-down">
+      <div data-aos="fade-down overflow-hidden ">
         <Outlet />
       </div>
       <Footer />
