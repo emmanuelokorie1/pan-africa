@@ -42,15 +42,15 @@ function News() {
             text="Pan African announces the appointment of Oladipo Badru as Chief Financial Officer "
             link={'/see-news/3'}
           />
-          <ImageCard
+          {/* <ImageCard
             image={cardImg4}
             text="Pan African Towers becomes one of the leading telecommunication companies in Africa"
-            link={'/see-news/4'}
-          />
+            link={'/see-news/5'}
+          /> */}
           <ImageCard
             image={cardImg5}
             text="Jyoti Desai and Vivek Gupta Join Pan African Towers Board of Management as Non-Executive Directors"
-            link={'/see-news/5'}
+            link={'/see-news/4'}
           />
         </div>
       </div>

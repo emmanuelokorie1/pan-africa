@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import cardImg3 from "../../assets/home/cardImgs/cardImg1.png";
 import cardImg2 from "../../assets/home/cardImgs/cardImg2.png";
 import cardImg1 from "../../assets/home/cardImgs/cardImg3.png";
+import newNews1 from "../../assets/news/news1.png";
+import newNews2 from "../../assets/news/news2.png";
 
 import ContactTemp from "../Reuseable/UI/ContactTemp";
 import { MdOutlineKeyboardBackspace } from "react-icons/md";
@@ -20,7 +22,7 @@ function NewsTemplate() {
         "Pan African Towers announces the appointment of Oladipo Badru as Chief Financial Officer.",
       posted: "Posted on 18th March, 2024",
       id: 1,
-      next: "/see-news/2",
+      next: "/see-news/",
       content: (
         <div>
           <div>
@@ -107,7 +109,7 @@ function NewsTemplate() {
         "DPI and Verod Capital partner to back management of Pan African Towers.",
       posted: "Posted on 27th November, 2023",
       id: 2,
-      next: "/see-news/3",
+      next: "/see-news/",
       content: (
         <div>
           <div>
@@ -293,7 +295,7 @@ function NewsTemplate() {
       header: "Pan African Towers Appoints Azeez Amida as new CEO.",
       posted: "Posted on 15th October, 2022",
       id: 3,
-      next: "/see-news/1",
+      next: "/see-news/",
       content: (
         <div>
           <div>
@@ -332,6 +334,82 @@ function NewsTemplate() {
         </div>
       ),
     },
+    {
+      img: newNews1,
+      img2: newNews2,
+      header: "Jyoti Desai and Vivek Gupta Join Pan African Towers Board of Management as Non-Executive Directors",
+      posted: "Posted on 15th October, 2022",
+      id: 4,
+      next: "/see-news/",
+      content: (
+        <div>
+          <div>
+            Pan African Towers (PAT) Ltd, Nigeria’s leading provider of digital
+            infrastructure, established in 2017 to capitalize on the growing
+            demand for wireless communications across Africa and has since
+            emerged as a prominent telecommunications and tower infrastructure
+            provider, announces the appointment of Jyoti Desai and Vivek Gupta
+            as Non-Executive Directors, with effect from May 21st, 2024.
+          </div>
+          <div>
+            A former Group Chief Operating Officer of MTN, Jyoti Desai is a
+            banking and telecoms professional with more than 35 years in the
+            industry. Her achievements in banking (Standard Bank) include
+            driving large scale transformation in the banking industry to
+            streamline operational cost and shifting focus to customer centric,
+            segment-based value propositions. An experienced Professional with a
+            demonstrated history of working in the financial services industry
+            as well as fixed and mobile telecoms, she has more than 15 years’
+            experience in Africa and the Middle East. Jyoti is skilled in
+            startups in emerging markets in the technical, commercial and
+            operational aspects of the telecom business with more than 25 years’
+            experience in cost and operational transformation which includes
+            digital transformation, large scale project execution, Service
+            Delivery, 3G, LTE, Mobile Communications, and Universal Mobile
+            Telecommunications System (UMTS) and more recently 5G.
+          </div>
+          <div className="py-[1rem]">
+            Vivek Gupta, is a first-generation entrepreneur, investor and
+            telecoms veteran. As Founder and Director of iSON Group, Vivek has
+            built a dynamic ecosystem of businesses in IT & ITeS, BPO and
+            Telecom Infrastructure and Services, employing 20,000+ resources,
+            spanning 40 countries across Africa, Asia and Middle East. Vivek
+            became an entrepreneur in 2008 as CEO of Zamil Infra, iSON’s first
+            joint venture with the $8B Saudi conglomerate-Zamil, that
+            specializes in build and managed services for telecom passive
+            infrastructure. Under his leadership, iSON Group diversified in
+            Renewable energy, Digital infrastructure, Digital Healthcare &
+            Health insurance sector. iSON Group has grown both organically &
+            inorganically in last few years. Vivek spent two decades creating an
+            illustrious career within telecom working for multinationals such as
+            Ericsson and IBM. In 2008, he was recognized by Fortune as “IBM’s
+            All-Star Salesman” for contracting over $5 Billion worth of business
+            and executing high value transformational and ‘out of box’ deals,
+            particularly path-breaking strategic outsourcing deals with Bharti
+            Airtel, Idea & Vodafone that have gone on to become one of the most
+            successful business models for the company
+          </div>
+
+          <div className="">
+            “As you can see from their profiles, both Desai and Gupta’s
+            extensive global experience, and their contributions to the
+            advancement of telecommunication, technology and infrastructural
+            development in Africa and beyond make them invaluable assets for us
+            at Pan African Towers, especially at this point in time where we are
+            on a continuous improvement drive across our operations within
+            Nigeria, and with a vision to grow our digital infrastructure base,”
+            – Azeez Amida, Managing Director and Chief Executive Officer at Pan
+            African Towers
+          </div>
+          <div className="">
+            It can be recalled that in November last year, Pan African Towers
+            announced a strategic investment from Development Partners
+            International (DPI), a premier investment firm focused on Africa,
+            and Verod Capital
+          </div>
+        </div>
+      ),
+    },
   ];
 
   const navigate = useNavigate();
@@ -341,8 +419,8 @@ function NewsTemplate() {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div className="mt-[5rem]">
-      <div className="containers py-[4rem]">
+    <div className="mt-[1rem]">
+      <div className="containers py-[2rem]">
         {Number(id) > data.length ? (
           <div className="flex ">
             <div
@@ -402,6 +480,24 @@ function NewsTemplate() {
                               }
                             />
                           </div>
+                          {e?.img2 && (
+                            <div className="w-full lg:w-[400px] flex justify-center items-center mb-[2rem] lg:mb-0">
+                              <Image
+                                {...imageSize}
+                                src={e?.img2}
+                                alt=""
+                                preview={false}
+                                lazyload={{ threshold: 0.5 }}
+                                loader={
+                                  <Skeleton
+                                    image={{ style: imageSize }}
+                                    text={true}
+                                    animation
+                                  />
+                                }
+                              />
+                            </div>
+                          )}
                           <div className="flex justify-around items-center text-textColor text-[1.1rem] font-semibold gap-[.4rem]">
                             <div>{e?.posted}</div>
                           </div>
@@ -417,7 +513,7 @@ function NewsTemplate() {
                           </div>
                           <div className="flex gap-4 items-center text-[1.1rem] mt-[1rem] lg:mt-0">
                             <div>Next post</div>
-                            <Link to={e?.next}>
+                            <Link to={e?.id === data.length ? e?.next + "1" : e?.next + Number(e?.id + 1)}>
                               <FaArrowRightLong />
                             </Link>
                           </div>
