@@ -15,7 +15,7 @@ interface customProps {
 const ImageCard: React.FC<customProps> = ({ image, text, link }) => {
   return (
     <Card>
-      <div className="w-[100%] h-[500px]">
+      <ImageContainer>
         <Image
           {...imageSize}
           src={image}
@@ -26,7 +26,7 @@ const ImageCard: React.FC<customProps> = ({ image, text, link }) => {
             <Skeleton image={{ style: imageSize }} text={false} animation />
           }
         />
-      </div>
+      </ImageContainer>
 
       <CardText>
         <div className="text-[0.8rem] sm:text-[0.9rem] h-[60px] sm:h-[75px] font-semibold">
@@ -51,6 +51,7 @@ export default ImageCard;
 const Card = styled.div`
   position: relative;
   width: 100%;
+  min-height: 500px;
   height: 400px;
   border-radius: 10px;
   transition: transform 0.3s ease;
@@ -65,9 +66,16 @@ const Card = styled.div`
   }
 `;
 
+const ImageContainer = styled.div`
+  width: 100%;
+  height: 100%;
+  min-height: 500px; /* Ensures the container keeps its size */
+  background-color: #f0f0f0; /* Optional placeholder background */
+`;
+
 const CardText = styled.div`
   position: absolute;
-  top: 65%; /* Adjust the distance from the bottom */
+  top: 65%;
   left: 50%;
   transform: translateX(-50%);
   width: 90%;
@@ -79,7 +87,7 @@ const CardText = styled.div`
   border-radius: 0.4rem;
 
   ${Card}:hover & {
-    transform: translate(-50%, -30px); /* Slide up the text on hover */
+    transform: translate(-50%, -30px);
     background-color: #e75425;
     color: white;
   }

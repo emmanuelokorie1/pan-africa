@@ -354,8 +354,8 @@ function NewsTemplate() {
             <LeftHeader
               mt="0"
               py="1rem"
-              title={"Our Team"}
-              text={"Team ID not found"}
+              title={"News"}
+              text={"News ID not found"}
             />
           </div>
         ) : (

@@ -18,6 +18,9 @@ import ife from "../../assets/WhoAreWe/teams/ife.png";
 import saya from "../../assets/WhoAreWe/teams/saya.png";
 import daniel from "../../assets/WhoAreWe/teams/daniel.png";
 import marc from "../../assets/WhoAreWe/teams/marc.png";
+import deisel from "../../assets/WhoAreWe/teams/deisel.png";
+import gupta from "../../assets/WhoAreWe/teams/gupta.png";
+
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
 
@@ -396,6 +399,70 @@ function TeamTemplate() {
         </div>
       ),
     },
+    {
+      img: deisel,
+      name: "Jyoti Desai",
+      role: "Non Executive Director",
+      fb: "",
+      x: "",
+      id: 11,
+      linkedin: "",
+      content: (
+        <div>
+          <div>
+            A former Group Chief Operating Officer of MTN, Jyoti Desai is a
+            banking and telecoms professional with more than 35 years in the
+            industry. Her achievements in banking (Standard Bank) include
+            driving large scale transformation in the banking industry to
+            streamline operational cost and shifting focus to customer centric,
+            segment-based value propositions. An experienced Professional with a
+            demonstrated history of working in the financial services industry
+            as well as fixed and mobile telecoms, she has more than 15 years’
+            experience in Africa and the Middle East. Jyoti is skilled in
+            startups in emerging markets in the technical, commercial and
+            operational aspects of the telecom business with more than 25 years’
+            experience in cost and operational transformation which includes
+            digital transformation, large scale project execution, Service
+            Delivery, 3G, LTE, Mobile Communications, and Universal Mobile
+            Telecommunications System (UMTS) and more recently 5G.
+          </div>
+        </div>
+      ),
+    },
+    {
+      img: gupta,
+      name: "Vivek Gupta",
+      role: "Non Executive Director",
+      fb: "",
+      x: "",
+      id: 12,
+      linkedin: "",
+      content: (
+        <div>
+          <div>
+            Vivek Gupta, is a first-generation entrepreneur, investor and
+            telecoms veteran. As Founder and Director of iSON Group, Vivek has
+            built a dynamic ecosystem of businesses in IT & ITeS, BPO and
+            Telecom Infrastructure and Services, employing 20,000+ resources,
+            spanning 40 countries across Africa, Asia and Middle East. Vivek
+            became an entrepreneur in 2008 as CEO of Zamil Infra, iSON’s first
+            joint venture with the $8B Saudi conglomerate-Zamil, that
+            specializes in build and managed services for telecom passive
+            infrastructure. Under his leadership, iSON Group diversified in
+            Renewable energy, Digital infrastructure, Digital Healthcare &
+            Health insurance sector. iSON Group has grown both organically &
+            inorganically in last few years. Vivek spent two decades creating an
+            illustrious career within telecom working for multinationals such as
+            Ericsson and IBM. In 2008, he was recognized by Fortune as “IBM’s
+            All-Star Salesman” for contracting over $5 Billion worth of business
+            and executing high value transformational and ‘out of box’ deals,
+            particularly path-breaking strategic outsourcing deals with Bharti
+            Airtel, Idea & Vodafone that have gone on to become one of the most
+            successful business models for the company.
+          </div>
+        </div>
+      ),
+    },
   ];
 
   return (
@@ -423,7 +490,11 @@ function TeamTemplate() {
                 mt="0"
                 py="1rem"
                 title={"Our Team"}
-                text={"Meet the management team"}
+                text={
+                  Number(id) > 10 && Number(id) < data.length
+                    ? "Meet the board members" 
+                    : "Meet the management team"
+                }
                 text2={
                   "Our industry experience and specialist insight allow us to maintain market leadership"
                 }

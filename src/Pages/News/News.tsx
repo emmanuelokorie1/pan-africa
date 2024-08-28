@@ -6,6 +6,7 @@ import ContactTemp from "../Reuseable/UI/ContactTemp";
 import cardImg1 from "../../assets/home/cardImgs/cardImg1.png";
 import cardImg2 from "../../assets/home/cardImgs/cardImg2.png";
 import cardImg3 from "../../assets/home/cardImgs/cardImg3.png";
+import cardImg5 from "../../assets/home/cardImgs/cardImg4.png";
 import cardImg4 from "../../assets/news/pan.svg";
 
 function News() {
@@ -41,11 +42,16 @@ function News() {
             text="Pan African announces the appointment of Oladipo Badru as Chief Financial Officer "
             link={'/see-news/3'}
           />
-          {/* <ImageCard
+          <ImageCard
             image={cardImg4}
             text="Pan African Towers becomes one of the leading telecommunication companies in Africa"
-            link={<div>Learn more</div>}
-          /> */}
+            link={'/see-news/4'}
+          />
+          <ImageCard
+            image={cardImg5}
+            text="Jyoti Desai and Vivek Gupta Join Pan African Towers Board of Management as Non-Executive Directors"
+            link={'/see-news/5'}
+          />
         </div>
       </div>
 

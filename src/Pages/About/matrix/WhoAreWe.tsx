@@ -22,6 +22,8 @@ import ife from "../../../assets/WhoAreWe/teams/ife.png";
 import saya from "../../../assets/WhoAreWe/teams/saya.png";
 import daniel from "../../../assets/WhoAreWe/teams/daniel.png";
 import marc from "../../../assets/WhoAreWe/teams/marc.png";
+import deisel from "../../../assets/WhoAreWe/teams/deisel.png";
+import gupta from "../../../assets/WhoAreWe/teams/gupta.png";
 
 import TeemCard from "../../Reuseable/UI/TeemCard";
 
@@ -268,7 +270,7 @@ function WhoAreWe() {
             <TeemCard
               image={saya}
               name="Adefolarin Ogunsaya"
-              role="Non Executive.D"
+              role="Non Executive Director"
               fullrole="Non Executive Director"
               id={8}
             />
@@ -282,16 +284,30 @@ function WhoAreWe() {
             <TeemCard
               image={daniel}
               name="Daniel Adeoye"
-              role="Non Executive.D"
+              role="Non Executive Director"
               fullrole="Non Executive Director"
               id={9}
             />
             <TeemCard
               image={marc}
               name="Marc Stoneham"
-              role="Non Executive.D"
+              role="Non Executive Director"
               fullrole="Non Executive Director"
               id={10}
+            />
+            <TeemCard
+              image={deisel}
+              name="Jyoti Desai"
+              role="Non Executive Director"
+              fullrole="Non Executive Director"
+              id={11}
+            />
+            <TeemCard
+              image={gupta}
+              name="Vivek Gupta"
+              role="Non Executive Director"
+              fullrole="Non Executive Director"
+              id={12}
             />
           </div>
         </section>
