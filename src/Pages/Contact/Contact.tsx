@@ -33,7 +33,7 @@ function Contact() {
       icon: <IoCallOutline />,
       name: "Phone",
       text: "Mon-Fri from 8am to 5pm.",
-      value: ["+234 (01) 462 37827", "+234 (0) 803 528 3267"],
+      value: ["+234 808 110 1475"],
     },
   ];
 

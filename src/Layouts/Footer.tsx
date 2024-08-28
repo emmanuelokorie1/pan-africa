@@ -47,8 +47,8 @@ function Footer() {
       name: "Reach Us",
       minidata: [
         { name: "info@panafricantowers.com", icon: <MdEmail /> },
-        { name: "234 (01) 462 37827", icon: <IoCall /> },
-        { name: "234 (0) 803 528 3267", icon: <IoCall /> },
+        { name: "234 808 110 1475", icon: <IoCall /> },
+        // { name: "234 (0) 803 528 3267", icon: <IoCall /> },
       ],
     },
   ];
