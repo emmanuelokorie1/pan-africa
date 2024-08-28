@@ -1,5 +1,5 @@
 import HeaderNav from "../Reuseable/UI/HeaderNav";
-import Img from "../../assets/career/careerr1.png";
+import Img from "../../assets/career/careerr.png";
 import ImageAndTextGrid from "../Reuseable/Templates/ImageAndTextGrid";
 
 import career from "../../assets/career/careerTemp.png";
