@@ -338,7 +338,7 @@ function NewsTemplate() {
       img: newNews1,
       img2: newNews2,
       header: "Jyoti Desai and Vivek Gupta Join Pan African Towers Board of Management as Non-Executive Directors",
-      posted: "Posted on 15th October, 2022",
+      posted: "Posted on 19th August, 2024",
       id: 4,
       next: "/see-news/",
       content: (
