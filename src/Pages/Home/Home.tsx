@@ -125,7 +125,7 @@ function Home() {
           <CenteredHeader
             title={"Our services"}
             text={
-              "Pan African Towers Limited, is Nigeria’s largest indigenous telecom tower infrastructure company and the 10th Largest in Africa. We are “The New Face of Connectivity in Africa."
+              "Pan African Towers Limited, is Nigeria's largest indigenous telecom tower infrastructure company and the 10th Largest in Africa. We are “The New Face of Connectivity in Africa."
             }
           />
         </div>
@@ -140,7 +140,7 @@ function Home() {
           <CenteredHeader
             title={"Our clients"}
             text={
-              "We’re continually working to change the way people think about and engage with our products"
+              "We're continually working to change the way people think about and engage with our products"
             }
           />
         </div>
@@ -180,9 +180,9 @@ function Home() {
       <div className="bg-gray-50">
         <ImageAndTextGrid
           title={"Careers"}
-          headerText={"Let’s rewrite the African connectivity story together"}
+          headerText={"Let's rewrite the African connectivity story together"}
           text={
-            "Join Nigeria’s leading telecom and digital infrastructure provider team and help connect Africa"
+            "Join Nigeria's leading telecom and digital infrastructure provider team and help connect Africa"
           }
           text2={
             "We are always open to new talent joining our team of experts operating in Nigeria and across Africa. We are looking for people to help us grow our business, join our team"

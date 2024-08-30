@@ -62,8 +62,6 @@ function Footer() {
           </div>
           <div className="pt-[1rem] md:pt-[1.5rem] text-[.8rem] md:text-[.9rem]">
             Be the first to know about releases and industry news and insights.
-            Be the first to know about releases and industry news and insights.
-            Be the first to know about releases and industry news and insights.
           </div>
         </aside>
         <aside className="w-full lg:w-[45%] flex flex-col md:flex-row justify-center items-center gap-[1rem] mt-[1rem] lg:mt-0">
@@ -105,10 +103,11 @@ function Footer() {
           </FlexContainer>
         </aside>
         <aside className="w-full lg:w-[65%] mt-[2rem] lg:mt-0">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[1rem]">
+        {/* grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 */}
+          <div className=" flex justify-between gap-[1rem] flex-wrap">
             {tabs?.map((e: any, i: number) => {
               return (
-                <div key={i}>
+                <div key={i} className="">
                   <div className="text-textColor">{e?.name}</div>
                   <div className="text-[.85rem]">
                     {e?.minidata?.map((item: any, i: number) => {
@@ -129,7 +128,7 @@ function Footer() {
                                     <span className="text-[1.5rem]">
                                       {item?.icon}
                                     </span>
-                                    <span className="break-all">
+                                    <span className="break-keep">
                                       {item?.name}
                                     </span>
                                   </a>
@@ -161,13 +160,16 @@ function Footer() {
       </section>
 
       <section className="flex flex-col md:flex-row justify-between items-center pt-[1rem] text-[.8rem] md:text-[.9rem] text-center lg:text-left">
-        <aside className="mb-[1rem] md:mb-0">
+        <aside className="mb-[1rem] md:mb-0 flex">
           <div>
             Powered by <span className="text-textColor">Pan African tower</span>
           </div>
+          <Link to={"/privacy"} className="underline md:hidden">
+            Privacy Policy
+          </Link>
         </aside>
         <aside className="flex flex-col md:flex-row gap-[1rem]">
-          <Link to={"/privacy"} className="underline">
+          <Link to={"/privacy"} className="underline hidden md:block">
             Privacy Policy
           </Link>
           <div>

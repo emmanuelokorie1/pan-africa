@@ -26,8 +26,8 @@ function Contact() {
     {
       icon: <IoLocationOutline />,
       name: "Office",
-      text: "Come say hello at our office HQ",
-      value: ["23, Water corporation drive, Victoria Island, Lagos"],
+      text: "Visit our office HQ",
+      value: ["999c Danmole Street, Victoria Island Lagos"],
     },
     {
       icon: <IoCallOutline />,
@@ -160,7 +160,7 @@ function Contact() {
                           </a>
                         ) : e.name === "Office" ? (
                           <a
-                            href="https://www.google.com/maps/search/?api=1&query=23,+Water+Corporation+Drive,+Victoria+Island,+Lagos"
+                            href="https://www.google.com/maps/search/?api=1&query=999c,+Water+Danmole+Street,+Victoria+Island,+Lagos"
                             target="_blank"
                             rel="noopener noreferrer"
                           >
