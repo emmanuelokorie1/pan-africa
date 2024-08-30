@@ -222,14 +222,14 @@ font-size: 1.2rem;
   background-color: #e75425;
 }
 
-@media screen and (min-width: 1500px) {
+@media screen and (min-width: 1600px) {
   body {
     font-size: 1.2rem; 
     padding: 1rem;
   }
 
   .containerMain {
-    max-width: 1400px; 
+    max-width: 1450px; 
     margin: auto;
   }
 }
