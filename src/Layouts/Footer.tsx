@@ -5,6 +5,7 @@ import { RiTwitterXFill } from "react-icons/ri";
 import styled from "styled-components";
 import { MdEmail } from "react-icons/md";
 import { IoCall } from "react-icons/io5";
+import { FaLocationDot } from "react-icons/fa6";
 
 function Footer() {
   const Source = [
@@ -43,14 +44,23 @@ function Footer() {
         { name: "Value added services", tab: "value-added-services" },
       ],
     },
+    // {
+    //   name: "Reach Us",
+    //   minidata: [
+    //     { name: "info@panafricantowers.com", icon: <MdEmail /> },
+    //     { name: "234 808 110 1475", icon: <IoCall /> },
+    //   ],
+    // },
+  ];
+
+  const callData = [
     {
-      name: "Reach Us",
-      minidata: [
-        { name: "info@panafricantowers.com", icon: <MdEmail /> },
-        { name: "234 808 110 1475", icon: <IoCall /> },
-        // { name: "234 (0) 803 528 3267", icon: <IoCall /> },
-      ],
+      name: "999c Danmole Street, Victoria Island Lagos",
+      icon: <FaLocationDot />,
+      gi: "location",
     },
+    { name: "info@panafricantowers.com", icon: <MdEmail />, gi: "email" },
+    { name: "234 808 110 1475", icon: <IoCall />, gi: "call" },
   ];
 
   return (
@@ -79,15 +89,53 @@ function Footer() {
       </section>
 
       <section className="py-[2rem] flex flex-col lg:flex-row justify-between border-b border-[#694134]">
-        <aside className="w-full lg:w-[35%] text-center lg:text-left">
+        <aside className="w-full lg:w-[40%] text-center lg:text-left">
           <NavLink to={"/"}>
             <div className="w-[80px] md:w-[100px] lg:w-[120px] mx-auto lg:mx-0">
               <img src={logo} alt="logo" className="w-[100%]" />
             </div>
           </NavLink>
 
-          <div className="py-[2rem] text-sm">
+          {/* <div className="py-[1.5rem] text-sm">
             999c Danmole Street, Victoria Island Lagos
+          </div> */}
+
+          <div className="pb-[2rem] pt-[1rem]">
+            {callData?.map((e, i) => {
+              return (
+                <div key={i}>
+                  <div>
+                    {e?.gi === "email" ? (
+                      <a
+                        href={`mailto:${e?.name}`}
+                        className="flex items-center gap-[.5rem] pt-[1rem] text-ellipsis overflow-hidden whitespace-normal break-words"
+                      >
+                        <span className="text-[1.3rem]">{e?.icon}</span>
+                        <span className="break-keep">{e?.name}</span>
+                      </a>
+                    ) : e?.gi === "call" ? (
+                      <a
+                        href={`tel:+${e?.name}`}
+                        className="flex items-center gap-[.5rem] pt-[1rem] text-ellipsis overflow-hidden whitespace-normal break-words"
+                      >
+                        <span className="text-[1.3rem]">{e?.icon}</span>
+                        <span className="break-keep">{e?.name}</span>
+                      </a>
+                    ) : (
+                      <a
+                        href="https://www.google.com/maps/search/?api=1&query=999c,+Water+Danmole+Street,+Victoria+Island,+Lagos"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="flex items-center gap-[.5rem] pt-[1rem] text-ellipsis overflow-hidden whitespace-normal break-words"
+                      >
+                        <span className="text-[1.3rem]">{e?.icon}</span>
+                        <span className="break-keep">{e?.name}</span>
+                      </a>
+                    )}
+                  </div>
+                </div>
+              );
+            })}
           </div>
 
           <FlexContainer className="justify-center lg:justify-start">
@@ -102,13 +150,15 @@ function Footer() {
             })}
           </FlexContainer>
         </aside>
-        <aside className="w-full lg:w-[65%] mt-[2rem] lg:mt-0">
-        {/* grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 */}
+        <aside className="w-full lg:w-[60%] mt-[2rem] lg:mt-0">
+          {/* grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 */}
           <div className=" flex justify-between gap-[1rem] flex-wrap">
             {tabs?.map((e: any, i: number) => {
               return (
                 <div key={i} className="">
-                  <div className="text-textColor">{e?.name}</div>
+                  <div className="text-[#DED9C9] py-[.6rem] font-semibold">
+                    {e?.name}
+                  </div>
                   <div className="text-[.85rem]">
                     {e?.minidata?.map((item: any, i: number) => {
                       return (
