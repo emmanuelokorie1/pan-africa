@@ -91,7 +91,7 @@ function Home() {
         </div>
         <div>
           <ZoomImage
-            images={[{ url: zoom5 }, { url: zoom6 }]}
+            images={[{ url: careerr }, { url: zoom6 }]}
             text="Africa has a significant energy shortage. We can help bridge the gap by providing energy beyond our towers. We are positioned to meet the energy needs of local communities and businesses"
             header="PowerCo"
             icon={power}
