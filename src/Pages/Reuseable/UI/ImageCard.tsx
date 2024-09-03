@@ -68,9 +68,10 @@ const Card = styled.div`
 
 const ImageContainer = styled.div`
   width: 100%;
+  min-width: 350px;
   height: 100%;
   min-height: 500px; /* Ensures the container keeps its size */
-  background-color: #f0f0f0; /* Optional placeholder background */
+  background-color: #f0f0f0; 
 `;
 
 const CardText = styled.div`
