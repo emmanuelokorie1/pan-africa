@@ -102,11 +102,8 @@ function Contact() {
           />
         </div>
 
-        {/* data-aos="fade-right" */}
-        {/* data-aos="fade-left" */}
-
         <div className="xl:px-[11rem] lg:px-[6rem] s900:px-[5rem] md:px-[3rem] px-[1rem]">
-          <section className=" py-[2rem] ">
+          <section className=" md:pt-[2rem] pb-[2rem] ">
             <div>
               <div
                 className="text-textColor  text-[1.1rem] md:mt-[2rem] mt-0"
@@ -130,7 +127,7 @@ function Contact() {
 
             <div className="grid md:grid-cols-2 grid-cols-1">
               <aside
-                className="grid grid-cols-2 h-[400px]"
+                className="grid grid-cols-2 md:h-[400px]"
                 data-aos="fade-left"
               >
                 {data?.map((e, i) => {
@@ -206,7 +203,7 @@ function Contact() {
               </aside>
               <FormContainer data-aos="fade-up" onSubmit={handleSubmit}>
                 <div className="bg-[white] w-[100%] p-[2rem] shadow-lg rounded-xl">
-                  <div className="grid grid-cols-2 gap-[2rem]">
+                  <div className="grid sm:grid-cols-2 grid-cols-1 sm:gap-[2rem] gap-[1rem]">
                     <div>
                       <label htmlFor="firstName">First name</label>
                       <input
@@ -294,7 +291,7 @@ function Contact() {
             </div>
           </section>
 
-          <div className="py-[3rem]">
+          <div className="md:pt-[3rem] pt-[1rem] pb-[3rem]">
             <div
               className="text-textColor sm:text-[1rem] text-[.9rem]"
               style={{ fontFamily: "MediumItalic" }}

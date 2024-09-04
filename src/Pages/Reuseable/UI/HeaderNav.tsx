@@ -23,7 +23,7 @@ const HeaderNav: React.FC<customProps> = ({
   size,
 }) => {
   return (
-    <div className={`${!noImage ? 'lg:pb-[6rem] md:pb-[8rem] pb-[5rem] ' : 'pb-[2rem]'}`}>
+    <div className={`${!noImage ? 'lg:pb-[6rem] md:pb-[8rem] sm:pb-[5rem] pb-[3rem]' : 'sm:pb-[2rem] pb-[1rem]'}`}>
       <BackgroundImg className="bg-background2 pt-[3rem]">
         {noImage ? (
           <div className="flex justify-center items-center text-center" data-aos="fade-up">
