@@ -90,188 +90,270 @@ function Contact() {
   };
 
   return (
-    <div className="overflow-hidden">
-      <div>
-        <HeaderNav
-          title={"Contact us"}
-          headerText={"Need Help?"}
-          size={"2rem"}
-          text={"Get in touch with us"}
-          Img={Img}
-        />
-      </div>
-
-      {/* data-aos="fade-right" */}
-      {/* data-aos="fade-left" */}
-
-      <section className="containers p-[2rem]">
-        <div >
-          <div
-            className="text-textColor  text-[1.1rem] md:mt-[2rem] mt-0"
-            style={{ fontFamily: "MediumItalic" }}
-          >
-            Contact us
-          </div>
-
-          <div
-            className="text-[1.6rem] py-[1.5rem]"
-            style={{ fontFamily: "semibold1" }}
-          >
-            Chat to our friendly team
-          </div>
-
-          <div className="text-[#3F3F3F] pb-[2rem]">
-            We’d love to hear from you. Please fill out this form or shoot us an
-            email
-          </div>
+    <>
+      <div className="overflow-hidden">
+        <div>
+          <HeaderNav
+            title={"Contact us"}
+            headerText={"Need Help?"}
+            size={"2rem"}
+            text={"Get in touch with us"}
+            Img={Img}
+          />
         </div>
 
-        <div className="grid md:grid-cols-2 grid-cols-1" >
-          <aside className="grid grid-cols-2 h-[400px]" data-aos="fade-left">
-            {data?.map((e, i) => {
-              return (
-                <div className="py-[1rem] pe-[2rem] " key={i}>
-                  <div className="text-textColor text-[1.4rem] ">{e?.icon}</div>
-                  <div
-                    className="py-[.4rem]"
-                    style={{ fontFamily: "semibold1" }}
-                  >
-                    {e?.name}
-                  </div>
-                  <div className="text-[.95rem] text-gray-600">{e?.text}</div>
-                  <div>
-                    {e?.value?.map((item, index) => (
-                      <div
-                        className="py-[.4rem] text-textColor text-[.8rem]"
-                        key={index}
-                      >
-                        {item.includes("@") ? (
-                          <a href={`mailto:${item}`}>{item}</a>
-                        ) : item.includes("+") ? (
-                          <a href={`tel:${item}`}>
-                            <Tooltip content={<div>click to call {item}</div>}>
-                              <Text
-                                className="text-textColor"
-                                style={{ marginRight: 20, color: "#e75425" }}
-                              >
-                                {item}
-                              </Text>
-                            </Tooltip>
-                          </a>
-                        ) : e.name === "Office" ? (
-                          <a
-                            href="https://www.google.com/maps/search/?api=1&query=999c,+Water+Danmole+Street,+Victoria+Island,+Lagos"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                          >
-                            <Tooltip
-                              content={<div>Click to open location on map</div>}
-                            >
-                              <Text
-                                className="text-textColor"
-                                style={{ marginRight: 20, color: "#e75425" }}
-                              >
-                                {item}
-                              </Text>
-                            </Tooltip>
-                          </a>
-                        ) : (
-                          <span>{item}</span>
-                        )}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              );
-            })}
-          </aside>
-          <FormContainer data-aos="fade-up" onSubmit={handleSubmit}>
-            <div className="bg-[white] w-[100%] p-[2rem] shadow-lg rounded-xl">
-              <div className="grid grid-cols-2 gap-[2rem]">
-                <div>
-                  <label htmlFor="firstName">First name</label>
-                  <input
-                    type="text"
-                    name="firstName"
-                    id="firstName"
-                    placeholder="First name"
-                    className="w-[100%]"
-                    value={formData.firstName}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-                <div>
-                  <label htmlFor="lastName">Last name</label>
-                  <input
-                    type="text"
-                    name="lastName"
-                    id="lastName"
-                    placeholder="Last name"
-                    className="w-[100%]"
-                    value={formData.lastName}
-                    onChange={handleChange}
-                    required
-                  />
-                </div>
-              </div>
+        {/* data-aos="fade-right" */}
+        {/* data-aos="fade-left" */}
 
-              <div className="pt-[1rem]">
-                <label htmlFor="email">Email</label>
-                <input
-                  type="email"
-                  name="email"
-                  id="email"
-                  placeholder="youremail@gmail.com"
-                  className="w-[100%]"
-                  value={formData.email}
-                  onChange={handleChange}
-                  required
-                />
-              </div>
-              <div className="pt-[1rem]">
-                <label htmlFor="message">Message</label>
-                <textarea
-                  name="message"
-                  id="message"
-                  cols="30"
-                  rows="5"
-                  className="w-[100%]"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                ></textarea>
-              </div>
-
-              <div className="flex gap-[.8rem] items-center">
-                <input
-                  type="checkbox"
-                  className="cursor-pointer"
-                  name="agreement"
-                  id="agreement"
-                  checked={formData.agreement}
-                  onChange={handleChange}
-                  required
-                />
-                <div className="text-[.9rem]">
-                  You agree to our friendly{" "}
-                  <Link to={"/privacy"} className="underline cursor-pointer">
-                    privacy policy
-                  </Link>
-                </div>
-              </div>
-
-              <button
-                type="submit"
-                className="w-[100%] bg-textColor text-white text-center py-[.6rem] mt-[1.5rem] cursor-pointer rounded-lg"
+        <div className="xl:px-[11rem] lg:px-[6rem] s900:px-[5rem] md:px-[3rem] px-[1rem]">
+          <section className=" py-[2rem] ">
+            <div>
+              <div
+                className="text-textColor  text-[1.1rem] md:mt-[2rem] mt-0"
+                style={{ fontFamily: "MediumItalic" }}
               >
-                Send message
-              </button>
+                Contact us
+              </div>
+
+              <div
+                className="text-[1.6rem] py-[1.5rem]"
+                style={{ fontFamily: "semibold1" }}
+              >
+                Chat to our friendly team
+              </div>
+
+              <div className="text-[#3F3F3F] pb-[2rem]">
+                We’d love to hear from you. Please fill out this form or shoot
+                us an email
+              </div>
             </div>
-          </FormContainer>
+
+            <div className="grid md:grid-cols-2 grid-cols-1">
+              <aside
+                className="grid grid-cols-2 h-[400px]"
+                data-aos="fade-left"
+              >
+                {data?.map((e, i) => {
+                  return (
+                    <div className="py-[1rem] pe-[2rem] " key={i}>
+                      <div className="text-textColor text-[1.4rem] ">
+                        {e?.icon}
+                      </div>
+                      <div
+                        className="py-[.4rem]"
+                        style={{ fontFamily: "semibold1" }}
+                      >
+                        {e?.name}
+                      </div>
+                      <div className="text-[.95rem] text-gray-600">
+                        {e?.text}
+                      </div>
+                      <div>
+                        {e?.value?.map((item, index) => (
+                          <div
+                            className="py-[.4rem] text-textColor text-[.8rem]"
+                            key={index}
+                          >
+                            {item.includes("@") ? (
+                              <a href={`mailto:${item}`}>{item}</a>
+                            ) : item.includes("+") ? (
+                              <a href={`tel:${item}`}>
+                                <Tooltip
+                                  content={<div>click to call {item}</div>}
+                                >
+                                  <Text
+                                    className="text-textColor"
+                                    style={{
+                                      marginRight: 20,
+                                      color: "#e75425",
+                                    }}
+                                  >
+                                    {item}
+                                  </Text>
+                                </Tooltip>
+                              </a>
+                            ) : e.name === "Office" ? (
+                              <a
+                                href="https://www.google.com/maps/search/?api=1&query=999c,+Water+Danmole+Street,+Victoria+Island,+Lagos"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                              >
+                                <Tooltip
+                                  content={
+                                    <div>Click to open location on map</div>
+                                  }
+                                >
+                                  <Text
+                                    className="text-textColor"
+                                    style={{
+                                      marginRight: 20,
+                                      color: "#e75425",
+                                    }}
+                                  >
+                                    {item}
+                                  </Text>
+                                </Tooltip>
+                              </a>
+                            ) : (
+                              <span>{item}</span>
+                            )}
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  );
+                })}
+              </aside>
+              <FormContainer data-aos="fade-up" onSubmit={handleSubmit}>
+                <div className="bg-[white] w-[100%] p-[2rem] shadow-lg rounded-xl">
+                  <div className="grid grid-cols-2 gap-[2rem]">
+                    <div>
+                      <label htmlFor="firstName">First name</label>
+                      <input
+                        type="text"
+                        name="firstName"
+                        id="firstName"
+                        placeholder="First name"
+                        className="w-[100%]"
+                        value={formData.firstName}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                    <div>
+                      <label htmlFor="lastName">Last name</label>
+                      <input
+                        type="text"
+                        name="lastName"
+                        id="lastName"
+                        placeholder="Last name"
+                        className="w-[100%]"
+                        value={formData.lastName}
+                        onChange={handleChange}
+                        required
+                      />
+                    </div>
+                  </div>
+
+                  <div className="pt-[1rem]">
+                    <label htmlFor="email">Email</label>
+                    <input
+                      type="email"
+                      name="email"
+                      id="email"
+                      placeholder="youremail@gmail.com"
+                      className="w-[100%]"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                    />
+                  </div>
+                  <div className="pt-[1rem]">
+                    <label htmlFor="message">Message</label>
+                    <textarea
+                      name="message"
+                      id="message"
+                      cols={30}
+                      rows={5}
+                      className="w-[100%]"
+                      value={formData.message}
+                      onChange={handleChange}
+                      required
+                    ></textarea>
+                  </div>
+
+                  <div className="flex gap-[.8rem] items-center">
+                    <input
+                      type="checkbox"
+                      className="cursor-pointer"
+                      name="agreement"
+                      id="agreement"
+                      checked={formData.agreement}
+                      onChange={handleChange}
+                      required
+                    />
+                    <div className="text-[.9rem]">
+                      You agree to our friendly{" "}
+                      <Link
+                        to={"/privacy"}
+                        className="underline cursor-pointer"
+                      >
+                        privacy policy
+                      </Link>
+                    </div>
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-[100%] bg-textColor text-white text-center py-[.6rem] mt-[1.5rem] cursor-pointer rounded-lg"
+                  >
+                    Send message
+                  </button>
+                </div>
+              </FormContainer>
+            </div>
+          </section>
+
+          <div className="py-[3rem]">
+            <div
+              className="text-textColor sm:text-[1rem] text-[.9rem]"
+              style={{ fontFamily: "MediumItalic" }}
+            >
+              Whistleblowing
+            </div>
+            <div
+              className="sm:text-[1.6rem] text-[1.3rem] py-[.5rem]"
+              style={{ fontFamily: "semibold1" }}
+            >
+              Our Channel
+            </div>
+
+            <div
+              className="text-[#667085] md:text-[1rem] text-[.9rem]"
+              style={{ wordBreak: "normal", whiteSpace: "normal" }}
+            >
+              Tip-Offs Anonymous provides a whistleblowing platform that allows
+              all PAT stakeholders to raise concerns regarding any incident of
+              wrongdoing, fraud, or unethical behaviour within the workplace.
+              See Something, ….Say Something using these reporting channels:
+              Toll-free hotline: 0800TIPOFFS{" "}
+              <a
+                className="text-textColor"
+                style={{ wordBreak: "normal", whiteSpace: "nowrap" }}
+                href="tel:+2348008476337"
+              >
+                (0800 847 6337)
+              </a>
+              , Web Portal:{" "}
+              <a
+                className="text-textColor"
+                style={{ wordBreak: "normal", whiteSpace: "nowrap" }}
+                href="https://tip-offs.deloitte.com.ng/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                https://tip-offs.deloitte.com.ng/
+              </a>{" "}
+              E-mail:{" "}
+              <a
+                className="text-textColor"
+                href="mailto:tip-offs@deloitte.com.ng"
+                style={{ wordBreak: "normal", whiteSpace: "nowrap" }}
+              >
+                tip-offs@deloitte.com.ng
+              </a>
+              , Mobile App
+            </div>
+
+            <div className="text-[#667085] md:text-[1rem] text-[.9rem] py-[1rem]">
+              Please note that PAT has zero-tolerance policy towards sharp
+              practices, avoid malicious reports and always report in good
+              faith.
+            </div>
+          </div>
         </div>
-      </section>
-    </div>
+      </div>
+    </>
   );
 }
 
