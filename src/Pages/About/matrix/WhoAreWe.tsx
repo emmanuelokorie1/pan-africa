@@ -28,13 +28,14 @@ import gupta from "../../../assets/WhoAreWe/teams/gupta.png";
 import TeemCard from "../../Reuseable/UI/TeemCard";
 
 import { Image, Skeleton } from "@arco-design/web-react";
+import { useLocation } from "react-router-dom";
 
 interface Tab {
   name: string;
   icon: string;
   data: {
     headerText: string;
-    text: string | string[]; // This can now be either a string or an array of strings
+    text?: string | string[]; // This can now be either a string or an array of strings
     text2?: string;
     img: any;
   };
@@ -62,7 +63,7 @@ function WhoAreWe() {
         headerText:
           "With these accomplishments and more, Pan-African Towers Limited, is dedicated and committed to becoming a clear leader in mobile infrastructure sharing operations in Africa.",
         text: [
-          "Africa’s Best Telecom Infrastructure Company of the Year Award (2021)",
+          "Africa's Best Telecom Infrastructure Company of the Year Award (2021)",
           "Most Energy Efficient Telecom Infrastructure Provider of the Year Award (2021)",
           "Pan African International Award (2021)",
           "Telecom Infrastructure Company of the Year Award (2021)",
@@ -87,9 +88,11 @@ function WhoAreWe() {
     },
   ];
 
+  const { pathname } = useLocation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [pathname]);
 
   const [tabValue, setTabValue] = useState("Company Profile");
   return (
@@ -137,7 +140,7 @@ function WhoAreWe() {
         </div>
 
         <div>
-          {tabs?.map((e: Tab, i: number) => {
+          {tabs?.map((e, i) => {
             return (
               <div key={i}>
                 {tabValue === e?.name && (

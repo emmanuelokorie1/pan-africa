@@ -8,8 +8,16 @@ import cardImg2 from "../../assets/home/cardImgs/cardImg2.png";
 import cardImg3 from "../../assets/home/cardImgs/cardImg3.png";
 import cardImg5 from "../../assets/home/cardImgs/cardImg4.png";
 import cardImg4 from "../../assets/news/pan.svg";
+import { useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 function News() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
   return (
     <div>
       <div>

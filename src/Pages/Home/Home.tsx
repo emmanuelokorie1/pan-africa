@@ -36,7 +36,8 @@ import sys from "../../assets/home/marquee/sys.svg";
 import LeftHeader from "../Reuseable/Templates/LeftHeader";
 import ImageCard from "../Reuseable/UI/ImageCard";
 import ContactTemp from "../Reuseable/UI/ContactTemp";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 
 function Home() {
   const imageUrls = [
@@ -49,7 +50,6 @@ function Home() {
     sys,
     eti,
     lite,
-    mtn,
     // nat,
     // smile,
     // smile,
@@ -57,51 +57,71 @@ function Home() {
     // sys,
   ];
 
+  const { pathname, state } = useLocation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [pathname]);
+
+  const sectionRefs = {
+    energy: useRef<HTMLDivElement>(null),
+  };
+
+  useEffect(() => {
+    const sectionToScroll = state?.scrollToSection;
+    if (sectionToScroll && sectionRefs[sectionToScroll]?.current) {
+      sectionRefs[sectionToScroll].current.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  }, [state, sectionRefs]);
 
   return (
     <div className="overflow-x-hidden">
       <BackgroundSlideshow />
-
-      <div className="flex justify-center bg-gray-50" data-aos="zoom-in">
-        <div className="text-textColor md:py-[4rem] py-[2rem] md:w-[70%] sm:w-[80%] w-[90%] text-[1.3rem] text-center">
-          We aim to follow an unconventional approach by collaborating with
-          partners in a new eco system to meet African data consumption needs.
+      {/* data-aos="zoom-in" data-aos-once="true" */}
+      <div className="flex justify-center bg-gray-50">
+        <div className="text-textColor md:py-[3rem] py-[2rem] md:w-[70%] sm:w-[80%] w-[90%] text-[1.3rem] text-center">
+          <span className="text-black">We aim to follow</span> an unconventional
+          approach by collaborating with partners in a new eco system to meet
+          African data consumption needs.
         </div>
       </div>
 
-      <div className="grid s1000:grid-cols-4 gap-4 sm:grid-cols-2 grid-cols-1 px-[2rem] s1000:px-0">
+      <div className="grid s1000:grid-cols-4 sm:grid-cols-2 grid-cols-1 px-[1rem] s1000:px-0">
         <div>
           <ZoomImage
             images={[{ url: zoom1 }, { url: zoom2 }]}
-            text="In the tower business, our focus is on developing cost leadership, improving quality of service, and growing the business including entry into other key African Countries"
-            header="TowerCo"
+            text="Our extensive tower network ensures that our customers stay connected, no matter where they are. Trust Pan African Towers to provide reliable and consistent service, powered by one of the largest tower infrastructures in the industry."
+            header="Towers"
+            nums={"1000+"}
             icon={Icon1}
           />
         </div>
         <div>
           <ZoomImage
             images={[{ url: zoom3 }, { url: zoom4 }]}
-            text="We provide sustainable, dynamic & innovative infrastructure solutions and platforms to transform communities through technology in an efficient manner."
-            header="InfraCo"
+            text="With over 750 active sites across the country, our company ensures unmatched connectivity and coverage. Our robust infrastructure powers reliable communication services, reaching even the most remote areas."
+            header="Active sites"
+            nums="764"
             icon={infra}
           />
         </div>
         <div>
           <ZoomImage
-            images={[{ url: careerr }, { url: zoom6 }]}
-            text="Africa has a significant energy shortage. We can help bridge the gap by providing energy beyond our towers. We are positioned to meet the energy needs of local communities and businesses"
-            header="PowerCo"
+            images={[{ url: zoom5 }, { url: zoom6 }]}
+            text="Our extensive network and dedicated services empower a diverse range of tenants to stay connected effortlessly. Join our growing community and experience the reliability and innovation that we bring to the telecommunications industry."
+            header="Tenants"
+            nums="1200"
             icon={power}
           />
         </div>
         <div>
           <ZoomImage
             images={[{ url: zoom7 }, { url: zoom8 }]}
-            text="Years of service in Africa"
-            header="65+"
+            text="With over five years of experience, our company has been a trusted leader in delivering cutting-edge communication solutions. Our experience and commitment to innovation have kept us at the forefront of the industry, ensuring seamless connectivity for businesses and individuals alike"
+            header="Experience"
+            nums="5+"
             icon={icon4}
           />
         </div>
@@ -120,7 +140,7 @@ function Home() {
         />
       </div>
 
-      <div className="bg-white">
+      <div className="bg-white" ref={sectionRefs?.energy}>
         <div>
           <CenteredHeader
             title={"Our services"}

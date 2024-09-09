@@ -7,7 +7,7 @@ import styled from "styled-components";
 import { useEffect, useState } from "react";
 import { Tooltip } from "@arco-design/web-react";
 import Text from "@arco-design/web-react/es/Typography/text";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 function Contact() {
   const data = [
@@ -37,9 +37,11 @@ function Contact() {
     },
   ];
 
+  const { pathname } = useLocation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [pathname]);
 
   const [formData, setFormData] = useState({
     firstName: "",

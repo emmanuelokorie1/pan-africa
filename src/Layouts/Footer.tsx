@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation, useNavigate } from "react-router-dom";
 import logo from "../assets/logo2.png";
 import { FaFacebookF, FaLinkedinIn } from "react-icons/fa";
 import { RiTwitterXFill } from "react-icons/ri";
@@ -6,6 +6,7 @@ import styled from "styled-components";
 import { MdEmail } from "react-icons/md";
 import { IoCall } from "react-icons/io5";
 import { FaLocationDot } from "react-icons/fa6";
+import { useEffect, useRef } from "react";
 
 function Footer() {
   const Source = [
@@ -13,6 +14,8 @@ function Footer() {
     { icon: <RiTwitterXFill />, url: "" },
     { icon: <FaLinkedinIn />, url: "" },
   ];
+
+  const navigate = useNavigate();
 
   const tabs = [
     {
@@ -29,19 +32,23 @@ function Footer() {
     {
       name: "Solutions",
       minidata: [
-        { name: "DAS Solution", tab: "" },
-        { name: "Co-location", tab: "" },
-        { name: "Site leasing", tab: "" },
-        { name: "Green energy", tab: "" },
-        { name: "Built to suit", tab: "" },
-        { name: "Broadband", tab: "" },
+        { name: "DAS Solution", tab: "/core-services", scroll: "solution" },
+        { name: "Co-location", tab: "/core-services", scroll: "location" },
+        { name: "Site leasing", tab: "/core-services", scroll: "Site" },
+        { name: "Green energy", tab: "/", scroll: "energy" },
+        { name: "Built to suit", tab: "/core-services", scroll: "Built" },
+        {
+          name: "Broadband",
+          tab: "/value-added-services",
+          scroll: "Broadband",
+        },
       ],
     },
     {
       name: "Services",
       minidata: [
-        { name: "Core services", tab: "core-services" },
-        { name: "Value added services", tab: "value-added-services" },
+        { name: "Core services", tab: "/core-services" },
+        { name: "Value added services", tab: "/value-added-services" },
       ],
     },
     // {
@@ -62,6 +69,11 @@ function Footer() {
     { name: "info@panafricantowers.com", icon: <MdEmail />, gi: "email" },
     { name: "234 808 110 1475", icon: <IoCall />, gi: "call" },
   ];
+
+  const handleScrollSection = (tab: any) => {
+
+    navigate(tab?.tab, { state: { scrollToSection: tab?.scroll } });
+  };
 
   return (
     <div className="bg-background text-white px-[2rem] md:px-[4rem] lg:px-[8rem] py-[2rem]">
@@ -163,13 +175,16 @@ function Footer() {
                     {e?.minidata?.map((item: any, i: number) => {
                       return (
                         <div key={i} className="py-[.3rem]">
-                          {"tab" in item ? (
+                          {"tab" in item && e?.name !== "Solutions" ? (
                             <div>
                               <NavLink to={item?.tab}>{item?.name}</NavLink>
                             </div>
                           ) : (
                             <div>
-                              {item?.name.includes("@") ? (
+                              <div onClick={() => handleScrollSection(item)} className="cursor-pointer">
+                                {item?.name}
+                              </div>
+                              {/* {item?.name.includes("@") ? (
                                 <div>
                                   <a
                                     href={`mailto:${item?.name}`}
@@ -195,7 +210,7 @@ function Footer() {
                                     +{item?.name}
                                   </a>
                                 </div>
-                              )}
+                              )} */}
                             </div>
                           )}
                         </div>

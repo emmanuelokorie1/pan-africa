@@ -9,12 +9,37 @@ import buy from "../../../assets/coreService/buy.png";
 import das from "../../../assets/coreService/das.png";
 import ImageAndGridTextRight from "../../Reuseable/Templates/ImageAndGridTextRight";
 import ContactTemp from "../../Reuseable/UI/ContactTemp";
+import { useLocation } from "react-router-dom";
+import { useEffect, useRef } from "react";
 
 function CoreServices() {
+  const { pathname, state } = useLocation(); // Extract pathname and state from useLocation
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  const sectionRefs = {
+    solution: useRef<HTMLDivElement>(null),
+    location: useRef<HTMLDivElement>(null),
+    Site: useRef<HTMLDivElement>(null),
+    Built: useRef<HTMLDivElement>(null),
+  };
+
+  useEffect(() => {
+    const sectionToScroll = state?.scrollToSection;
+    if (sectionToScroll && sectionRefs[sectionToScroll]?.current) {
+      sectionRefs[sectionToScroll].current.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  }, [state, sectionRefs]);
+
   const tamps = [
     {
       img: colocation,
       title: "Colocation",
+      ref: sectionRefs?.location,
       headerText:
         "Grow Towers, Position for Data Demands and Bridge the Power Gap",
       text: "Through our towers, we provide clients with space, cooling, physical security, and power to meet their business needs whether it is traditional telephony, broadband, backbone transport, or additional supplementary services.",
@@ -22,6 +47,7 @@ function CoreServices() {
     {
       img: built,
       title: "Built-to-suit",
+      ref: sectionRefs?.Built,
       headerText:
         "Grow Towers, Position for Data Demands and Bridge the Power Gap",
       text: "To improve mobile coverage and broadband connectivity, Pan African Tower designs and deploys tower solutions that match the need and meets the specification of our clients.",
@@ -31,6 +57,7 @@ function CoreServices() {
     {
       img: manage,
       title: "Managed services",
+      ref: null,
       headerText:
         "Grow Towers, Position for Data Demands and Bridge the Power Gap",
       text: "We provide managed services to towers owned by 3rd party including power, security, maintenance, and monitoring.",
@@ -40,6 +67,7 @@ function CoreServices() {
     {
       img: buy,
       title: "Buy-lease-back",
+      ref: sectionRefs?.Site,
       headerText:
         "Grow Towers, Position for Data Demands and Bridge the Power Gap",
       text: "We acquire towers in strategic locations to meet the growing demand for mobile and broadband services.",
@@ -49,6 +77,7 @@ function CoreServices() {
     {
       img: das,
       title: "DAS solutions",
+      ref: sectionRefs?.solution,
       headerText:
         "Grow Towers, Position for Data Demands and Bridge the Power Gap",
       text: "With the growing need to improve mobile and broadband connectivity in certain indoor and outdoor spaces, Pan African Towers provides distributed antenna solutions to meet this demand.",
@@ -73,7 +102,7 @@ function CoreServices() {
       <section>
         {tamps?.map((e, i) => {
           return (
-            <div key={i}>
+            <div key={i} ref={e?.ref}>
               {i % 2 ? (
                 <div>
                   <div className="bg-secback">
@@ -103,6 +132,8 @@ function CoreServices() {
           );
         })}
       </section>
+
+      <div>hello</div>
 
       <div>
         <ContactTemp />

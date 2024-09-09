@@ -5,11 +5,15 @@ import ImageAndTextGrid from "../Reuseable/Templates/ImageAndTextGrid";
 import career from "../../assets/career/careerTemp.png";
 import ContactTemp from "../Reuseable/UI/ContactTemp";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 function Career() {
+  const { pathname } = useLocation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [pathname]);
+  
   return (
     <div className="overflow-x-hidden">
       <div>

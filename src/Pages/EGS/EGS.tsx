@@ -3,12 +3,17 @@ import HeaderNav from "../Reuseable/UI/HeaderNav";
 import gram from "../../assets/egs/Gram.png";
 import Timelines from "./Timelines";
 import { useEffect } from "react";
+import { useLocation } from "react-router-dom";
 
 
 function EGS() {
+
+  const { pathname } = useLocation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [pathname]);
+
   return (
     <div>
       <div>

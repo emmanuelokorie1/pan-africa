@@ -6,6 +6,7 @@ interface ZoomImageProps {
   text: React.ReactNode;
   icon?: any;
   header?: React.ReactNode;
+  nums?: React.ReactNode;
 }
 
 // Zoom in and out animation
@@ -75,14 +76,14 @@ const TextOverlay = styled.div`
   top: 50%;
   left: 0%;
   transform: translate(0%, -50%);
-  padding: 0 2rem;
+  padding: 0 1rem;
   color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   width: 100%;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+  /* text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); */
   z-index: 2;
   text-align: center;
 `;
@@ -92,6 +93,7 @@ const ZoomImage: React.FC<ZoomImageProps> = ({
   text,
   icon,
   header,
+  nums,
 }) => {
   const [activeImage, setActiveImage] = useState(0);
   const [isExiting, setIsExiting] = useState(false);
@@ -124,8 +126,9 @@ const ZoomImage: React.FC<ZoomImageProps> = ({
             <img src={icon} alt="" />
           </div>
         </div>
-        <div className="text-[1.8rem]">{header}</div>
-        <div className="text-[#FFFFFF] text-[.9rem]">{text}</div>
+        <div className="text-[1.5rem]" style={{fontFamily: 'semibold1'}}>{nums}</div>
+        <div className="text-[1.5rem]" style={{fontFamily: 'semibold1'}}>{header}</div>
+        <div className="text-[#FFFFFF] text-[.95rem]">{text}</div>
       </TextOverlay>{" "}
       {/* Static text */}
     </BackgroundContainer>

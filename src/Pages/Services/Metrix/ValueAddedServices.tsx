@@ -9,12 +9,36 @@ import support from "../../../assets/valueservice/support.png";
 
 import ImageAndGridTextRight from "../../Reuseable/Templates/ImageAndGridTextRight";
 import ImageAndTextGrid from "../../Reuseable/Templates/ImageAndTextGrid";
+import { useEffect, useRef } from "react";
+import { useLocation } from "react-router-dom";
 
 function ValueAddedServices() {
+
+  const { pathname, state } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  const sectionRefs = {
+    Broadband: useRef<HTMLDivElement>(null),
+  };
+
+  useEffect(() => {
+    const sectionToScroll = state?.scrollToSection;
+    if (sectionToScroll && sectionRefs[sectionToScroll]?.current) {
+      sectionRefs[sectionToScroll].current.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  }, [state, sectionRefs]);
+
+
   const tamps = [
     {
       img: broadband,
       title: "Broadband",
+      ref: sectionRefs?.Broadband,
       headerText:
         "Growing data demand in our cities overwhelms current communication infrastructure.",
       text1Head: "Wifi",
@@ -27,6 +51,7 @@ function ValueAddedServices() {
     {
       img: utility,
       title: "Utility",
+      ref: null,
       headerText:
         "Our Towers do much more than support telephony and broadband.",
       prevText:
@@ -41,6 +66,7 @@ function ValueAddedServices() {
     {
       img: content,
       title: "Content",
+      ref: null,
       headerText:
         "Through our towers, we offer partnership to over-the-top (OTT) players, broadcasters, and advertisers to provide content to their subscribers.",
      text1Head: "Mobile edge offload",
@@ -53,6 +79,7 @@ function ValueAddedServices() {
     {
       img: support,
       title: "Support",
+      ref: null,
       headerText:
         "We offer real-time 24 hours monitoring capability to sites, equipment, and remote installations through.",
      text1Head: "IoT",
@@ -63,6 +90,8 @@ function ValueAddedServices() {
         "(Remote Monitoring Solutions)",
     },
   ];
+
+ 
   return (
     <div>
       <div>
@@ -81,7 +110,7 @@ function ValueAddedServices() {
       <section>
         {tamps?.map((e, i) => {
           return (
-            <div key={i}>
+            <div key={i} ref={e?.ref}>
               {i % 2 ? (
                 <div>
                   <div className="bg-secback">

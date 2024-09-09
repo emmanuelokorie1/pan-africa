@@ -11,6 +11,7 @@ import OurVision from "../../Reuseable/UI/OurVision";
 import ImageAndGridTextRight from "../../Reuseable/Templates/ImageAndGridTextRight";
 
 import { Image, Skeleton } from "@arco-design/web-react";
+import { useLocation } from "react-router-dom";
 
 function OurCoreValue() {
   const [customerTab, setCustomerTab] = useState("Customer Focus");
@@ -32,9 +33,11 @@ function OurCoreValue() {
     },
   ];
 
+  const { pathname } = useLocation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [pathname]);
 
   const imageSize = { width: '100%', height: '100%' };
   return (

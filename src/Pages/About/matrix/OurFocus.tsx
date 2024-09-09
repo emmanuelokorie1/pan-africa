@@ -14,6 +14,7 @@ import infra from "../../../assets/focus/path/infra.png";
 import power from "../../../assets/focus/path/power.png";
 import ContactTemp from "../../Reuseable/UI/ContactTemp";
 import { Image, Skeleton } from "@arco-design/web-react";
+import { useLocation } from "react-router-dom";
 
 interface Tab {
   name: string;
@@ -43,9 +44,11 @@ function OurFocus() {
     },
   ];
 
+  const { pathname } = useLocation();
+
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [pathname]);
 
   const tabs: Tab[] = [
     {

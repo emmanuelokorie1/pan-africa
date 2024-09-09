@@ -5,6 +5,7 @@ import Loading from "./Layouts/Loading";
 import TeamTemplate from "./Pages/About/TeamTemplate";
 import Privacy from "./Pages/Contact/Privacy";
 import NewsTemplate from "./Pages/News/NewsTemplate";
+import ScrollToTop from "./Hooks/ScrollToTop";
 
 const Home = lazy(() => import("./Pages/Home/Home"));
 const Contact = lazy(() => import("./Pages/Contact/Contact"));
@@ -134,7 +135,6 @@ function App() {
 
   return (
     <div className="App">
-      
       <RouterProvider router={router} />
     </div>
   );

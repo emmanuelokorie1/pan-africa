@@ -38,7 +38,7 @@ const slideInRight = keyframes`
 const BackgroundContainer = styled.div`
   position: relative;
   width: 100%;
-  /* height: 100vh; */
+  height: 80vh;
   overflow: hidden;
 `;
 
@@ -72,8 +72,9 @@ const ImageThree = styled(ImageBase)``;
 const TextOverlay = styled.div`
   position: absolute;
   bottom: 40%;
-  left: 5%;
+  left: 8%;
   transform: translateX(0, -50%);
+  font-family: semibold1;
   color: white;
   font-size: 26px;
   z-index: 2; // Ensure the text is always on top

@@ -28,7 +28,7 @@ function Timelines() {
             both internal and external stakeholders - employees, customers,
             suppliers, local communities, regulators and governments,
             shareholders and investors. Regular engagement gives us more insight
-            into stakeholders’ priorities, needs and concerns and allows us to
+            into stakeholder's priorities, needs and concerns and allows us to
             respond proactively and promptly.
           </div>
           <div className="h-150px py-[1rem]">
@@ -62,21 +62,21 @@ function Timelines() {
             that appropriate mitigation plans are in place to avoid, eliminate,
             or minimize the impact of such risks, should they arise. We plan to
             regularly review our risk registers for sufficiency and
-            effectiveness or otherwise of our management plan 
+            effectiveness or otherwise of our management plan
           </div>
         </div>
       ),
     },
     {
       title: "Climate Change Policy",
-      text: "At Pan African Towers, we acknowledge the significant role that the telecoms industry can play in finding sustainable solutions to today’s climate challenges.",
+      text: "At Pan African Towers, we acknowledge the significant role that the telecoms industry can play in finding sustainable solutions to today's climate challenges.",
       conText: (
         <div className="text-gray-800 text-[.9rem]">
           <div>
             There is no greater threat to our collective future than climate
             change. At Pan African Towers, we acknowledge the significant role
             that the telecoms industry can play in finding sustainable solutions
-            to today’s climate challenges.
+            to today's climate challenges.
           </div>
           <div className="pt-[2rem]">
             In a bid to reducing our carbon footprint as the foremost indigenous
@@ -84,9 +84,9 @@ function Timelines() {
             committed to:
           </div>
           <div className="py-[1rem]">
-            1.     Connect all our Lagos sites to the national grid.
+            1. Connect all our Lagos sites to the national grid.
             <div>
-              2.     Ensure that majority of our sites in the Northern region of
+              2. Ensure that majority of our sites in the Northern region of
               Nigeria operates on hybrid powered system (Solar and Generator)
             </div>
           </div>
@@ -179,13 +179,13 @@ function Timelines() {
                 "Ensure our operations are carried out in compliance with all applicable environmental and social laws, policies, and guidelines, as well as best international practices including IFC Environmental and Social Performance Standards. ",
                 "Employ efficient use of energy and natural resources.",
                 "Establish environmental and social requirement for PAT contractors and vendors.",
-                " Proactively identify and manage environmental and social risks that the company’s activities may pose to the environment and communities.",
+                " Proactively identify and manage environmental and social risks that the company's activities may pose to the environment and communities.",
                 "Develop emergency planning, preparedness and management that will ensure quick response to incidents, if/when they occur and minimize their impact on the environment and communities.",
                 "Develop effective methods for the proactive communication, consultation, and long-term engagement with all stakeholders.",
                 "Prevent pollution from our base stations to the environmental media - land, air and water and maintain our facilities, workplaces, base stations and other assets in an environmentally conscious manner using the best practicable environmental option (BPEO).",
                 "Set realistic and measurable objectives and targets and monitor progress to ensure continuous improvement in our environmental and social performance as much as is reasonably practicable",
                 "Commit to reduce waste generation by following the Waste Hierarchy to reduce, reuse and recycle waste as much as is feasible",
-                "Commit appropriate resources to the implementation of this policy and Ensure continuous improvement of all employee’s company wide as it concerns their environmental and social responsibilities. Tailored trainings on environmental protection and management shall be organized as the need arises.",
+                "Commit appropriate resources to the implementation of this policy and Ensure continuous improvement of all employee's company wide as it concerns their environmental and social responsibilities. Tailored trainings on environmental protection and management shall be organized as the need arises.",
               ]?.map((e, i) => {
                 return (
                   <div key={i} className="flex gap-2 py-[.5rem]">
@@ -233,14 +233,14 @@ function Timelines() {
             To achieve these objectives, it is our commitment to:
             <div className=" pt-[2rem]">
               {[
-                "Eliminate hazards and reduce Occupational Health & Safety (OH&S) risks to as low as reasonably practicable in all our operations by engaging in proactive      and early identification of potential hazards and risks and taking early      actions to eliminate such threats.",
+                "Eliminate hazards and reduce Occupational Health & Safety (OH&S) risks to as low as reasonably practicable in all our operations by engaging in proactive and early identification of potential hazards and risks and taking early actions to eliminate such threats.",
                 "Ensure compliance by all workers, employees, visitors and interested parties by developing a culture of strict compliance and responsibility at all levels",
                 "Ensure continual improvement by periodically tracking and monitoring our OH&SMS for adequacy, effectiveness, and suitability.",
                 "Ensure continuous consultation and participation of workers and other interested parties on OHS matters.",
                 "Allocate sufficient financial and non-financial resources for the effective implementation of the OH&SMS",
                 "Provide our employees with appropriate information, instructions, supervision, and periodic bespoke work task trainings to achieve better OHS outcomes.",
                 "Ensure all contractors abide by this policy using industry standards, best practices, and procedures.",
-                "Comply wholly with all relevant and applicable legislations, regulations, approved codes of practice, standards, guidelines, and other requirements      for the overall safety of the work environment as well as the safety of      all our employees and persons within our operating bases.",
+                "Comply wholly with all relevant and applicable legislations, regulations, approved codes of practice, standards, guidelines, and other requirements for the overall safety of the work environment as well as the safety of all our employees and persons within our operating bases.",
                 "Monitor issues related to working conditions affecting sick leave, accidents at work, work capacity evaluation, monitoring the amount of work strain, work atmosphere etc",
                 " Ensure workplace safety for specific situations, e.g., working alone, threat of violence, early support on new directive, first aid etc",
                 "Ensure attention around work orientation and guidance, procurement, training and communication, development activity and situations of change is in line with the provisions of ISO 45001:2018.",
@@ -284,7 +284,7 @@ function Timelines() {
             Some of our efforts include but not limited to:
           </div>
           <div>
-            1.     Implementation of solar power for our sites (79nos) at the
+            1. Implementation of solar power for our sites (79nos) at the
             Northern, Nigeria. This provides complementary and significant power
             for our infrastructure, supporting the diesel-powered generator in a
             balance ratio, thereby reducing significant percentage of the
@@ -292,7 +292,7 @@ function Timelines() {
             for more sites and extends to other regions of the country
           </div>
           <div>
-            2.     Unlocking the national grid power provision for our
+            2. Unlocking the national grid power provision for our
             infrastructure in Southwest, with Lagos as pilot (128 sites). This
             giant stride reveals our intentions to reduce our associated
             emission (especially scope 1), whilst we review the efficiency of
@@ -349,7 +349,7 @@ function Timelines() {
 
       <Modal open={showModal}>
         <StyledModalBackground>
-          <StyledModalContent data-aos="slide-down">
+          <StyledModalContent data-aos="slide-down" className="s1000:w-[60%] md:w-[80%] w-[90%] md:px-[2rem] sm:px-[1rem] px-[.5rem]">
             <SeeMoreModal
               setModal={setShowModal}
               children={getContent}
@@ -365,9 +365,7 @@ function Timelines() {
 export default Timelines;
 
 const StyledModalContent = styled.div`
-  padding: 0 2rem;
   border-radius: 0.4rem;
-  width: 60%;
   background-color: #fff;
   color: rgba(0, 0, 0, 0.8);
   max-height: 39rem;
