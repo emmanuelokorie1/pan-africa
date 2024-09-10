@@ -37,7 +37,7 @@ const TeemCard: React.FC<customProps> = ({
             </div>
           </div>
           <div className="">
-            <div className="shorttext text-[.9rem] text-gray-600">{role}</div>
+            <div className="shorttext text-[.9rem] text-gray-600">{fullrole}</div>
             <div className="fulltext text-[.8rem] text-gray-600">
               {fullrole}
             </div>
