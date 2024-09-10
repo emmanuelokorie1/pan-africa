@@ -63,24 +63,11 @@ function Home() {
     // sys,
   ];
 
-  const { pathname, state } = useLocation();
+  const { pathname } = useLocation();
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
-
-  const sectionRefs = {
-    energy: useRef<HTMLDivElement>(null),
-  };
-
-  useEffect(() => {
-    const sectionToScroll = state?.scrollToSection;
-    if (sectionToScroll && sectionRefs[sectionToScroll]?.current) {
-      sectionRefs[sectionToScroll].current.scrollIntoView({
-        behavior: "smooth",
-      });
-    }
-  }, [state, sectionRefs]);
 
   return (
     <div className="overflow-x-hidden">
@@ -119,7 +106,7 @@ function Home() {
             text="Our extensive network and dedicated services empower a diverse range of tenants to stay connected effortlessly. Join our growing community and experience the reliability and innovation that we bring to the telecommunications industry."
             header="Tenants"
             nums="1200"
-            icon={power}
+            icon={icon4}
           />
         </div>
         <div>
@@ -128,7 +115,7 @@ function Home() {
             text="With over five years of experience, our company has been a trusted leader in delivering cutting-edge communication solutions. Our experience and commitment to innovation have kept us at the forefront of the industry, ensuring seamless connectivity for businesses and individuals alike"
             header="Experience"
             nums="5+"
-            icon={icon4}
+            icon={power}
           />
         </div>
       </div>
@@ -146,7 +133,7 @@ function Home() {
         />
       </div>
 
-      <div className="bg-white" ref={sectionRefs?.energy}>
+      <div className="bg-white" >
         <div>
           <CenteredHeader
             title={"Our services"}

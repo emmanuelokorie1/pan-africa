@@ -24,6 +24,7 @@ function CoreServices() {
     location: useRef<HTMLDivElement>(null),
     Site: useRef<HTMLDivElement>(null),
     Built: useRef<HTMLDivElement>(null),
+    energy: useRef<HTMLDivElement>(null),
   };
 
   useEffect(() => {
@@ -57,7 +58,7 @@ function CoreServices() {
     {
       img: manage,
       title: "Managed services",
-      ref: null,
+      ref: sectionRefs?.energy,
       headerText:
         "Grow Towers, Position for Data Demands and Bridge the Power Gap",
       text: "We provide managed services to towers owned by 3rd party including power, security, maintenance, and monitoring.",
@@ -132,8 +133,6 @@ function CoreServices() {
           );
         })}
       </section>
-
-      <div>hello</div>
 
       <div>
         <ContactTemp />

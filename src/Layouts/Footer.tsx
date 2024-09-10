@@ -34,14 +34,14 @@ function Footer() {
       minidata: [
         { name: "DAS Solution", tab: "/core-services", scroll: "solution" },
         { name: "Co-location", tab: "/core-services", scroll: "location" },
-        { name: "Site leasing", tab: "/core-services", scroll: "Site" },
-        { name: "Green energy", tab: "/", scroll: "energy" },
+        { name: "Buy lease back", tab: "/core-services", scroll: "Site" },
+        { name: "Managed services", tab: "/core-services", scroll: "energy" },
         { name: "Built to suit", tab: "/core-services", scroll: "Built" },
-        {
-          name: "Broadband",
-          tab: "/value-added-services",
-          scroll: "Broadband",
-        },
+        // {
+        //   name: "Broadband",
+        //   tab: "/value-added-services",
+        //   scroll: "Broadband",
+        // },
       ],
     },
     {
@@ -77,7 +77,7 @@ function Footer() {
 
   return (
     <div className="bg-background text-white px-[2rem] md:px-[4rem] lg:px-[8rem] py-[2rem]">
-      <section className="flex flex-col lg:flex-row gap-[1rem] items-start border-b border-[#694134] pb-[2rem]">
+      <section className="flex flex-col lg:flex-row gap-[1rem] items-start border-b border-[#FB9677] pb-[2rem]">
         <aside className="w-full lg:w-[55%]">
           <div className="text-[1.5rem] md:text-[2rem] font-semibold">
             Sign up for our newsletter
@@ -100,7 +100,7 @@ function Footer() {
         </aside>
       </section>
 
-      <section className="py-[2rem] flex flex-col lg:flex-row justify-between border-b border-[#694134]">
+      <section className="py-[2rem] flex flex-col lg:flex-row justify-between border-b border-[#FB9677]">
         <aside className="w-full lg:w-[40%] text-center lg:text-left">
           <NavLink to={"/"}>
             <div className="w-[80px] md:w-[100px] lg:w-[120px] mx-auto lg:mx-0">
@@ -171,10 +171,10 @@ function Footer() {
                   <div className="text-[#DED9C9] py-[.6rem] font-semibold">
                     {e?.name}
                   </div>
-                  <div className="text-[.85rem]">
+                  <div className="text-[.85rem] ">
                     {e?.minidata?.map((item: any, i: number) => {
                       return (
-                        <div key={i} className="py-[.3rem]">
+                        <div key={i} className="py-[.3rem] hover:text-gray-400">
                           {"tab" in item && e?.name !== "Solutions" ? (
                             <div>
                               <NavLink to={item?.tab}>{item?.name}</NavLink>
