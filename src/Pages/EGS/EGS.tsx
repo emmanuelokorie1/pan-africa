@@ -19,7 +19,7 @@ function EGS() {
       <div>
         <HeaderNav
           title={"ESG"}
-          headerText={"Environmental, Social and Goverance"}
+          headerText={"Environmental, Social and Governance"}
           text={
             "We are committed to the integration of environmental and social considerations into all aspects of our business activities for the promotion of a sustainable company."
           }
