@@ -25,7 +25,8 @@ import icon4 from "../../assets/home/zooms/icons/icon4.svg";
 import ImageAndTextGrid from "../Reuseable/Templates/ImageAndTextGrid";
 import CenteredHeader from "../Reuseable/Templates/CenteredHeader";
 import Swipper from "../Reuseable/UI/Swipper";
-import Marquee from "../Reuseable/UI/Marquee";
+// import Marquee from "../Reuseable/UI/Marquee";
+
 import eti from "../../assets/home/marquee/eti.svg";
 import lite from "../../assets/home/marquee/lite.svg";
 import mtn from "../../assets/home/marquee/mtn.svg";
@@ -33,11 +34,16 @@ import nat from "../../assets/home/marquee/nat.svg";
 import smile from "../../assets/home/marquee/smile.svg";
 import spec from "../../assets/home/marquee/spec.svg";
 import sys from "../../assets/home/marquee/sys.svg";
+import ntel from "../../assets/home/marquee/ntel.png";
+import flux from "../../assets/home/marquee/flux.png";
+import csl from "../../assets/home/marquee/csl.png";
+
 import LeftHeader from "../Reuseable/Templates/LeftHeader";
 import ImageCard from "../Reuseable/UI/ImageCard";
 import ContactTemp from "../Reuseable/UI/ContactTemp";
 import { useEffect, useRef } from "react";
 import { useLocation } from "react-router-dom";
+import Marquee from "react-fast-marquee";
 
 function Home() {
   const imageUrls = [
@@ -48,9 +54,9 @@ function Home() {
     smile,
     spec,
     sys,
-    eti,
-    lite,
-    // nat,
+    ntel,
+    flux,
+    csl,
     // smile,
     // smile,
     // spec,
@@ -109,7 +115,7 @@ function Home() {
         </div>
         <div>
           <ZoomImage
-            images={[{ url: zoom5 }, { url: zoom6 }]}
+            images={[{ url: zoom7 }, { url: zoom8 }]}
             text="Our extensive network and dedicated services empower a diverse range of tenants to stay connected effortlessly. Join our growing community and experience the reliability and innovation that we bring to the telecommunications industry."
             header="Tenants"
             nums="1200"
@@ -118,7 +124,7 @@ function Home() {
         </div>
         <div>
           <ZoomImage
-            images={[{ url: zoom7 }, { url: zoom8 }]}
+            images={[{ url: zoom5 }, { url: zoom6 }]}
             text="With over five years of experience, our company has been a trusted leader in delivering cutting-edge communication solutions. Our experience and commitment to innovation have kept us at the forefront of the industry, ensuring seamless connectivity for businesses and individuals alike"
             header="Experience"
             nums="5+"
@@ -165,7 +171,16 @@ function Home() {
           />
         </div>
 
-        <Marquee images={imageUrls} speed={0.5} />
+        {/* <Marquee images={imageUrls} speed={0.5} /> */}
+        <Marquee>
+          {imageUrls?.map((e, i) => {
+            return (
+              <div>
+                <img src={e} alt={i + "image"} />
+              </div>
+            );
+          })}
+        </Marquee>
       </div>
 
       <div className="md:w-[55%] w-[100%] md:ps-[7rem] sm:ps-[5rem] ps-[3rem]">

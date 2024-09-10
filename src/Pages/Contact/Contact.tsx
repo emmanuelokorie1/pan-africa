@@ -1,5 +1,5 @@
 import HeaderNav from "../Reuseable/UI/HeaderNav";
-import Img from "../../assets/conatct/contact.svg";
+import Img from "../../assets/conatct/contact.png";
 import { MdOutlineEmail } from "react-icons/md";
 import { BsChat } from "react-icons/bs";
 import { IoCallOutline, IoLocationOutline } from "react-icons/io5";

@@ -52,10 +52,10 @@ const HeaderNav: React.FC<customProps> = ({
               </div>
             </div>
             <div className="w-full lg:w-[40%] mt-8 lg:mt-0">
-              <div className="w-[300px] h-[300px] md:w-[350px] md:h-[350px] lg:w-[400px] lg:h-[350px] mx-auto lg:mx-0" data-aos="fade-up">
+              <div className="w-[300px] h-[300px] md:w-[350px] md:h-[350px] lg:w-[420px] lg:h-[400px] mx-auto lg:mx-0 " data-aos="fade-up">
                 <Image
                   {...imageSize}
-                  className="h-[100%]"
+                  className="h-[100%] object-cover"
                   src={Img}
                   alt=""
                   preview={false}

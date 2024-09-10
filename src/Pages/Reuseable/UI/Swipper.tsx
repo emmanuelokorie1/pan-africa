@@ -37,73 +37,37 @@ const MySwiperComponent = () => {
       <SwiperSlide>
         <div className="slide-content">
           <img src={gallery1} alt="Gallery 1" />
-          <p className="slide-text">Focus on Connectivity</p>
+          <p className="slide-text">Buy-lease-back</p>
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className="slide-content">
           <img src={gallery2} alt="Gallery 2" />
-          <p className="slide-text">Core Services</p>
+          <p className="slide-text">Managed services</p>
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className="slide-content">
           <img src={gallery3} alt="Gallery 3" />
-          <p className="slide-text">Our Core Values</p>
+          <p className="slide-text">Colocation</p>
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className="slide-content">
           <img src={gallery4} alt="Gallery 1" />
-          <p className="slide-text">Focus on Connectivity</p>
+          <p className="slide-text">Built to suit</p>
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className="slide-content">
           <img src={gallery5} alt="Gallery 2" />
-          <p className="slide-text">Core Services</p>
+          <p className="slide-text">DAS Solution</p>
         </div>
       </SwiperSlide>
       <SwiperSlide>
         <div className="slide-content">
           <img src={gallery6} alt="Gallery 3" />
-          <p className="slide-text">Our Core Values</p>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className="slide-content">
-          <img src={gallery1} alt="Gallery 1" />
-          <p className="slide-text">Focus on Connectivity</p>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className="slide-content">
-          <img src={gallery2} alt="Gallery 2" />
-          <p className="slide-text">Core Services</p>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className="slide-content">
-          <img src={gallery3} alt="Gallery 3" />
-          <p className="slide-text">Our Core Values</p>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className="slide-content">
-          <img src={gallery4} alt="Gallery 1" />
-          <p className="slide-text">Focus on Connectivity</p>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className="slide-content">
-          <img src={gallery5} alt="Gallery 2" />
-          <p className="slide-text">Core Services</p>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide>
-        <div className="slide-content">
-          <img src={gallery6} alt="Gallery 3" />
-          <p className="slide-text">Our Core Values</p>
+          <p className="slide-text">Wifi Deployement</p>
         </div>
       </SwiperSlide>
     </Swiper>
