@@ -28,7 +28,7 @@ const TeemCard: React.FC<customProps> = ({
       <CardText>
         <div className=" ps-2 ">
           <div className="flex justify-between items-center w-[100%]">
-            <div className="font-bold text-[1rem]">{name}</div>
+            <div className="text-[1rem]" style={{ fontFamily: "semibold1" }}>{name}</div>
             <div className=" cursor-pointer flex items-center gap-2 text-[.8rem] mt-3 text-textColor">
               <div>View</div>
               <div>

@@ -26,15 +26,15 @@ function NewsTemplate() {
       content: (
         <div>
           <div>
-            Nigeria’s leading provider of digital infrastructure, Pan African
+            Nigeria's leading provider of digital infrastructure, Pan African
             Towers (PAT), has announced the appointment of Oladipo Badru as its
             new Chief Financial Officer
           </div>
           <div>
-            The appointment comes at a key moment in the company’s growth, with
+            The appointment comes at a key moment in the company's growth, with
             the recent influx of fresh investments from Development Partners
             International (DPI) and Verod Capital to solidify its position as
-            Nigeria’s largest homegrown digital infrastructure provider.
+            Nigeria's largest homegrown digital infrastructure provider.
           </div>
           <div className="py-[2rem]">
             <div>

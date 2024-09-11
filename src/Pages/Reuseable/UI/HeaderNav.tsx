@@ -29,8 +29,8 @@ const HeaderNav: React.FC<customProps> = ({
           <div className="flex justify-center items-center text-center" data-aos="fade-up">
             <div className="w-[80%] md:w-[60%] lg:w-[40%] pt-[3rem] pb-[2rem]">
               <div className="text-textColor text-[1.3rem] ps-2">{title}</div>
-              <div className="text-[2rem] pt-2 text-textColor2">{headerText}</div>
-              <div className="text-[.9rem] text-gray-700 pt-[1rem]">
+              <div className="text-[2rem] pt-2 text-textColor2" style={{fontFamily: 'semibold1'}}>{headerText}</div>
+              <div className="text-[1rem] text-gray-700 pt-[1rem]">
                 {text}
               </div>
             </div>

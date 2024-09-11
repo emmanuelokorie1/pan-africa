@@ -24,6 +24,8 @@ import daniel from "../../../assets/WhoAreWe/teams/daniel.png";
 import marc from "../../../assets/WhoAreWe/teams/marc.png";
 import deisel from "../../../assets/WhoAreWe/teams/deisel.png";
 import gupta from "../../../assets/WhoAreWe/teams/gupta.png";
+import azeez from "../../../assets/WhoAreWe/teams/azeez.png";
+import Ourpeople from "../../../assets/WhoAreWe/teams/Ourpeople.png";
 
 import TeemCard from "../../Reuseable/UI/TeemCard";
 
@@ -278,7 +280,7 @@ function WhoAreWe() {
               id={8}
             />
             <TeemCard
-              image={cardImg1}
+              image={azeez}
               name="Azeez Amida"
               role="MD & CEO"
               fullrole="Managing Director & Chief Executive Officer"
@@ -313,6 +315,15 @@ function WhoAreWe() {
               id={12}
             />
           </div>
+        </section>
+      </section>
+      <section className="containers pb-[3rem]">
+        <div className="text-[1.6rem] pb-[1rem]" style={{ fontFamily: "semibold1" }}>
+        Meet our people
+        </div>
+
+        <section className="flex justify-center">
+          <img src={Ourpeople} alt="" />
         </section>
       </section>
 

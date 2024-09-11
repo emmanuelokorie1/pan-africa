@@ -47,11 +47,13 @@
 
 html {
   scroll-behavior: smooth;
+  font-family: RegularFont;
 }
 
 
 * {
   scroll-behavior: smooth;
+  font-family: RegularFont;
 }
 
 body {
@@ -179,7 +181,7 @@ body {
 .vertical-timeline-element-content {
   position: relative;
   margin-left: 60px;
-  background: transparent;
+  background: transparent !important;
   border-radius: 0.25em;
   padding: 1em;
   /* -webkit-box-shadow: 0 3px 0 #ddd;

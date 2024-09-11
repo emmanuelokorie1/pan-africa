@@ -312,7 +312,7 @@ function Timelines() {
   const [modalHead, setmodalHead] = useState(null);
 
   return (
-    <div className="bg-secback py-[4rem] my-[3rem] ">
+    <div className=" py-[4rem] ">
       <VerticalTimeline>
         {data?.map((e, i) => {
           return (
