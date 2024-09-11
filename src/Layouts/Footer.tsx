@@ -7,11 +7,12 @@ import { MdEmail } from "react-icons/md";
 import { IoCall } from "react-icons/io5";
 import { FaLocationDot } from "react-icons/fa6";
 import { useEffect, useRef } from "react";
+import { FiInstagram } from "react-icons/fi";
 
 function Footer() {
   const Source = [
     {
-      icon: <FaFacebookF size={15} />,
+      icon: <FiInstagram size={15} />,
       url: "https://www.instagram.com/panafricantowers?igsh=bWF2bWZsbHUzbGky",
     },
     {
