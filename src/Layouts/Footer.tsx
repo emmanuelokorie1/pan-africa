@@ -10,9 +10,18 @@ import { useEffect, useRef } from "react";
 
 function Footer() {
   const Source = [
-    { icon: <FaFacebookF size={15} />, url: "" },
-    { icon: <RiTwitterXFill />, url: "" },
-    { icon: <FaLinkedinIn />, url: "" },
+    {
+      icon: <FaFacebookF size={15} />,
+      url: "https://www.instagram.com/panafricantowers?igsh=bWF2bWZsbHUzbGky",
+    },
+    {
+      icon: <RiTwitterXFill />,
+      url: "https://x.com/panafricantower",
+    },
+    {
+      icon: <FaLinkedinIn />,
+      url: "https://www.linkedin.com/company/panafricantowers/",
+    },
   ];
 
   const navigate = useNavigate();
@@ -51,13 +60,12 @@ function Footer() {
         { name: "Value added services", tab: "/value-added-services" },
       ],
     },
-    // {
-    //   name: "Reach Us",
-    //   minidata: [
-    //     { name: "info@panafricantowers.com", icon: <MdEmail /> },
-    //     { name: "234 808 110 1475", icon: <IoCall /> },
-    //   ],
-    // },
+    {
+      name: "Useful links",
+      minidata: [
+        { name: "Whistleblowing", tab: "/contact", scroll: "whistle" },
+      ],
+    },
   ];
 
   const callData = [
@@ -71,7 +79,6 @@ function Footer() {
   ];
 
   const handleScrollSection = (tab: any) => {
-
     navigate(tab?.tab, { state: { scrollToSection: tab?.scroll } });
   };
 
@@ -175,13 +182,18 @@ function Footer() {
                     {e?.minidata?.map((item: any, i: number) => {
                       return (
                         <div key={i} className="py-[.3rem] hover:text-gray-400">
-                          {"tab" in item && e?.name !== "Solutions" ? (
+                          {"tab" in item &&
+                          e?.name !== "Solutions" &&
+                          e?.name !== "Useful links" ? (
                             <div>
                               <NavLink to={item?.tab}>{item?.name}</NavLink>
                             </div>
                           ) : (
                             <div>
-                              <div onClick={() => handleScrollSection(item)} className="cursor-pointer">
+                              <div
+                                onClick={() => handleScrollSection(item)}
+                                className="cursor-pointer"
+                              >
                                 {item?.name}
                               </div>
                               {/* {item?.name.includes("@") ? (
@@ -227,14 +239,17 @@ function Footer() {
       <section className="flex flex-col md:flex-row justify-between items-center pt-[1rem] text-[.8rem] md:text-[.9rem] text-center lg:text-left">
         <aside className="mb-[1rem] md:mb-0 flex">
           <div>
-            Powered by <span className="text-textColor">Pan African tower</span>
+            Powered by{" "}
+            <span className="text-white " style={{ fontFamily: "bold1" }}>
+              Pan African tower
+            </span>
           </div>
-          <Link to={"/privacy"} className="underline md:hidden">
+          {/* <Link to={"/privacy"} className="underline ">
             Privacy Policy
-          </Link>
+          </Link> */}
         </aside>
         <aside className="flex flex-col md:flex-row gap-[1rem]">
-          <Link to={"/privacy"} className="underline hidden md:block">
+          <Link to={"/privacy"} className="underline  md:block">
             Privacy Policy
           </Link>
           <div>
@@ -255,12 +270,14 @@ const FlexContainer = styled.div`
 `;
 
 const IconContainer = styled.div`
-  background-color: rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  z-index: 10;
-  width: 35px;
-  height: 35px;
-  justify-content: center;
-  display: flex;
-  align-items: center;
+  a {
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    z-index: 10;
+    width: 35px;
+    height: 35px;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+  }
 `;

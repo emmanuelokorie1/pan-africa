@@ -4,7 +4,7 @@ import { MdOutlineEmail } from "react-icons/md";
 import { BsChat } from "react-icons/bs";
 import { IoCallOutline, IoLocationOutline } from "react-icons/io5";
 import styled from "styled-components";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { Tooltip } from "@arco-design/web-react";
 import Text from "@arco-design/web-react/es/Typography/text";
 import { Link, useLocation } from "react-router-dom";
@@ -37,11 +37,24 @@ function Contact() {
     },
   ];
 
-  const { pathname } = useLocation();
+  const { pathname, state } = useLocation(); // Extract pathname and state from useLocation
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+
+  const sectionRefs = {
+    whistle: useRef<HTMLDivElement>(null),
+  };
+
+  useEffect(() => {
+    const sectionToScroll = state?.scrollToSection;
+    if (sectionToScroll && sectionRefs[sectionToScroll]?.current) {
+      sectionRefs[sectionToScroll].current.scrollIntoView({
+        behavior: "smooth",
+      });
+    }
+  }, [state, sectionRefs]);
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -293,7 +306,9 @@ function Contact() {
             </div>
           </section>
 
-          <div className="md:pt-[3rem] pt-[1rem] pb-[3rem]">
+          <div ref={sectionRefs?.whistle}></div>
+
+          <div className="md:pt-[3rem] pt-[1rem] pb-[3rem]" >
             <div
               className="text-textColor sm:text-[1rem] text-[.9rem]"
               style={{ fontFamily: "MediumItalic" }}

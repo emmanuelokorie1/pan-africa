@@ -513,7 +513,7 @@ function TeamTemplate() {
                       className="flex flex-col lg:flex-row justify-between gap-[2rem] lg:gap-0"
                     >
                       <div className="w-full lg:w-[25%]">
-                        <div className="flex flex-col items-center lg:items-start">
+                        <div className="flex flex-col items-center ">
                           <div className="w-full lg:w-[400px] flex justify-center items-center">
                             <Image
                               {...imageSize}
