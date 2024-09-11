@@ -530,7 +530,7 @@ function TeamTemplate() {
                               }
                             />
                           </div>
-                          <div className="flex justify-around items-center text-textColor gap-[.4rem] mt-[1rem]">
+                          {/* <div className="flex justify-around items-center text-textColor gap-[.4rem] mt-[1rem]">
                             <div className="w-[30px] border-t-[2px] border-textColor"></div>
                             <div className="bg-[#FAEBE7] p-[.6rem] rounded-[50%] cursor-pointer">
                               <FaFacebookF size={10} />
@@ -542,7 +542,7 @@ function TeamTemplate() {
                               <FaLinkedinIn size={10} />
                             </div>
                             <div className="w-[30px] border-t-[2px] border-textColor"></div>
-                          </div>
+                          </div> */}
                         </div>
                       </div>
                       <div className="w-full lg:w-[70%]">

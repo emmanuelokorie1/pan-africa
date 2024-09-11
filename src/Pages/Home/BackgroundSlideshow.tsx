@@ -81,6 +81,13 @@ const TextOverlay = styled.div`
   opacity: ${({ isActive }) => (isActive ? 1 : 0)};
   transition: opacity 1s;
 
+  .text-large{
+font-family: bold1;
+  }
+  .text-large span{
+font-family: bold1;
+  }
+
   // Media queries for responsive design
   @media (max-width: 768px) {
     font-size: 20px;
