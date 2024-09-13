@@ -106,7 +106,7 @@ function Home() {
             text="Our extensive network and dedicated services empower a diverse range of tenants to stay connected effortlessly. Join our growing community and experience the reliability and innovation that we bring to the telecommunications industry."
             header="Tenants"
             nums="1200"
-            icon={icon4}
+            icon={power}
           />
         </div>
         <div>
@@ -115,7 +115,7 @@ function Home() {
             text="With over five years of experience, our company has been a trusted leader in delivering cutting-edge communication solutions. Our experience and commitment to innovation have kept us at the forefront of the industry, ensuring seamless connectivity for businesses and individuals alike"
             header="Experience"
             nums="5+ Years"
-            icon={power}
+            icon={icon4}
           />
         </div>
       </div>
