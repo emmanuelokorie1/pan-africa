@@ -114,7 +114,7 @@ function Home() {
             images={[{ url: zoom5 }, { url: zoom6 }]}
             text="With over five years of experience, our company has been a trusted leader in delivering cutting-edge communication solutions. Our experience and commitment to innovation have kept us at the forefront of the industry, ensuring seamless connectivity for businesses and individuals alike"
             header="Experience"
-            nums="5+"
+            nums="5+ Years"
             icon={power}
           />
         </div>
