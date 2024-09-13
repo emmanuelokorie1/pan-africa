@@ -117,7 +117,7 @@ function Contact() {
           />
         </div>
 
-        <div className="xl:px-[11rem] lg:px-[6rem] s900:px-[5rem] md:px-[3rem] px-[1rem]">
+        <div className="xl:px-[9rem] lg:px-[6rem] s900:px-[5rem] md:px-[3rem] px-[1rem]">
           <section className=" md:pt-[2rem] pb-[2rem] ">
             <div>
               <div
@@ -135,7 +135,7 @@ function Contact() {
               </div>
 
               <div className="text-[#3F3F3F] pb-[2rem]">
-                We’d love to hear from you. Please fill out this form or shoot
+                We'd love to hear from you. Please fill out this form or shoot
                 us an email
               </div>
             </div>
@@ -163,7 +163,7 @@ function Contact() {
                       <div>
                         {e?.value?.map((item, index) => (
                           <div
-                            className="py-[.4rem] text-textColor text-[.8rem]"
+                            className="py-[.4rem] text-textColor text-[.75rem]"
                             key={index}
                           >
                             {item.includes("@") ? (

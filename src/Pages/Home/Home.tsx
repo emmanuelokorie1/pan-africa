@@ -18,10 +18,10 @@ import cardImg3 from "../../assets/home/cardImgs/cardImg3.png";
 
 import careerr from "../../assets/career/careerr.png";
 
-import Icon1 from "../../assets/home/zooms/icons/tower.svg";
-import infra from "../../assets/home/zooms/icons/infra.svg";
-import power from "../../assets/home/zooms/icons/power.svg";
-import icon4 from "../../assets/home/zooms/icons/icon4.svg";
+import Icon1 from "../../assets/home/zooms/icons/tower.png";
+import infra from "../../assets/home/zooms/icons/infra.png";
+import power from "../../assets/home/zooms/icons/tenant.png";
+import icon4 from "../../assets/home/zooms/icons/exp.png";
 import ImageAndTextGrid from "../Reuseable/Templates/ImageAndTextGrid";
 import CenteredHeader from "../Reuseable/Templates/CenteredHeader";
 import Swipper from "../Reuseable/UI/Swipper";

@@ -84,7 +84,7 @@ function Footer() {
   };
 
   return (
-    <div className="bg-background text-white px-[2rem] md:px-[4rem] lg:px-[8rem] py-[2rem]">
+    <div className="bg-background text-white sm:px-[2rem] px-[1rem] md:px-[4rem] lg:px-[8rem] py-[2rem]">
       <section className="flex flex-col lg:flex-row gap-[1rem] items-start border-b border-[#FB9677] pb-[2rem]">
         <aside className="w-full lg:w-[55%]">
           <div className="text-[1.5rem] md:text-[2rem] font-semibold">
@@ -128,28 +128,28 @@ function Footer() {
                     {e?.gi === "email" ? (
                       <a
                         href={`mailto:${e?.name}`}
-                        className="flex items-center gap-[.5rem] pt-[1rem] text-ellipsis overflow-hidden whitespace-normal break-words"
+                        className="flex gap-[.5rem] pt-[1rem] text-ellipsis overflow-hidden whitespace-normal break-words"
                       >
                         <span className="text-[1.3rem]">{e?.icon}</span>
-                        <span className="break-keep">{e?.name}</span>
+                        <span className="break-keep sm:text-[.9rem] s350:text-[.82rem] text-[.72rem]">{e?.name}</span>
                       </a>
                     ) : e?.gi === "call" ? (
                       <a
                         href={`tel:+${e?.name}`}
-                        className="flex items-center gap-[.5rem] pt-[1rem] text-ellipsis overflow-hidden whitespace-normal break-words"
+                        className="flex gap-[.5rem] pt-[1rem] text-ellipsis overflow-hidden whitespace-normal break-words"
                       >
                         <span className="text-[1.3rem]">{e?.icon}</span>
-                        <span className="break-keep">{e?.name}</span>
+                        <span className="break-keep sm:text-[.9rem] s350:text-[.82rem] text-[.72rem]">{e?.name}</span>
                       </a>
                     ) : (
                       <a
                         href="https://www.google.com/maps/search/?api=1&query=999c,+Water+Danmole+Street,+Victoria+Island,+Lagos"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="flex items-center gap-[.5rem] pt-[1rem] text-ellipsis overflow-hidden whitespace-normal break-words"
+                        className="flex items-start gap-[.5rem] pt-[1rem] text-ellipsis overflow-hidden whitespace-normal break-words"
                       >
-                        <span className="text-[1.3rem]">{e?.icon}</span>
-                        <span className="break-keep">{e?.name}</span>
+                        <span className="text-[1.3rem] ">{e?.icon}</span>
+                        <span className="break-keep sm:text-[.9rem] items-start s350:text-[.82rem] text-[.72rem]">{e?.name}</span>
                       </a>
                     )}
                   </div>

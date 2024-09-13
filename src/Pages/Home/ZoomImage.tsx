@@ -122,7 +122,7 @@ const ZoomImage: React.FC<ZoomImageProps> = ({
       ))}
       <TextOverlay>
         <div className="flex justify-center ">
-          <div className="bg-white w-[50px] h-[50px] flex justify-center items-center rounded-[50%]">
+          <div className=" w-[50px] h-[50px] flex justify-center items-center rounded-[50%]">
             <img src={icon} alt="" />
           </div>
         </div>
