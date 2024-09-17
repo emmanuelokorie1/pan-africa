@@ -14,6 +14,7 @@ import LeftHeader from "../../Reuseable/Templates/LeftHeader";
 import cardImg1 from "../../../assets/WhoAreWe/teams/team1.png";
 import oladipo from "../../../assets/WhoAreWe/teams/oladipo.png";
 import panda from "../../../assets/WhoAreWe/teams/panda.png";
+import Yomi from "../../../assets/WhoAreWe/teams/Yomi.jpg";
 import babatunde from "../../../assets/WhoAreWe/teams/babatunde.png";
 import chisom from "../../../assets/WhoAreWe/teams/chisom.png";
 import abimbola from "../../../assets/WhoAreWe/teams/abimbola.png";
@@ -232,6 +233,13 @@ function WhoAreWe() {
               role="CTO"
               fullrole="Chief Technology Officer"
               id={3}
+            />
+            <TeemCard
+              image={Yomi}
+              name="Yomi Onitiju"
+              role="CIO"
+              fullrole="Chief Information Officer"
+              id={13}
             />
             <TeemCard
               image={babatunde}

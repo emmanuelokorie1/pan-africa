@@ -10,6 +10,7 @@ const imageSize = { width: 230, height: 320 };
 import cardImg1 from "../../assets/WhoAreWe/teams/team1.png";
 import oladipo from "../../assets/WhoAreWe/teams/oladipo.png";
 import panda from "../../assets/WhoAreWe/teams/panda.png";
+import Yomi from "../../assets/WhoAreWe/teams/Yomi.jpg";
 import babatunde from "../../assets/WhoAreWe/teams/babatunde.png";
 import chisom from "../../assets/WhoAreWe/teams/chisom.png";
 import abimbola from "../../assets/WhoAreWe/teams/abimbola.png";
@@ -48,7 +49,7 @@ function TeamTemplate() {
           <div>
             Azeez Amida is the Chief Executive Officer of Pan African Towers. He
             has the passion and drive to strengthen Pan African Towers as
-            Nigeria’s largest indigenous telecom and digital infrastructure
+            Nigeria's largest indigenous telecom and digital infrastructure
             provider. He has a firm understanding of emerging markets and brings
             over 18 years of professional experience, cutting across six
             countries and twelve industries including Telecommunications, FMCG,
@@ -95,7 +96,7 @@ function TeamTemplate() {
             Planning at Helios Towers, and Pfizer Global Pharmaceuticals.
           </div>
           <div className="pt-[2rem]">
-            Oladipo holds an MSc from the University of Cumbria, UK. He is a
+            Oladipo holds an MSc from the University of Cumbria, UK. He is a
             Fellow member of the Institute of Chartered Accountant of Nigeria
             (FCA), an Associate member of the Institute of Chartered Accountant
             England and Wales, and a Business and Finance Professional (BFB). He
@@ -125,15 +126,49 @@ function TeamTemplate() {
           </div>
           <div className="py-[2rem]">
             Prior to joining Pan African Towers Limited, he worked as Chief
-            Technical Officer – Spectranet Ltd, Nigeria. Besides working In
-            Nigeria, he has also worked in Tanzania and Liberia. Mr. Arun’s
+            Technical Officer - Spectranet Ltd, Nigeria. Besides working In
+            Nigeria, he has also worked in Tanzania and Liberia. Mr. Arun's
             competency includes the ability to develop and execute strategic
             plans with a focus on efficiency and growth through an empowered
             team.
           </div>
           <div>
-            He holds a Bachelor’s degree in Electronics and Telecommunications
-            and a Master’s degree in Communication Systems.
+            He holds a Bachelor's degree in Electronics and Telecommunications
+            and a Master's degree in Communication Systems.
+          </div>
+        </div>
+      ),
+    },
+    {
+      img: Yomi,
+      name: "Yomi Onitiju",
+      role: "Chief Information Officer",
+      fb: "",
+      x: "",
+      id: 13,
+      linkedin: "",
+      content: (
+        <div>
+          <div>
+            Yomi is a seasoned professional with years of progressive experience
+            managing IT infrastructure and services. Yomi's competences in IT
+            service management and technical operations are aimed at aligning
+            end-user needs with long-term business objectives while leveraging
+            on technology to resolve complex challenges.
+          </div>
+          <div className="py-[2rem]">
+            Prior to joining PAT, Yomi worked in a number of reputable
+            institutions, including Resourcery Limited, MTN Nigeria
+            Communications Limited, Emerging Market Telecommunications Services
+            Ltd (Etisalat Nigeria) among others.
+          </div>
+          <div>
+            Yomi is a graduate of Computer Science/Economics from Obafemi
+            Awolowo University Ile Ife. He holds professional membership and
+            certifications from Microsoft Inc., International Academy of Project
+            Management (IAPM), Project Management Institute (PMI) and
+            International Information System Security Certification Consortium
+            (ISC2)”
           </div>
         </div>
       ),
@@ -156,9 +191,9 @@ function TeamTemplate() {
             budgets.
           </div>
           <div className="pt-[2rem]">
-            I have been described variously- by colleagues and reviewers as ‘a
-            solution provider with incredible analytic abilities’ and ‘a
-            tenacious worker and organiser’
+            I have been described variously- by colleagues and reviewers as 'a
+            solution provider with incredible analytic abilities' and 'a
+            tenacious worker and organiser'
           </div>
         </div>
       ),
@@ -178,7 +213,7 @@ function TeamTemplate() {
             African Towers. She is a seasoned HR professional with over a decade
             of experience in the telecoms regulatory sector. She is passionate
             about the HR profession, its dynamism, and how it constantly impacts
-            an employee’s knowledge and progress and the company’s overall
+            an employee's knowledge and progress and the company's overall
             success.
           </div>
           <div className="py-[2rem]">
@@ -189,7 +224,7 @@ function TeamTemplate() {
             including onboarding processes for new takes in the Commission.
           </div>
           <div>
-            She holds a bachelor’s degree in Industrial Relations and Human
+            She holds a bachelor's degree in Industrial Relations and Human
             Resources Management from the University of Kent, Canterbury, and an
             MSc in Human Resources Management and Business from Aston
             University, Birmingham, amongst other HR certifications (CIPD, CIPM,
@@ -219,7 +254,7 @@ function TeamTemplate() {
           </div>
           <div className="py-[2rem]">
             She is an alumnus of the Lagos Business School having attended two
-            Executive Programmes – Key Account Management and Mastering
+            Executive Programmes - Key Account Management and Mastering
             Competitive Strategy & Blue Ocean Strategy. She also attended the
             University of Central Missouri for the Dale Carnegie Organisational
             Leadership Certificate Program. Abimbola is a Member of EAPA
@@ -237,13 +272,13 @@ function TeamTemplate() {
             Etisalat, INQ, SWIFT, Cyberspace Networks, Spectranet etc.
           </div>
           <div className="pt-[2rem]">
-            Abimbola has been an integral part of the Commercial team for almost
+            Abimbola has been an integral part of the Commercial team for almost
             two years, demonstrating exceptional leadership as the GM
             Commercial. Her deep understanding of our commercial strategy,
-            industry dynamics, and key client relationships makes her the ideal
-            candidate to lead the department. Under Abimbola’s guidance, the
+            industry dynamics, and key client relationships makes her the ideal
+            candidate to lead the department. Under Abimbola's guidance, the
             Commercial Department has achieved remarkable milestones and forged
-            impactful partnerships crucial to PAT’s success.
+            impactful partnerships crucial to PAT's success.
           </div>
         </div>
       ),
@@ -295,10 +330,10 @@ function TeamTemplate() {
             value-creation plans. Daniel moved to Verod in 2009 from Zenith
             Capital Management, where he focused on equity and debt offerings,
             strategic advisory initiatives, and M&A. He is involved in managing
-            the firm’s investments in Greensprings School, Rainbow Educational
+            the firm's investments in Greensprings School, Rainbow Educational
             Services, ISON Experiences, Pan African Towers, iFitness, and
             Rotoprint. He serves on the boards of these companies. He played a
-            significant role in Verod’s investments in various companies,
+            significant role in Verod's investments in various companies,
             including GZI, Rotoprint, Sac Oil (JSE: SCL), HFP Industries,
             African Lifestyle, Transnationals Academic group, Daystar Power
             group, and Central Securities Clearing Systems Plc (NASD:
@@ -353,11 +388,11 @@ function TeamTemplate() {
             become the Financial Controller after heading the Operations unit,
             before joining Greenwich Trust Ltd in September 2013 as the Group
             Chief Finance Officer. Ife-Olorun has demonstrated exceptional
-            leadership and a deep commitment to enhancing organisational
+            leadership and a deep commitment to enhancing organisational
             performance during his tenure as acting CFO.
           </div>
           <div className="pt-[2rem]">
-            Ife holds a Bachelors’ Degree in Accounting from Ogun State
+            Ife holds a Bachelors' Degree in Accounting from Ogun State
             University (1992) and in 1997 qualified as an Associate of the
             Institute of Chartered Accountants of Nigeria. He is now a Fellow of
             both Institute of Chartered Accountants of Nigeria and The Certified
@@ -419,10 +454,10 @@ function TeamTemplate() {
             streamline operational cost and shifting focus to customer centric,
             segment-based value propositions. An experienced Professional with a
             demonstrated history of working in the financial services industry
-            as well as fixed and mobile telecoms, she has more than 15 years’
+            as well as fixed and mobile telecoms, she has more than 15 years'
             experience in Africa and the Middle East. Jyoti is skilled in
             startups in emerging markets in the technical, commercial and
-            operational aspects of the telecom business with more than 25 years’
+            operational aspects of the telecom business with more than 25 years'
             experience in cost and operational transformation which includes
             digital transformation, large scale project execution, Service
             Delivery, 3G, LTE, Mobile Communications, and Universal Mobile
@@ -447,7 +482,7 @@ function TeamTemplate() {
             built a dynamic ecosystem of businesses in IT & ITeS, BPO and
             Telecom Infrastructure and Services, employing 20,000+ resources,
             spanning 40 countries across Africa, Asia and Middle East. Vivek
-            became an entrepreneur in 2008 as CEO of Zamil Infra, iSON’s first
+            became an entrepreneur in 2008 as CEO of Zamil Infra, iSON's first
             joint venture with the $8B Saudi conglomerate-Zamil, that
             specializes in build and managed services for telecom passive
             infrastructure. Under his leadership, iSON Group diversified in
@@ -455,9 +490,9 @@ function TeamTemplate() {
             Health insurance sector. iSON Group has grown both organically &
             inorganically in last few years. Vivek spent two decades creating an
             illustrious career within telecom working for multinationals such as
-            Ericsson and IBM. In 2008, he was recognized by Fortune as “IBM’s
+            Ericsson and IBM. In 2008, he was recognized by Fortune as “IBM's
             All-Star Salesman” for contracting over $5 Billion worth of business
-            and executing high value transformational and ‘out of box’ deals,
+            and executing high value transformational and 'out of box' deals,
             particularly path-breaking strategic outsourcing deals with Bharti
             Airtel, Idea & Vodafone that have gone on to become one of the most
             successful business models for the company.
@@ -494,7 +529,7 @@ function TeamTemplate() {
                 title={"Our Team"}
                 text={
                   Number(id) > 10 && Number(id) < data.length
-                    ? "Meet the board members" 
+                    ? "Meet the board members"
                     : "Meet the management team"
                 }
                 text2={
