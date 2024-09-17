@@ -477,7 +477,7 @@ function NewsTemplate() {
                   <div className="w-full lg:w-[25%]">
                     <div className="flex flex-col lg:justify-center lg:flex-wrap sticky top-0">
                       {/* First Image */}
-                      <div className="w-full xl:w-[400px]  flex justify-center items-center mb-[2rem] lg:mb-0">
+                      <div className="w-full flex justify-center items-center mb-[2rem] lg:mb-0">
                         <Image
                           {...imageSize}
                           src={e?.img}

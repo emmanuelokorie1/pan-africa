@@ -514,7 +514,7 @@ function TeamTemplate() {
                     >
                       <div className="w-full lg:w-[25%]">
                         <div className="flex flex-col items-center ">
-                          <div className="w-full lg:w-[400px] flex justify-center items-center">
+                          <div className="w-full  flex justify-center items-center">
                             <Image
                               {...imageSize}
                               src={e?.img}

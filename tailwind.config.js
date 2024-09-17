@@ -21,6 +21,7 @@ export default {
         s1100: "1100px",
         lg: "1024px",
         xl: "1280px",
+        s1400: "1400px",
         "2xl": "1536px",
       },
       spacing: {
