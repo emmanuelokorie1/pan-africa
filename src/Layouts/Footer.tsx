@@ -42,11 +42,13 @@ function Footer() {
     {
       name: "Solutions",
       minidata: [
-        { name: "DAS Solution", tab: "/core-services", scroll: "solution" },
         { name: "Co-location", tab: "/core-services", scroll: "location" },
-        { name: "Buy lease back", tab: "/core-services", scroll: "Site" },
-        { name: "Managed services", tab: "/core-services", scroll: "energy" },
         { name: "Built to suit", tab: "/core-services", scroll: "Built" },
+        { name: "Managed services", tab: "/core-services", scroll: "energy" },
+        { name: "Buy lease back", tab: "/core-services", scroll: "Site" },
+        { name: "DAS Solution", tab: "/core-services", scroll: "solution" },
+        
+        
         // {
         //   name: "Broadband",
         //   tab: "/value-added-services",
