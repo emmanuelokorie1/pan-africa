@@ -325,7 +325,7 @@ function WhoAreWe() {
           </div>
         </section>
       </section>
-      <section className="containers pb-[3rem]">
+      {/* <section className="containers pb-[3rem]">
         <div className="text-[1.6rem] pb-[1rem]" style={{ fontFamily: "semibold1" }}>
         Meet our people
         </div>
@@ -333,7 +333,7 @@ function WhoAreWe() {
         <section className="flex justify-center">
           <img src={Ourpeople} alt="" />
         </section>
-      </section>
+      </section> */}
 
       <div>
         <ContactTemp />
