@@ -106,7 +106,7 @@ const ImageAndTextGrid: React.FC<customProps> = ({
         {link && (
           <div className="mt-[2rem] lg:mt-[4rem]">
             <Link
-              to={link || "who-are-we"}
+              to={link || "who-we-are"}
               className="bg-textColor text-white px-[2rem] py-[.7rem] rounded-lg"
             >
               {linkName || "Learn More"}

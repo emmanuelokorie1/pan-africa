@@ -41,7 +41,7 @@ function App() {
             }
           />
           <Route
-            path="who-are-we"
+            path="who-we-are"
             element={
               <Suspense fallback={<Loading />}>
                 <WhoAreWe />
