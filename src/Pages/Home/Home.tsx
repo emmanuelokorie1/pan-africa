@@ -130,7 +130,7 @@ function Home() {
             "Pan-African Towers is a multiple award-winning telecommunications infrastructure company and wireless service facilitator in Nigeria aimed at catering to the telecommunication needs ranging from broadband, mobile telephony to other local value-added services in Africa."
           }
           linkName="Meet the Team"
-          link={"/who-are-we"}
+          link={"/who-we-are"}
         />
       </div>
 

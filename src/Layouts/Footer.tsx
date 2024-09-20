@@ -31,7 +31,7 @@ function Footer() {
     {
       name: "Company",
       minidata: [
-        { name: "About Us", tab: "/who-are-we" },
+        { name: "About Us", tab: "/who-we-are" },
         { name: "Career", tab: "/career" },
         { name: "News", tab: "/news" },
         { name: "ESG", tab: "/esg" },

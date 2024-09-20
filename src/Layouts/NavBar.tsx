@@ -12,7 +12,7 @@ function NavBar() {
       name: "About Us",
       link: "about-us",
       dropdown: [
-        { name: "Who are we", link: "who-are-we" },
+        { name: "Who we are", link: "who-are-we" },
         { name: "Our core values", link: "our-core-values" },
         { name: "Our focus", link: "our-focus" },
       ],
