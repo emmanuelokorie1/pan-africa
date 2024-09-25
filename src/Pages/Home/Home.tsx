@@ -75,7 +75,7 @@ function Home() {
       {/* data-aos="zoom-in" data-aos-once="true" */}
       <div className="flex justify-center bg-gray-50">
         <div className="text-textColor md:py-[3rem] py-[2rem] md:w-[70%] sm:w-[80%] w-[90%] text-[1.3rem] text-center">
-          <span className="text-black">We aim to follow</span> an unconventional
+          <span className="text-black">We follow</span> an unconventional
           approach by collaborating with partners in a new eco system to meet
           African data consumption needs.
         </div>
@@ -105,7 +105,7 @@ function Home() {
             images={[{ url: zoom7 }, { url: zoom8 }]}
             text="Our extensive network and dedicated services empower a diverse range of tenants to stay connected effortlessly. Join our growing community and experience the reliability and innovation that we bring to the telecommunications industry."
             header="Tenants"
-            nums="1200"
+            nums="1200+"
             icon={power}
           />
         </div>

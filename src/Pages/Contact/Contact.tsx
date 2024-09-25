@@ -117,7 +117,7 @@ function Contact() {
           />
         </div>
 
-        <div className="xl:px-[9rem] lg:px-[6rem] s900:px-[5rem] md:px-[3rem] px-[1rem]">
+        <div className="xl:px-[12rem] lg:px-[6rem] s900:px-[5rem] md:px-[3rem] px-[1rem]">
           <section className=" md:pt-[2rem] pb-[2rem] ">
             <div>
               <div
@@ -140,9 +140,9 @@ function Contact() {
               </div>
             </div>
 
-            <div className="grid md:grid-cols-2 grid-cols-1">
+            <div className="md:flex justify-between items-center">
               <aside
-                className="grid grid-cols-2 md:h-[400px]"
+                className="grid md:grid-cols-1 grid-cols-2 s1000:w-[35%] md:w-[40%] w-[100%]"
                 data-aos="fade-left"
               >
                 {data?.map((e, i) => {
@@ -216,7 +216,7 @@ function Contact() {
                   );
                 })}
               </aside>
-              <FormContainer data-aos="fade-up" onSubmit={handleSubmit}>
+              <FormContainer className="s1000:w-[65%] md:w-[60%] w-[100%] sm:pe-[1rem] md:pe-0" data-aos="fade-up" onSubmit={handleSubmit}>
                 <div className="bg-[white] w-[100%] p-[2rem] shadow-lg rounded-xl">
                   <div className="grid sm:grid-cols-2 grid-cols-1 sm:gap-[2rem] gap-[1rem]">
                     <div>

@@ -73,9 +73,9 @@ const ImageBase = styled.div<{
 // Styled component for the text overlay
 const TextOverlay = styled.div`
   position: absolute;
-  top: 50%;
+  top: 23%;
   left: 0%;
-  transform: translate(0%, -50%);
+  /* transform: translate(0%, -50%); */
   padding: 0 1rem;
   color: white;
   display: flex;

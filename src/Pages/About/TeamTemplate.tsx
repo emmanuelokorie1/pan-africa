@@ -67,9 +67,8 @@ function TeamTemplate() {
           <div>
             Amida is a graduate of Economics and an alumnus of the IE Business
             School, Spain. He is a member of the Chartered Institute of
-            Management Accountants (CIMA) and the author of the
-            soon-to-be-released book, EPE Principle: Understanding the
-            Opportunity Cycle.
+            Management Accountants (CIMA) and the author of the book, EPE
+            Principle: Understanding the Opportunity Cycle.
           </div>
         </div>
       ),
@@ -369,7 +368,7 @@ function TeamTemplate() {
             Ife has held several leadership/management positions in highly
             reputable institutions with his most recent as the Senior Vice
             President, Finance and Performance in Chapel Hill Advisory Partners
-            for over three years, and a short spell as the Chief Finance Officer
+            for over six years, and a short spell as the Chief Finance Officer
             of Standard Alliance Insurance Plc. from April 2016 to September
             2017. He was also the Group Chief Finance Officer in Greenwich Trust
             Ltd., a position he held for two and a half years.

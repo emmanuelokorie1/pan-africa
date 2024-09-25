@@ -19,6 +19,7 @@ const ImageCard: React.FC<customProps> = ({ image, text, link }) => {
         <Image
           {...imageSize}
           src={image}
+          className={'rounded-lg'}
           alt=""
           preview={false}
           lazyload={{ threshold: 0.5 }}
@@ -67,12 +68,15 @@ const Card = styled.div`
 `;
 
 const ImageContainer = styled.div`
+  display: flex; /* Enable flexbox */
+  flex-direction: column; /* Stack children vertically */
   width: 100%;
   min-width: 350px;
-  height: 100%;
-  min-height: 500px; /* Ensures the container keeps its size */
-  background-color: #f0f0f0; 
+  height: auto; /* Allows height to adapt to content */
+  min-height: 100px;
+  /* background-color: #f0f0f0; */
 `;
+
 
 const CardText = styled.div`
   position: absolute;

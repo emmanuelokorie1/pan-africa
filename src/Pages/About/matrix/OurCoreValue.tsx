@@ -23,7 +23,7 @@ function OurCoreValue() {
     },
     {
       img: cosumer2,
-      name: "Service Guaranty",
+      name: "Service Quality",
       text: "We stand behind the quality of our services. Our rigorous standards ensure that every interaction, product, and solution meets our customers' expectations. We continually monitor and improve our processes to maintain the highest level of service excellence.",
     },
     {
