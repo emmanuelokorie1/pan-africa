@@ -17,12 +17,12 @@ function Contact() {
       text: "Our friendly team is here to help",
       value: ["info@panafricantowers.com"],
     },
-    {
-      icon: <BsChat />,
-      name: "Live chat",
-      text: "Our friendly team is here to help.",
-      value: ["Start new chat"],
-    },
+    // {
+    //   icon: <BsChat />,
+    //   name: "Live chat",
+    //   text: "Our friendly team is here to help.",
+    //   value: ["Start new chat"],
+    // },
     {
       icon: <IoLocationOutline />,
       name: "Office",
