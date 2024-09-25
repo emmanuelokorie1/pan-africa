@@ -235,7 +235,7 @@ function TeamTemplate() {
     },
     {
       img: abimbola,
-      name: "Abimbola Folape",
+      name: "Abimbola Falope",
       role: "Senior Vice President Commercial",
       fb: "",
       x: "",

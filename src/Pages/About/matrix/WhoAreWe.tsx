@@ -257,7 +257,7 @@ function WhoAreWe() {
             />
             <TeemCard
               image={abimbola}
-              name="Abimbola Folape"
+              name="Abimbola Falope"
               role="S.V President Commercial"
               fullrole="Senior Vice President Commercial"
               id={6}
