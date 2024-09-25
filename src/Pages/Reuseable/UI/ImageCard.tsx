@@ -74,7 +74,8 @@ const ImageContainer = styled.div`
   min-width: 350px;
   height: auto; /* Allows height to adapt to content */
   min-height: 100px;
-  /* background-color: #f0f0f0; */
+  background-color: #f0f0f0;
+  
 `;
 
 
