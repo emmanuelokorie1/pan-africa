@@ -27,20 +27,26 @@ function OurFocus() {
     {
       img: focus1,
       num: "01.",
-      name: "Our Aspiration",
-      text: "We look to provide solutions and platforms that transform local communities",
+      name: "Increase in Uptime",
+      text: "From c.95% to c. 99.2% thanks to several operational improvements",
     },
     {
       img: focus2,
       num: "02.",
-      name: "Our Services",
-      text: "Core Services include: Colocation, Built-to-suit, Buy-lease-back, Managed services and DAS solutions Our Value Added Services include: Broadband, Utility, Content and Support",
+      name: "Partial Contracts Renegotiations",
+      text: "Resulting in more favorable terms for PAT. Further improvements are currently under negotiations",
     },
     {
       img: focus3,
       num: "03.",
-      name: "Our Goal",
-      text: "To become a truly African focused infrastructure company with services that enable businesses succeed in communities where we operate",
+      name: "Strengthening of Management team",
+      text: "Onboarding of CFO, deputy CTO & Head of Operations, and CIO",
+    },
+    {
+      img: focus3,
+      num: "04.",
+      name: "Grid connectivity",
+      text: "For 150 sites in Lagos resulting in 2.4 million litres of diesel saved /year",
     },
   ];
 
@@ -54,7 +60,8 @@ function OurFocus() {
     {
       name: "TowerCo",
       icon: towericon,
-      img: tower,
+      img: power,
+      // img: tower,
     },
     {
       name: "InfraCo",
@@ -87,10 +94,10 @@ function OurFocus() {
       </div>
 
       <div className=" s1100:px-[2rem] xl:px-[4rem] py-[2rem] md:py-[3rem]">
-        <div className="grid grid-cols-1 px-[2rem] sm:px-0 sm:grid-cols-2 s1100:grid-cols-3 containers gap-[1.5rem] md:gap-[3rem] rounded-sm h-auto s1100:h-[430px]">
+        <div className="grid grid-cols-1 px-[1rem] sm:px-0 sm:grid-cols-2 s1100:grid-cols-4 containers gap-[1rem] md:gap-[2rem] h-auto s1100:h-[430px]">
           {focus?.map((e, i) => {
             return (
-              <div key={i} className="bg-white p-[1rem] md:p-[2rem]">
+              <div key={i} className="bg-white rounded-md p-[1rem] md:p-[1.5rem]">
                 <div className="text-end text-textColor text-[1.5rem]">
                   {e?.num}
                 </div>
@@ -115,7 +122,7 @@ function OurFocus() {
       </div>
 
       <div className="my-[4rem] containers">
-        <div className="grid grid-cols-1 sm:grid-cols-3 bg-[#FDF5F2] shadow-sm rounded-lg">
+        {/* <div className="grid grid-cols-1 sm:grid-cols-3 bg-[#FDF5F2] shadow-sm rounded-lg">
           {tabs?.map((e, i) => {
             return (
               <div key={i}>
@@ -137,7 +144,7 @@ function OurFocus() {
               </div>
             );
           })}
-        </div>
+        </div> */}
 
         <div>
           {tabs?.map((e, i) => {

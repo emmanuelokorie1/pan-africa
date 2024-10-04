@@ -10,7 +10,7 @@ import gallery2 from "../../../assets/homeSwipper/img2.png";
 import gallery3 from "../../../assets/homeSwipper/img3.png";
 import gallery4 from "../../../assets/homeSwipper/img4.png";
 import gallery5 from "../../../assets/homeSwipper/img5.png";
-import gallery6 from "../../../assets/homeSwipper/img6.png";
+// import gallery6 from "../../../assets/homeSwipper/img6.png";
 
 const MySwiperComponent = () => {
   return (
@@ -64,12 +64,12 @@ const MySwiperComponent = () => {
           <p className="slide-text">DAS Solution</p>
         </div>
       </SwiperSlide>
-      <SwiperSlide>
+      {/* <SwiperSlide>
         <div className="slide-content">
           <img src={gallery6} alt="Gallery 3" />
           <p className="slide-text">Wifi Deployement</p>
         </div>
-      </SwiperSlide>
+      </SwiperSlide> */}
     </Swiper>
   );
 };

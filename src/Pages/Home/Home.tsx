@@ -81,8 +81,8 @@ function Home() {
         </div>
       </div>
 
-      <div className="grid s1000:grid-cols-4 sm:grid-cols-2 grid-cols-1 px-[1rem] s1000:px-0">
-        <div>
+      <div className="grid s1000:grid-cols-3 sm:grid-cols-2 grid-cols-1 px-[1rem] s1000:px-0">
+        {/* <div>
           <ZoomImage
             images={[{ url: zoom1 }, { url: zoom2 }]}
             text="Our extensive tower network ensures that our customers stay connected, no matter where they are. Trust Pan African Towers to provide reliable and consistent service, powered by one of the largest tower infrastructures in the industry."
@@ -90,7 +90,7 @@ function Home() {
             nums={"1000+"}
             icon={Icon1}
           />
-        </div>
+        </div> */}
         <div>
           <ZoomImage
             images={[{ url: zoom3 }, { url: zoom4 }]}
