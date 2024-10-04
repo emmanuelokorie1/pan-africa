@@ -11,8 +11,8 @@ import { useEffect, useState } from "react";
 import { LuDot } from "react-icons/lu";
 import LeftHeader from "../../Reuseable/Templates/LeftHeader";
 
-import cardImg1 from "../../../assets/WhoAreWe/teams/team1.png";
-import oladipo from "../../../assets/WhoAreWe/teams/oladipo.png";
+import cardImg1 from "../../../assets/WhoAreWe/teams/team1.jpeg";
+import oladipo from "../../../assets/WhoAreWe/teams/oladipo.jpeg";
 import panda from "../../../assets/WhoAreWe/teams/panda.png";
 import Yomi from "../../../assets/WhoAreWe/teams/Yomi.jpg";
 import babatunde from "../../../assets/WhoAreWe/teams/babatunde.png";
@@ -20,12 +20,12 @@ import chisom from "../../../assets/WhoAreWe/teams/chisom.png";
 import abimbola from "../../../assets/WhoAreWe/teams/abimbola.png";
 import ife from "../../../assets/WhoAreWe/teams/ife.png";
 
-import saya from "../../../assets/WhoAreWe/teams/saya.png";
+import saya from "../../../assets/WhoAreWe/teams/saya.jpeg";
 import daniel from "../../../assets/WhoAreWe/teams/daniel.png";
-import marc from "../../../assets/WhoAreWe/teams/marc.png";
+import marc from "../../../assets/WhoAreWe/teams/marc.jpeg";
 import deisel from "../../../assets/WhoAreWe/teams/deisel.png";
-import gupta from "../../../assets/WhoAreWe/teams/gupta.png";
-import azeez from "../../../assets/WhoAreWe/teams/azeez.png";
+import gupta from "../../../assets/WhoAreWe/teams/gupta.jpeg";
+import azeez from "../../../assets/WhoAreWe/teams/team1.jpeg";
 import Ourpeople from "../../../assets/WhoAreWe/teams/Ourpeople.png";
 
 import TeemCard from "../../Reuseable/UI/TeemCard";

@@ -13,7 +13,9 @@ interface customProps {
   text2Head?: String;
   prevtext?: String;
   link?: any;
+  link2?: any;
   img?: any;
+  linkName?: string;
 }
 
 const imageSize = { width: "100%", height: "100%" };
@@ -25,12 +27,14 @@ const ImageAndGridTextRight: React.FC<customProps> = ({
   text,
   text2,
   link,
+  link2,
   text1Head,
   text2Head,
   prevtext,
+  linkName,
 }) => {
   return (
-    <div  className="flex flex-col lg:flex-row py-[2rem] gap-[2rem] justify-between items-center containers">
+    <div className="flex flex-col lg:flex-row py-[2rem] gap-[2rem] justify-between items-center containers">
       <div className="w-full lg:w-[55%]" data-aos="fade-right">
         <div
           className="text-textColor border-l-[2px] border-textColor text-[1.1rem] ps-2 mt-[2rem]"
@@ -87,8 +91,20 @@ const ImageAndGridTextRight: React.FC<customProps> = ({
               to={link}
               className="bg-textColor text-white px-[2rem] py-[.7rem] rounded-lg"
             >
-              Learn More
+              {linkName || "Learn More"}
             </Link>
+          </div>
+        )}
+        {link2 && (
+          <div className=" mt-[2rem]">
+            <a
+              className="bg-textColor cursor-pointer text-white px-[2rem] py-[.7rem] rounded-lg"
+              href={link2}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {linkName || "Learn More"}
+            </a>
           </div>
         )}
       </div>
