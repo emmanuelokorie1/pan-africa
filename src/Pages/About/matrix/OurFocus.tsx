@@ -1,8 +1,9 @@
 import HeaderNav from "../../Reuseable/UI/HeaderNav";
 import Img from "../../../assets/focus.png";
-import focus1 from "../../../assets/focus/focus1.svg";
-import focus2 from "../../../assets/focus/focus2.svg";
-import focus3 from "../../../assets/focus/focus3.svg";
+import focus1 from "../../../assets/focus/focus1.png";
+import focus2 from "../../../assets/focus/focus2.png";
+import focus3 from "../../../assets/focus/focus3.png";
+import focus4 from "../../../assets/focus/focus4.png";
 import { useEffect, useState } from "react";
 
 import towericon from "../../../assets/focus/path/towericon.svg";
@@ -43,7 +44,7 @@ function OurFocus() {
       text: "Onboarding of CFO, deputy CTO & Head of Operations, and CIO",
     },
     {
-      img: focus3,
+      img: focus4,
       num: "04.",
       name: "Grid connectivity",
       text: "For 150 sites in Lagos resulting in 2.4 million litres of diesel saved /year",

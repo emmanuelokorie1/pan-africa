@@ -29,7 +29,7 @@ function Career() {
           text2={
             "Pan African Towers connects people across the globe, fostering business growth and bridging digital divides. The work we do here has a meaningful impact on millions of lives."
           }
-          Img={joinOurTeam}
+          Img={Img}
         />
       </div>
 
@@ -49,7 +49,11 @@ function Career() {
           <div className="text-textColor" style={{ fontFamily: "semibold1" }}>
             Specialized roles
           </div>
-          <div className="py-1 text-[1.4rem]" style={{ fontFamily: "bold1" }}>
+          {/* <div className="py-1 text-[1.4rem]" style={{ fontFamily: "bold1" }}> */}
+          <div
+            className="text-[1.6rem] py-1"
+            style={{ fontFamily: "semibold1" }}
+          >
             All open roles
           </div>
           <div className="text-gray-600 ">Come join the team</div>
@@ -96,8 +100,10 @@ function Career() {
           text={
             "Don't see any role that interests you? Join our talent network and we'll get back to you with openings that match your skills."
           }
-          link2={'https://panafricantowers.zohorecruit.com/forms/ddc1e0e00187c6b7505062c10f82e6a8b31fe2fc49278df307bd0dfd95604009'}
-          linkName={'Join our team'}
+          link2={
+            "https://panafricantowers.zohorecruit.com/forms/ddc1e0e00187c6b7505062c10f82e6a8b31fe2fc49278df307bd0dfd95604009"
+          }
+          linkName={"Join our team"}
           img={joinOurTeam}
         />
       </div>
