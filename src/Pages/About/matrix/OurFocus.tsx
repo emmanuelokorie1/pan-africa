@@ -16,6 +16,7 @@ import power from "../../../assets/focus/path/power.png";
 import ContactTemp from "../../Reuseable/UI/ContactTemp";
 import { Image, Skeleton } from "@arco-design/web-react";
 import { useLocation } from "react-router-dom";
+import LeftHeader from "../../Reuseable/Templates/LeftHeader";
 
 interface Tab {
   name: string;
@@ -95,6 +96,17 @@ function OurFocus() {
       </div>
 
       <div className=" s1100:px-[2rem] xl:px-[4rem] py-[2rem] md:py-[3rem]">
+
+
+      <div className="md:w-[55%] w-[100%] ">
+        <LeftHeader
+          title={"PAT Achievements"}
+          text={
+            "Our Achievements"
+          }
+        />
+      </div>
+
         <div className="grid grid-cols-1 px-[1rem] sm:px-0 sm:grid-cols-2 s1100:grid-cols-4 containers gap-[1rem] md:gap-[2rem] h-auto s1100:h-[430px]">
           {focus?.map((e, i) => {
             return (
