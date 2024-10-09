@@ -7,7 +7,7 @@ import { Image, Skeleton } from "@arco-design/web-react";
 
 const imageSize = { width: 230, height: 320 };
 
-import cardImg1 from "../../assets/WhoAreWe/teams/team1.png";
+import cardImg1 from "../../assets/WhoAreWe/teams/team1.jpeg";
 import oladipo from "../../assets/WhoAreWe/teams/oladipo.png";
 import panda from "../../assets/WhoAreWe/teams/panda.png";
 import Yomi from "../../assets/WhoAreWe/teams/Yomi.jpg";
@@ -90,8 +90,8 @@ function TeamTemplate() {
             Financial Reporting, M&A, Funding & Capital Structure, Finance
             Transformation and Strategic Planning. He has held various
             leadership roles with top multi-national companies. He most recently
-            served as the Group Director of Finance, Etisalat Dubai, Prior to
-            that, he served as the general manager, Financial Reporting and
+            served as the Group Director of Finance, Etisalat Dubai. Prior to
+            that, he served as the General Manager. Financial Reporting and
             Planning at Helios Towers, and Pfizer Global Pharmaceuticals.
           </div>
           <div className="pt-[2rem]">
@@ -125,7 +125,7 @@ function TeamTemplate() {
           </div>
           <div className="py-[2rem]">
             Prior to joining Pan African Towers Limited, he worked as Chief
-            Technical Officer - Spectranet Ltd, Nigeria. Besides working In
+            Technical Officer - Spectranet Ltd, Nigeria. Besides working in
             Nigeria, he has also worked in Tanzania and Liberia. Mr. Arun's
             competency includes the ability to develop and execute strategic
             plans with a focus on efficiency and growth through an empowered
@@ -150,8 +150,8 @@ function TeamTemplate() {
         <div>
           <div>
             Yomi is a seasoned professional with years of progressive experience
-            managing IT infrastructure and services. Yomi's competences in IT
-            service management and technical operations are aimed at aligning
+            managing IT Infrastructure and Services. Yomi's competences in IT
+            Service Management and Technical Operations are aimed at aligning
             end-user needs with long-term business objectives while leveraging
             on technology to resolve complex challenges.
           </div>
@@ -159,7 +159,7 @@ function TeamTemplate() {
             Prior to joining PAT, Yomi worked in a number of reputable
             institutions, including Resourcery Limited, MTN Nigeria
             Communications Limited, Emerging Market Telecommunications Services
-            Ltd (Etisalat Nigeria) among others.
+            LTD (Etisalat Nigeria) among others.
           </div>
           <div>
             Yomi is a graduate of Computer Science/Economics from Obafemi
@@ -190,7 +190,7 @@ function TeamTemplate() {
             budgets.
           </div>
           <div className="pt-[2rem]">
-            I have been described variously- by colleagues and reviewers as 'a
+            Babatunde has been described variously- by colleagues and reviewers as 'a
             solution provider with incredible analytic abilities' and 'a
             tenacious worker and organiser'
           </div>
@@ -293,20 +293,20 @@ function TeamTemplate() {
       content: (
         <div>
           <div>
-            Adefolarin joined DPI in July 2014. Prior to DPI, he was an
+            Adefolarin joined DPI in July 2014. Prior to DPI, he was an
             investment professional at Helios Investment Partners where he
-            evaluated new and follow on investment opportunities across multiple
-            industries including technology, telecommunications, financial
-            services, retail and consumer in sub-Saharan Africa. Prior to
-            Helios, Folarin was an investment banker at Credit Suisse working
-            within the Leveraged Finance and Restructuring group in New York
-            where he evaluated financing and strategic alternatives for numerous
-            corporations, including high yield bond and leveraged loan
-            issuances, recapitalizations, loan amendments, distressed M&A   and
-            restructurings across multiple industries. Folarin has a BSc. (Hons)
-            in Computer Engineering (summa cum  laude) from NJIT and an MBA in
-            Finance and Entrepreneurial Management from The Wharton School,
-            University of  Pennsylvania.
+            evaluated investment opportunities across multiple industries
+            including technology, telecommunications, financial services, retail
+            and consumer in sub-Saharan Africa. Prior to Helios, Folarin was an
+            investment banker at Credit Suisse working within the Leveraged
+            Finance and Restructuring group in New York where he evaluated
+            financing and strategic alternatives for numerous corporations,
+            including high yield bond and leveraged loan issuances,
+            recapitalizations, loan amendments, distressed M& and restructurings
+            across multiple industries. Folarin has a BSc. (Hons) in Computer
+            Engineering (summa cum laude) from NJIT and an MBA in Finance and
+            Entrepreneurial Management from The Wharton School, University of
+            Pennsylvania.
           </div>
         </div>
       ),
