@@ -32,6 +32,8 @@ import TeemCard from "../../Reuseable/UI/TeemCard";
 
 import { Image, Skeleton } from "@arco-design/web-react";
 import { useLocation } from "react-router-dom";
+import { useQuery, useQueryClient } from "react-query";
+import { getAllPages } from "../../../lib/apiServices";
 
 interface Tab {
   name: string;
@@ -46,50 +48,94 @@ interface Tab {
 
 const imageSize = { width: "100%", height: "100%" };
 
+
 function WhoAreWe() {
-  const tabs: Tab[] = [
-    {
-      name: "Company Profile",
-      icon: companyIcon,
-      data: {
-        headerText: "Anchored on an Innovative Approach to Designing Towers",
-        text: "Pan-African Towers is a multiple award-winning telecommunications infrastructure company and wireless service facilitator in Nigeria aimed at catering to the telecommunication needs ranging from broadband, mobile telephony to other local value-added services in Africa. The company debuted in 2017, offering a unique infrastructural experience to deliver best-in-class services to all their clients’ and their end customers across the African marketplace. Since its operations, Pan-African Towers now have nearly one thousand (1000) towers in all cities in Nigeria.",
-        text2:
-          "Pan-African towers is focused on giving various telecommunication network operators in Africa the much-needed support to reduce costs and deliver high quality and reliable service levels across their operations.",
-        img: company,
-      },
-    },
-    {
-      name: "Our Achievements",
-      icon: achiveIcon,
-      data: {
-        headerText:
-          "With these accomplishments and more, Pan-African Towers Limited, is dedicated and committed to becoming a clear leader in mobile infrastructure sharing operations in Africa.",
-        text: [
-          "Africa's Best Telecom Infrastructure Company of the Year Award (2021)",
-          "Most Energy Efficient Telecom Infrastructure Provider of the Year Award (2021)",
-          "Pan African International Award (2021)",
-          "Telecom Infrastructure Company of the Year Award (2021)",
-          "Emerging Tower Company of the Year Award (2020)",
-          "Telecom Infrastructure Company of the Year Award (2020)",
-          "Emerging Tower Company of the Year Award (2019)",
-          "Leading Telecom Service Provider of the Year Award (2019)",
-        ],
-        img: achievement,
-      },
-    },
-    {
-      name: "Why Pan African Towers?",
-      icon: whyIcon,
-      data: {
-        headerText: "Anchored on an Innovative Approach to Designing Towers",
-        text: "Pan-African Towers is a multiple award-winning telecommunications infrastructure company and wireless service facilitator in Nigeria aimed at catering to the telecommunication needs ranging from broadband, mobile telephony to other local value-added services in Africa. The company debuted in 2017, offering a unique infrastructural experience to deliver best-in-class services to all their clients’ and their end customers across the African marketplace. Since its operations, Pan-African Towers now have nearly one thousand (1000) towers in all cities in Nigeria.",
-        text2:
-          "Pan-African towers is focused on giving various telecommunication network operators in Africa the much-needed support to reduce costs and deliver high quality and reliable service levels across their operations.",
-        img: why,
-      },
-    },
-  ];
+
+  const queryClient = useQueryClient();
+const [message , setMessage] = useState()
+const { data: pageDetails, isLoading } = useQuery({
+  queryKey: ["getAllPages"],
+  queryFn: () => getAllPages(),
+  onError: (err) => {     
+     // @ts-ignore
+    setMessage(err?.response?.data?.detail || err.message);
+  },
+});
+
+let heroData = null; 
+let tabTitles = [];
+let tabs = [];
+
+const BASE_URL = "http://89.38.135.41:9920/";
+
+const getFullImageUrl = (imagePath) => {
+  return imagePath ? `${BASE_URL}${imagePath}` : null;
+};
+
+if (!isLoading && pageDetails) {
+  const aboutusPage = pageDetails.find((page) => page.title === "Who we are");
+  if (aboutusPage) {
+    heroData = aboutusPage.heroes[0];
+    tabTitles = aboutusPage.sub_navs.map((subNav) => subNav.nav_sections.map((section) => section.title)).flat();
+    const subNavs = aboutusPage.sub_navs || [];
+    tabs = subNavs.flatMap((subNav) => {
+      return subNav.nav_sections.flatMap((navSection) => {
+        return navSection.nav_items.map((navItem) => ({
+          title: navSection.title,
+          title2: navItem.title,
+          img: getFullImageUrl(navItem.image || ""),
+          desc: navItem.subtitle || "",
+          btn: "main_btn",
+        }));
+      });
+    });
+
+  }
+}
+
+  // const tabs: Tab[] = [
+  //   {
+  //     name: "Company Profile",
+  //     icon: companyIcon,
+  //     data: {
+  //       headerText: "Anchored on an Innovative Approach to Designing Towers",
+  //       text: "Pan-African Towers is a multiple award-winning telecommunications infrastructure company and wireless service facilitator in Nigeria aimed at catering to the telecommunication needs ranging from broadband, mobile telephony to other local value-added services in Africa. The company debuted in 2017, offering a unique infrastructural experience to deliver best-in-class services to all their clients’ and their end customers across the African marketplace. Since its operations, Pan-African Towers now have nearly one thousand (1000) towers in all cities in Nigeria.",
+  //       text2:
+  //         "Pan-African towers is focused on giving various telecommunication network operators in Africa the much-needed support to reduce costs and deliver high quality and reliable service levels across their operations.",
+  //       img: company,
+  //     },
+  //   },
+  //   {
+  //     name: "Our Achievements",
+  //     icon: achiveIcon,
+  //     data: {
+  //       headerText:
+  //         "With these accomplishments and more, Pan-African Towers Limited, is dedicated and committed to becoming a clear leader in mobile infrastructure sharing operations in Africa.",
+  //       text: [
+  //         "Africa's Best Telecom Infrastructure Company of the Year Award (2021)",
+  //         "Most Energy Efficient Telecom Infrastructure Provider of the Year Award (2021)",
+  //         "Pan African International Award (2021)",
+  //         "Telecom Infrastructure Company of the Year Award (2021)",
+  //         "Emerging Tower Company of the Year Award (2020)",
+  //         "Telecom Infrastructure Company of the Year Award (2020)",
+  //         "Emerging Tower Company of the Year Award (2019)",
+  //         "Leading Telecom Service Provider of the Year Award (2019)",
+  //       ],
+  //       img: achievement,
+  //     },
+  //   },
+  //   {
+  //     name: "Why Pan African Towers?",
+  //     icon: whyIcon,
+  //     data: {
+  //       headerText: "Anchored on an Innovative Approach to Designing Towers",
+  //       text: "Pan-African Towers is a multiple award-winning telecommunications infrastructure company and wireless service facilitator in Nigeria aimed at catering to the telecommunication needs ranging from broadband, mobile telephony to other local value-added services in Africa. The company debuted in 2017, offering a unique infrastructural experience to deliver best-in-class services to all their clients’ and their end customers across the African marketplace. Since its operations, Pan-African Towers now have nearly one thousand (1000) towers in all cities in Nigeria.",
+  //       text2:
+  //         "Pan-African towers is focused on giving various telecommunication network operators in Africa the much-needed support to reduce costs and deliver high quality and reliable service levels across their operations.",
+  //       img: why,
+  //     },
+  //   },
+  // ];
 
   const { pathname } = useLocation();
 
@@ -102,14 +148,18 @@ function WhoAreWe() {
     <section>
       <div>
         <HeaderNav
-          title={"Who we are"}
+          title={heroData?.title}
+
           headerText={
-            "Pan African Towers Limited is a Telecommunication Infrastructure and Wireless Service Facilitator"
+            heroData?.subtitle
           }
           text={
-            "Pan-African Towers is a multiple award-winning telecommunications infrastructure company and wireless service facilitator in Nigeria aimed at catering to the telecommunication needs ranging from broadband, mobile telephony to other local value-added services in Africa."
+            heroData?.description
           }
-          Img={Img}
+          Img={ heroData?.image instanceof File
+            ? URL.createObjectURL(heroData?.image)
+            : getFullImageUrl(heroData?.image)
+}
         />
       </div>
 

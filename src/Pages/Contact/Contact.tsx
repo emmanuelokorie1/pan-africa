@@ -8,8 +8,48 @@ import { useEffect, useRef, useState } from "react";
 import { Tooltip } from "@arco-design/web-react";
 import Text from "@arco-design/web-react/es/Typography/text";
 import { Link, useLocation } from "react-router-dom";
+import { useQuery } from "react-query";
+import { getAllPages } from "../../lib/apiServices";
 
 function Contact() {
+  const [message, setMessage] = useState();
+  const { data: pageDetails, isLoading } = useQuery({
+    queryKey: ["getAllPages"],
+    queryFn: () => getAllPages(),
+    onError: (err) => {
+      // @ts-ignore
+      setMessage(err?.response?.data?.detail || err.message);
+    },
+  });
+
+  let heroData = null;
+  let whistleblowingData = null;
+
+  const BASE_URL = "http://89.38.135.41:9920/";
+
+  const getFullImageUrl = (imagePath) => {
+    return imagePath ? `${BASE_URL}${imagePath}` : null;
+  };
+
+  if (!isLoading && pageDetails) {
+    const contactPage = pageDetails.find(
+      (page) => page.title === "contact"
+    );
+    if (contactPage) {
+      heroData = contactPage.heroes[0];
+      const contactSection = contactPage?.sections?.find(
+        (section) => section.title === "Header" && section.id === 15
+      );
+      if(contactSection) {
+        whistleblowingData = contactSection.sub_sections.find(
+          (subSection) => subSection.title === "Whistleblowing"
+        );
+      }
+
+    }
+  }
+
+
   const data = [
     {
       icon: <MdOutlineEmail />,
@@ -109,12 +149,25 @@ function Contact() {
       <div className="overflow-hidden">
         <div>
           <HeaderNav
-            title={"Contact us"}
-            headerText={"Need Help?"}
+            // title={"Contact us"}
+            title={heroData?.title}
+
+            // headerText={"Need Help?"}
+            headerText={heroData?.subtitle}
+            text={heroData?.description}
+
+
             size={"2rem"}
-            text={"Get in touch with us"}
-            Img={Img}
+            // text={"Get in touch with us"}
+            // Img={Img}
+            Img={
+              heroData?.image instanceof File
+                ? URL.createObjectURL(heroData?.image)
+                : getFullImageUrl(heroData?.image)
+            }
+  
           />
+
         </div>
 
         <div className="xl:px-[12rem] lg:px-[6rem] s900:px-[5rem] md:px-[3rem] px-[1rem]">

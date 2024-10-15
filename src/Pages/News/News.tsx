@@ -9,11 +9,46 @@ import cardImg3 from "../../assets/home/cardImgs/cardImg3.png";
 import cardImg5 from "../../assets/home/cardImgs/cardImg4.png";
 import cardImg4 from "../../assets/news/pan.svg";
 import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { useQuery } from "react-query";
+import { getAllPages } from "../../lib/apiServices";
 
 function News() {
   const { pathname } = useLocation();
+  const [message, setMessage] = useState();
+  const { data: pageDetails, isLoading } = useQuery({
+    queryKey: ["getAllPages"],
+    queryFn: () => getAllPages(),
+    onError: (err) => {
+      // @ts-ignore
+      setMessage(err?.response?.data?.detail || err.message);
+    },
+  });
 
+  let heroData = null;
+  const BASE_URL = "http://89.38.135.41:9920/";
+
+  const getFullImageUrl = (imagePath) => {
+    return imagePath ? `${BASE_URL}${imagePath}` : null;
+  };
+
+  let cardsData = [] ;
+  if (!isLoading && pageDetails) {
+    const newsPage = pageDetails.find(
+      (page) => page.title === "News"
+    );
+    if (newsPage) {
+      heroData = newsPage.heroes[0];
+      const cardsSection = newsPage.sections.find(
+        (section) => section.title === "Header" && section.id === 13
+      );
+
+      if (cardsSection) {
+        cardsData = cardsSection.cards; // Extract cards data
+  
+      }
+    }
+  }
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
@@ -22,14 +57,19 @@ function News() {
     <div>
       <div>
         <HeaderNav
-          title={"News"}
+          title={heroData?.title}
           headerText={
-            "Our news section brings you up-to-date coverage on the most important events, announcements, and stories that matter to you."
+            heroData?.subtitle
           }
           text={
-            "Discover the inspiring stories and remarkable achievements of Pan African Towers within our community. Our community spotlight section celebrates the talents, hard work, and dedication of people who make a difference. Whether it’s a local hero, a rising star, or an unsung champion, we shine a light on those who inspire us all."
+            heroData?.description
           }
-          Img={Img}
+          Img={
+            heroData?.image instanceof File
+            ? URL.createObjectURL(heroData?.image)
+            : getFullImageUrl(heroData?.image)
+
+          }
         />
       </div>
 
@@ -37,7 +77,9 @@ function News() {
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[1rem]">
           <ImageCard
             image={cardImg1}
+            // text="Pan African Towers Appoints Azeez Amida as CEO"
             text="Pan African Towers Appoints Azeez Amida as CEO"
+
             link={'/see-news/1'}
           />
           <ImageCard

@@ -1,3 +1,5 @@
+/** @format */
+
 import HeaderNav from "../../Reuseable/UI/HeaderNav";
 import Img from "../../../assets/coreValue.png";
 
@@ -12,8 +14,63 @@ import ImageAndGridTextRight from "../../Reuseable/Templates/ImageAndGridTextRig
 
 import { Image, Skeleton } from "@arco-design/web-react";
 import { useLocation } from "react-router-dom";
+import { useQuery } from "react-query";
+import { getAllPages } from "../../../lib/apiServices";
 
 function OurCoreValue() {
+  const [message, setMessage] = useState();
+  const { data: pageDetails, isLoading } = useQuery({
+    queryKey: ["getAllPages"],
+    queryFn: () => getAllPages(),
+    onError: (err) => {
+      // @ts-ignore
+      setMessage(err?.response?.data?.detail || err.message);
+    },
+  });
+
+  let heroData = null;
+  let tabTitles = [];
+  let propositionData = null;
+
+  let tabs = [];
+
+  const BASE_URL = "http://89.38.135.41:9920/";
+
+  const getFullImageUrl = (imagePath) => {
+    return imagePath ? `${BASE_URL}${imagePath}` : null;
+  };
+
+  if (!isLoading && pageDetails) {
+    const aboutusPage = pageDetails.find(
+      (page) => page.title === "Our core values"
+    );
+    if (aboutusPage) {
+      heroData = aboutusPage.heroes[0];
+      const subNavs = aboutusPage.sub_navs || [];
+      tabs = subNavs.flatMap((subNav) => {
+        return subNav.nav_sections.flatMap((navSection) => {
+          return navSection.nav_items.map((navItem) => ({
+            name: navSection.title,
+            title: navItem.title,
+            text: navItem.subtitle || "",
+            img: getFullImageUrl(navItem.image || ""),
+            desc: navItem.description || "",
+            btn: "main_btn",
+          }));
+        });
+      });
+
+      const propositionSection = aboutusPage.sections.find(
+        (section) => section.title === "Header" && section.id === 2
+      );
+      if (propositionSection) {
+        propositionData = propositionSection.sub_sections.find(
+          (subSection) => subSection.title === "Our Proposition to our clients"
+        );
+      }
+    }
+  }
+
   const [customerTab, setCustomerTab] = useState("Customer Focus");
   const customer = [
     {
@@ -39,26 +96,26 @@ function OurCoreValue() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
-  const imageSize = { width: '100%', height: '100%' };
+  const imageSize = { width: "100%", height: "100%" };
   return (
     <section>
       <div>
         <HeaderNav
-          title={"Our core values"}
-          headerText={
-            "At Pan African Towers Limited, our core values are the foundation of everything we do."
+          title={heroData?.title}
+          headerText={heroData?.subtitle}
+          text={heroData?.description}
+          Img={
+            heroData?.image instanceof File
+              ? URL.createObjectURL(heroData?.image)
+              : getFullImageUrl(heroData?.image)
           }
-          text={
-            "We uphold the highest standards of integrity in all our actions. We are committed to doing what is right, even when it is difficult. Our honesty and transparency build trust with our stakeholders and ensure we maintain a strong ethical foundation."
-          }
-          Img={Img}
         />
       </div>
 
       <section className="containers md:mt-[6rem] mt-[1rem]">
         <div className="flex flex-col lg:flex-row xl:justify-evenly justify-between items-center">
           <div className="w-full lg:w-[50%] flex justify-center mb-[2rem] lg:mb-0">
-            {customer?.map((e, i) => {
+            {tabs?.map((e, i) => {
               return (
                 <div key={i} className="w-full lg:w-auto">
                   <div className="transition-all flex justify-center items-center w-[100%]">
@@ -87,7 +144,7 @@ function OurCoreValue() {
           </div>
 
           <div className="w-full lg:w-[50%]">
-            {customer?.map((e, i) => {
+            {tabs?.map((e, i) => {
               return (
                 <div
                   className="py-[1rem] my-1 px-[1rem] w-full lg:w-[85%] transition-all"
@@ -126,18 +183,27 @@ function OurCoreValue() {
 
       <div className="bg-gray-50">
         <ImageAndGridTextRight
-          title={"Our Proposition to our clients"}
+          // title={"Our Proposition to our clients"}
+          title={propositionData?.title || ""}
           headerText={
-            "Our business model is centred around creating unique services that meet the needs of our customers"
+            // "Our business model is centred around creating unique services that meet the needs of our customers"
+            propositionData?.content_blocks[0]?.title || ""
           }
           text={
-            "We make use of cutting edge technology to provide premium service quality with superior cost advanatge. Our use of cutting-edge technology and renewable energy, will enable our clients across Africa lower costs and deliver high quality and reliable service levels across their operations."
+            // "We make use of cutting edge technology to provide premium service quality with superior cost advanatge. Our use of cutting-edge technology and renewable energy, will enable our clients across Africa lower costs and deliver high quality and reliable service levels across their operations."
+            propositionData?.content_blocks[0]?.subtitle || ""
           }
           text2={
-            "Thanks to our staff, processes and technology, we guarantee uparalleled network uptime levels and service reliability"
+            // "Thanks to our staff, processes and technology, we guarantee uparalleled network uptime levels and service reliability"
+            propositionData?.content_blocks[0]?.description || ""
           }
           link="/career"
-          img={story}
+          img={
+            // story
+            propositionData?.content_blocks[0]?.image instanceof File
+              ? URL.createObjectURL(propositionData?.content_blocks[0]?.image)
+              : getFullImageUrl(propositionData?.content_blocks[0]?.image)
+          }
         />
       </div>
     </section>

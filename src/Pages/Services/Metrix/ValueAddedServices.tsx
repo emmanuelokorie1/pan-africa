@@ -9,8 +9,10 @@ import support from "../../../assets/valueservice/support.png";
 
 import ImageAndGridTextRight from "../../Reuseable/Templates/ImageAndGridTextRight";
 import ImageAndTextGrid from "../../Reuseable/Templates/ImageAndTextGrid";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useQuery } from "react-query";
+import { getAllPages } from "../../../lib/apiServices";
 
 function ValueAddedServices() {
 
@@ -91,19 +93,69 @@ function ValueAddedServices() {
     },
   ];
 
+  const [message , setMessage] = useState()
+  const { data: pageDetails, isLoading } = useQuery({
+    queryKey: ["getAllPages"],
+    queryFn: () => getAllPages(),
+    onError: (err) => {
+      // @ts-ignore
+      setMessage(err?.response?.data?.detail || err.message);
+    },
+  });
+
+  let heroData = null; 
+  let tabs = [];
+
+  const BASE_URL = "http://89.38.135.41:9920/";
+  
+  const getFullImageUrl = (imagePath) => {
+    return imagePath ? `${BASE_URL}${imagePath}` : null;
+  };
+
+  if (!isLoading && pageDetails) {
+    const servicesPage = pageDetails.find((page) => page.title === "Core services");
+    if (servicesPage) {
+      heroData = servicesPage.heroes[0];
+      const subNavs = servicesPage.sub_navs || [];
+      tabs = subNavs.flatMap((subNav) => {
+        return subNav.nav_sections.flatMap((navSection) => {
+          return navSection.nav_items.map((navItem) => ({
+            name: navSection.title,
+            title: navItem.title,
+            text: navItem.subtitle || "",
+            img: getFullImageUrl(navItem.image || ""),
+            desc: navItem.description || "",
+            btn: "main_btn",
+          }));
+        });
+      });
+  
+    }
+  }
  
   return (
     <div>
       <div>
         <HeaderNav
-          title={"Core services"}
+          // title={"Core services"}
+          title={heroData?.title}
+
           headerText={
-            "Pan African Towers is leading this push with a new generation of mobile technology service innovations."
+            // "Pan African Towers is leading this push with a new generation of mobile technology service innovations."
+            heroData?.subtitle
+
           }
           text={
-            "Pan African Towers Limited, is Nigeria’s largest indigenous telecom tower infrastructure company and the 10th Largest in Africa. We are “The New Face of Connectivity in Africa.” Our Specialties include: Co-location, Infrastructure Sharing, Site Leasing, Built To Suit, Buy Lease Back, Green Energy, and DAS Solution"
+            // "Pan African Towers Limited, is Nigeria’s largest indigenous telecom tower infrastructure company and the 10th Largest in Africa. We are “The New Face of Connectivity in Africa.” Our Specialties include: Co-location, Infrastructure Sharing, Site Leasing, Built To Suit, Buy Lease Back, Green Energy, and DAS Solution"
+            heroData?.description
+
           }
-          Img={Img}
+          Img={
+            heroData?.image instanceof File
+            ? URL.createObjectURL(heroData?.image)
+            : getFullImageUrl(heroData?.image)
+
+          }
         />
       </div>
 

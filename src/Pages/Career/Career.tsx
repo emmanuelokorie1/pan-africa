@@ -5,14 +5,53 @@ import ImageAndTextGrid from "../Reuseable/Templates/ImageAndTextGrid";
 
 import career from "../../assets/career/careerTemp.png";
 import ContactTemp from "../Reuseable/UI/ContactTemp";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import OpenRoleTemplate from "../Reuseable/Templates/OpenRoleTemplate";
 import ImageAndGridTextRight from "../Reuseable/Templates/ImageAndGridTextRight";
+import { useQuery } from "react-query";
+import { getAllPages } from "../../lib/apiServices";
 
 function Career() {
   const { pathname } = useLocation();
+  const [message, setMessage] = useState();
+  const { data: pageDetails, isLoading } = useQuery({
+    queryKey: ["getAllPages"],
+    queryFn: () => getAllPages(),
+    onError: (err) => {
+      // @ts-ignore
+      setMessage(err?.response?.data?.detail || err.message);
+    },
+  });
 
+  let heroData = null;
+  let carriersData = null;
+
+  const BASE_URL = "http://89.38.135.41:9920/";
+
+  const getFullImageUrl = (imagePath) => {
+    return imagePath ? `${BASE_URL}${imagePath}` : null;
+  };
+
+  if (!isLoading && pageDetails) {
+    const aboutusPage = pageDetails.find(
+      (page) => page.title === "Our core values"
+    );
+    if (aboutusPage) {
+      heroData = aboutusPage.heroes[0];
+      const subNavs = aboutusPage.sub_navs || [];
+
+
+      const propositionSection = aboutusPage.sections.find(
+        (section) => section.title === "Header" && section.id === 2
+      );
+      if (propositionSection) {
+        carriersData = propositionSection.sub_sections.find(
+          (subSection) => subSection.title === "Our Proposition to our clients"
+        );
+      }
+    }
+  }
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
@@ -21,27 +60,41 @@ function Career() {
     <div className="overflow-x-hidden">
       <div>
         <HeaderNav
-          title={"Our career"}
-          headerText={"Let's rewrite the African connectivity story together."}
-          text={
-            "Join Nigeria's leading telecom and digital infrastructure provider team and help connect Africa"
-          }
-          text2={
-            "Pan African Towers connects people across the globe, fostering business growth and bridging digital divides. The work we do here has a meaningful impact on millions of lives."
-          }
-          Img={Img}
+          // title={"Our career"}
+          title={heroData?.title}
+
+          // headerText={"Let's rewrite the African connectivity story together."}
+          headerText={heroData?.subtitle}
+
+          // text={
+          //   "Join Nigeria's leading telecom and digital infrastructure provider team and help connect Africa"
+          // }
+          // text2={
+          //   "Pan African Towers connects people across the globe, fostering business growth and bridging digital divides. The work we do here has a meaningful impact on millions of lives."
+          // }
+          text={heroData?.description}
+
+          Img={           
+             heroData?.image instanceof File
+            ? URL.createObjectURL(heroData?.image)
+            : getFullImageUrl(heroData?.image)
+}
         />
       </div>
 
       <ImageAndTextGrid
-        title={"Careers"}
-        headerText={
-          "Pan African Towers Limited is a Telecommunication Infrastructure and Wireless Service Facilitator"
+        title={carriersData?.title || ""}
+
+        headerText={      
+          carriersData?.content_blocks[0]?.subtitle || ""
         }
         text={
-          "Pan-African Towers is a multiple award-winning telecommunications infrastructure company and wireless service facilitator in Nigeria aimed at catering to the telecommunication needs ranging from broadband, mobile telephony to other local value-added services in Africa."
+          carriersData?.content_blocks[0]?.description || ""
         }
-        img={career}
+        img={          carriersData?.content_blocks[0]?.image instanceof File
+          ? URL.createObjectURL(carriersData?.content_blocks[0]?.image)
+          : getFullImageUrl(carriersData?.content_blocks[0]?.image)
+}
       />
 
       <section className="containers mb-[2rem]">

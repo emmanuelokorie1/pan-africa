@@ -17,6 +17,8 @@ import ContactTemp from "../../Reuseable/UI/ContactTemp";
 import { Image, Skeleton } from "@arco-design/web-react";
 import { useLocation } from "react-router-dom";
 import LeftHeader from "../../Reuseable/Templates/LeftHeader";
+import { useQuery } from "react-query";
+import { getAllPages } from "../../../lib/apiServices";
 
 interface Tab {
   name: string;
@@ -25,6 +27,55 @@ interface Tab {
 }
 
 function OurFocus() {
+  const [message , setMessage] = useState()
+  const { data: pageDetails, isLoading } = useQuery({
+    queryKey: ["getAllPages"],
+    queryFn: () => getAllPages(),
+    onError: (err) => {
+            // @ts-ignore
+      setMessage(err?.response?.data?.detail || err.message);
+    },
+  });
+  
+  let heroData = null; 
+  // let focus = [];
+  let patStrategyData  = null;
+
+  const BASE_URL = "http://89.38.135.41:9920/";
+
+  const getFullImageUrl = (imagePath) => {
+    return imagePath ? `${BASE_URL}${imagePath}` : null;
+  };
+  
+  if (!isLoading && pageDetails) {
+    const aboutusPage = pageDetails.find((page) => page.title === "Our focus");
+    if (aboutusPage) {
+      heroData = aboutusPage.heroes[0];
+      const subNavs = aboutusPage.sub_navs || [];
+      // tabs = subNavs.flatMap((subNav) => {
+      //   return subNav.nav_sections.flatMap((navSection) => {
+      //     return navSection.nav_items.map((navItem) => ({
+      //       name: navSection.title,
+      //       title: navItem.title,
+      //       text: navItem.subtitle || "",
+      //       img: getFullImageUrl(navItem.image || ""),
+      //       desc: navItem.description || "",
+      //       btn: "main_btn",
+      //     }));
+      //   });
+      // });
+  
+  
+      const patStrategySection = aboutusPage.sections.find(
+        (section) => section.title === "Header" && section.id === 2
+      );
+      if (patStrategySection) {
+        patStrategyData = patStrategySection.sub_sections.find(
+          (subSection) => subSection.title === "PAT Strategy"
+        );
+      }
+    }
+  }
   const focus = [
     {
       img: focus1,
@@ -84,14 +135,25 @@ function OurFocus() {
     <section>
       <div>
         <HeaderNav
-          title={"Our focus"}
+          // title={"Our focus"}
+          title={heroData?.title}
+
           headerText={
-            "We are Passionate about Africa and we exist to rewrite the African connectivity story."
+            // "We are Passionate about Africa and we exist to rewrite the African connectivity story."
+            heroData?.subtitle
+
           }
           text={
-            "At Pan African Towers, our focus is to connect people, businesses, and communities through innovative and reliable telecommunications solutions. We believe in the power of communication to transform lives and drive progress. Our mission is to provide seamless connectivity and exceptional service, ensuring that our customers can stay connected anytime, anywhere."
+            // "At Pan African Towers, our focus is to connect people, businesses, and communities through innovative and reliable telecommunications solutions. We believe in the power of communication to transform lives and drive progress. Our mission is to provide seamless connectivity and exceptional service, ensuring that our customers can stay connected anytime, anywhere."
+            heroData?.description
+
           }
-          Img={Img}
+          // Img={Img}
+          Img={ heroData?.image instanceof File
+            ? URL.createObjectURL(heroData?.image)
+            : getFullImageUrl(heroData?.image)
+}
+
         />
       </div>
 
@@ -171,31 +233,37 @@ function OurFocus() {
                           className="text-textColor border-l-[2px] border-textColor text-[1.1rem] ps-2 mt-[2rem]"
                           style={{ fontFamily: "MediumItalic" }}
                         >
-                          PAT Strategy
+                          {/* PAT Strategy */}
+                          {patStrategyData?.title || ""}
                         </div>
                         <div
                           className="text-[1.3rem] text-black pe-[2rem] py-[1rem]"
                           style={{ fontFamily: "semibold1" }}
                         >
-                          Grow Towers, Position for Data Demands and Bridge the
-                          Power Gap
+                          {/* Grow Towers, Position for Data Demands and Bridge the
+                          Power Gap */}
+                          {patStrategyData?.content_blocks[0]?.title || ""                          }
                         </div>
                         <div>
                           <div className="text-gray-600 text-[.9rem]">
                             <div className="py-[1rem]">
-                              We provide sustainable, dynamic & innovative
+                              {/* We provide sustainable, dynamic & innovative
                               infrastructure solutions and platforms to
                               transform communities through technology in an
-                              efficient manner.
+                              efficient manner. */}
+                             {patStrategyData?.content_blocks[0]?.subtitle || ""                          }
+
                             </div>
                             <div>
-                              Our telecommunications strategy is designed to
+                              {/* Our telecommunications strategy is designed to
                               provide exceptional connectivity solutions that
                               empower our customers and drive technological
                               advancement. Our strategy focuses on innovation,
                               reliability, customer satisfaction, and
                               sustainability, ensuring we meet the growing
-                              demands of a digitally connected world.
+                              demands of a digitally connected world. */}
+
+                              {patStrategyData?.content_blocks[0]?.description || "" }
                             </div>
                           </div>
                         </div>
@@ -204,7 +272,12 @@ function OurFocus() {
                         <div className="w-[300px] md:w-[450px]">
                           <Image
                             {...imageSize}
-                            src={e?.img}
+                            src={ patStrategyData?.content_blocks[0]?.image instanceof File
+                              ? URL.createObjectURL(
+                                patStrategyData?.content_blocks[0]?.image
+                                )
+                              : getFullImageUrl(patStrategyData?.content_blocks[0]?.image)
+                  }
                             alt=""
                             preview={false}
                             lazyload={{ threshold: 0.5 }}

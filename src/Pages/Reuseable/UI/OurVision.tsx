@@ -2,9 +2,51 @@ import value from "../../../assets/ourcore/vision/values.png";
 import mission from "../../../assets/ourcore/vision/mission.png";
 import vision from "../../../assets/ourcore/vision/vision.png";
 import { useState } from "react";
+import { useQuery } from "react-query";
+import { getAllPages } from "../../../lib/apiServices";
 
 function OurVision() {
   const [activeIndex, setActiveIndex] = useState(2); // State to track the active hovered card
+
+  let tabs = [];
+
+  const BASE_URL = "http://89.38.135.41:9920/";
+
+const getFullImageUrl = (imagePath) => {
+  return imagePath ? `${BASE_URL}${imagePath}` : null;
+};
+const [message , setMessage] = useState()
+const { data: pageDetails, isLoading } = useQuery({
+  queryKey: ["getAllPages"],
+  queryFn: () => getAllPages(),
+  onError: (err) => {
+          // @ts-ignore
+    setMessage(err?.response?.data?.detail || err.message);
+  },
+});
+
+
+
+if (!isLoading && pageDetails) {
+  const aboutusPage = pageDetails.find((page) => page.title === "Our core values");
+  if (aboutusPage) {
+    const subNavs = aboutusPage.sub_navs || [];
+    tabs = subNavs.flatMap((subNav) => {
+      return subNav.nav_sections.flatMap((navSection) => {
+        return navSection.nav_items.map((navItem) => ({
+          name: navSection.title,
+          title: navItem.title,
+          text: navItem.subtitle || "",
+          img: getFullImageUrl(navItem.image || ""),
+          desc: navItem.description || "",
+          btn: "main_btn",
+        }));
+      });
+    });
+
+
+  }
+}
 
   const values = [
     {
@@ -35,7 +77,7 @@ function OurVision() {
   return (
     <div className="containers py-[4rem] mt-[2rem] bg-secback">
       <div className="flex flex-col lg:flex-row gap-4">
-        {values?.map((e, i) => {
+        {tabs?.map((e, i) => {
           return (
             <div
               key={i}

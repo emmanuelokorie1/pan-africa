@@ -10,10 +10,13 @@ import das from "../../../assets/coreService/das.png";
 import ImageAndGridTextRight from "../../Reuseable/Templates/ImageAndGridTextRight";
 import ContactTemp from "../../Reuseable/UI/ContactTemp";
 import { useLocation } from "react-router-dom";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
+import { useQuery } from "react-query";
+import { getAllPages } from "../../../lib/apiServices";
 
 function CoreServices() {
   const { pathname, state } = useLocation(); // Extract pathname and state from useLocation
+
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -87,21 +90,76 @@ function CoreServices() {
     },
   ];
 
+  const [message , setMessage] = useState()
+  const { data: pageDetails, isLoading } = useQuery({
+    queryKey: ["getAllPages"],
+    queryFn: () => getAllPages(),
+    onError: (err) => {
+      // @ts-ignore
+      setMessage(err?.response?.data?.detail || err.message);
+    },
+  });
+
+  let heroData = null; 
+  let tabs = [];
+
+  const BASE_URL = "http://89.38.135.41:9920/";
+  
+  const getFullImageUrl = (imagePath) => {
+    return imagePath ? `${BASE_URL}${imagePath}` : null;
+  };
+  
+  if (!isLoading && pageDetails) {
+    const servicesPage = pageDetails.find((page) => page.title === "Core services");
+    if (servicesPage) {
+      heroData = servicesPage.heroes[0];
+      const subNavs = servicesPage.sub_navs || [];
+      tabs = subNavs.flatMap((subNav) => {
+        return subNav.nav_sections.flatMap((navSection) => {
+          return navSection.nav_items.map((navItem) => ({
+            name: navSection.title,
+            title: navItem.title,
+            text: navItem.subtitle || "",
+            img: getFullImageUrl(navItem.image || ""),
+            desc: navItem.description || "",
+            btn: "main_btn",
+          }));
+        });
+      });
+  
+    }
+  }
+
   return (
     <div>
       <div>
         <HeaderNav
-          title={"Value added services"}
-          headerText={"We are at the heart of technology penetration."}
-          text={
-            "In the competitive world of telecommunications, delivering superior value to customers goes beyond providing basic voice and data services. At Pan African Towers, we are committed to enriching our customers' experience through an array of innovative Value-Added Services (VAS). These services are designed to meet diverse needs, enhance convenience, and bring more value to our customers' lives."
+          // title={"Value added services"}
+          title={heroData?.title}
+
+          headerText={
+            // "We are at the heart of technology penetration."
+            heroData?.subtitle
+
+          
           }
-          Img={Img}
+          text={
+            // "In the competitive world of telecommunications, delivering superior value to customers goes beyond providing basic voice and data services. At Pan African Towers, we are committed to enriching our customers' experience through an array of innovative Value-Added Services (VAS). These services are designed to meet diverse needs, enhance convenience, and bring more value to our customers' lives."
+            heroData?.description
+
+          }
+          Img={
+            heroData?.image instanceof File
+            ? URL.createObjectURL(heroData?.image)
+            : getFullImageUrl(heroData?.image)
+          }
         />
       </div>
 
       <section>
-        {tamps?.map((e, i) => {
+        {/* {tamps?.map((e, i) => { */}
+        {tabs?.map((e, i) => {
+
           return (
             <div key={i} ref={e?.ref}>
               {i % 2 ? (

@@ -2,8 +2,10 @@ import ContactTemp from "../Reuseable/UI/ContactTemp";
 import HeaderNav from "../Reuseable/UI/HeaderNav";
 import gram from "../../assets/egs/Gram.png";
 import Timelines from "./Timelines";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
+import { useQuery } from "react-query";
+import { getAllPages } from "../../lib/apiServices";
 
 
 function EGS() {
@@ -13,16 +15,31 @@ function EGS() {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, [pathname]);
+  const [message , setMessage] = useState()
+  const { data: pageDetails, isLoading } = useQuery({
+    queryKey: ["getAllPages"],
+    queryFn: () => getAllPages(),
+    onError: (err) => {
+      // @ts-ignore
+      setMessage(err?.response?.data?.detail || err.message);
+    },
+  });
 
+  let heroData = null; 
+
+  if (!isLoading && pageDetails) {
+    const esgPage = pageDetails.find((page) => page.title === "ESG");
+    if (esgPage) {
+      heroData = esgPage.heroes[0];
+    }
+  }
   return (
     <div>
       <div>
         <HeaderNav
-          title={"ESG"}
-          headerText={"Environmental, Social and Governance"}
-          text={
-            "We are committed to the integration of environmental and social considerations into all aspects of our business activities for the promotion of a sustainable company."
-          }
+          title={heroData?.title}
+          headerText={ heroData?.subtitle}
+          text={  heroData?.description }
           noImage={true}
         />
       </div>
