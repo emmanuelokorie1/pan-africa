@@ -106,14 +106,14 @@ function ValueAddedServices() {
   let heroData = null; 
   let tabs = [];
 
-  const BASE_URL = "http://89.38.135.41:9920/";
+  const BASE_URL = "http://89.38.135.41:9920";
   
   const getFullImageUrl = (imagePath) => {
     return imagePath ? `${BASE_URL}${imagePath}` : null;
   };
 
   if (!isLoading && pageDetails) {
-    const servicesPage = pageDetails.find((page) => page.title === "Core services");
+    const servicesPage = pageDetails.find((page) => page.title === "Value added services");
     if (servicesPage) {
       heroData = servicesPage.heroes[0];
       const subNavs = servicesPage.sub_navs || [];

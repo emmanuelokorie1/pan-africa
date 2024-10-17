@@ -26,7 +26,7 @@ function News() {
   });
 
   let heroData = null;
-  const BASE_URL = "http://89.38.135.41:9920/";
+  const BASE_URL = "http://89.38.135.41:9920";
 
   const getFullImageUrl = (imagePath) => {
     return imagePath ? `${BASE_URL}${imagePath}` : null;

@@ -1,3 +1,5 @@
+/** @format */
+
 import HeaderNav from "../Reuseable/UI/HeaderNav";
 import Img from "../../assets/conatct/contact.png";
 import { MdOutlineEmail } from "react-icons/md";
@@ -25,30 +27,26 @@ function Contact() {
   let heroData = null;
   let whistleblowingData = null;
 
-  const BASE_URL = "http://89.38.135.41:9920/";
+  const BASE_URL = "http://89.38.135.41:9920";
 
   const getFullImageUrl = (imagePath) => {
     return imagePath ? `${BASE_URL}${imagePath}` : null;
   };
 
   if (!isLoading && pageDetails) {
-    const contactPage = pageDetails.find(
-      (page) => page.title === "contact"
-    );
+    const contactPage = pageDetails.find((page) => page.title === "Contact");
     if (contactPage) {
       heroData = contactPage.heroes[0];
       const contactSection = contactPage?.sections?.find(
         (section) => section.title === "Header" && section.id === 15
       );
-      if(contactSection) {
+      if (contactSection) {
         whistleblowingData = contactSection.sub_sections.find(
           (subSection) => subSection.title === "Whistleblowing"
         );
       }
-
     }
   }
-
 
   const data = [
     {
@@ -151,12 +149,9 @@ function Contact() {
           <HeaderNav
             // title={"Contact us"}
             title={heroData?.title}
-
             // headerText={"Need Help?"}
             headerText={heroData?.subtitle}
             text={heroData?.description}
-
-
             size={"2rem"}
             // text={"Get in touch with us"}
             // Img={Img}
@@ -165,9 +160,7 @@ function Contact() {
                 ? URL.createObjectURL(heroData?.image)
                 : getFullImageUrl(heroData?.image)
             }
-  
           />
-
         </div>
 
         <div className="xl:px-[12rem] lg:px-[6rem] s900:px-[5rem] md:px-[3rem] px-[1rem]">
@@ -269,7 +262,11 @@ function Contact() {
                   );
                 })}
               </aside>
-              <FormContainer className="s1000:w-[65%] md:w-[60%] w-[100%] sm:pe-[1rem] md:pe-0" data-aos="fade-up" onSubmit={handleSubmit}>
+              <FormContainer
+                className="s1000:w-[65%] md:w-[60%] w-[100%] sm:pe-[1rem] md:pe-0"
+                data-aos="fade-up"
+                onSubmit={handleSubmit}
+              >
                 <div className="bg-[white] w-[100%] p-[2rem] shadow-lg rounded-xl">
                   <div className="grid sm:grid-cols-2 grid-cols-1 sm:gap-[2rem] gap-[1rem]">
                     <div>
@@ -361,7 +358,7 @@ function Contact() {
 
           <div ref={sectionRefs?.whistle}></div>
 
-          <div className="md:pt-[3rem] pt-[1rem] pb-[3rem]" >
+          <div className="md:pt-[3rem] pt-[1rem] pb-[3rem]">
             <div
               className="text-textColor sm:text-[1rem] text-[.9rem]"
               style={{ fontFamily: "MediumItalic" }}

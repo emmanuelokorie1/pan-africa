@@ -66,7 +66,7 @@ let heroData = null;
 let tabTitles = [];
 let tabs = [];
 
-const BASE_URL = "http://89.38.135.41:9920/";
+const BASE_URL = "http://89.38.135.41:9920";
 
 const getFullImageUrl = (imagePath) => {
   return imagePath ? `${BASE_URL}${imagePath}` : null;
@@ -76,15 +76,16 @@ if (!isLoading && pageDetails) {
   const aboutusPage = pageDetails.find((page) => page.title === "Who we are");
   if (aboutusPage) {
     heroData = aboutusPage.heroes[0];
-    tabTitles = aboutusPage.sub_navs.map((subNav) => subNav.nav_sections.map((section) => section.title)).flat();
     const subNavs = aboutusPage.sub_navs || [];
     tabs = subNavs.flatMap((subNav) => {
       return subNav.nav_sections.flatMap((navSection) => {
         return navSection.nav_items.map((navItem) => ({
-          title: navSection.title,
-          title2: navItem.title,
+          name: navSection.title,
+          headerText: navItem.title,
           img: getFullImageUrl(navItem.image || ""),
-          desc: navItem.subtitle || "",
+          text: navItem.subtitle || "",
+          text2: navItem.description || "",
+
           btn: "main_btn",
         }));
       });
@@ -200,18 +201,18 @@ if (!isLoading && pageDetails) {
                   <div className="bg-[#AE3A20] flex flex-col lg:flex-row justify-between h-auto lg:h-[600px]">
                     <aside className="w-full lg:w-[50%] mt-[2rem] lg:mt-[7rem] px-[2rem] xl:px-[7rem] lg:px-[3rem] ">
                       <div className="text-[1.3rem] text-white">
-                        {e?.data?.headerText}
+                        {e?.headerText}
                       </div>
                       <div className="text-[#d7d7d7] text-[.9rem] pt-[1rem]">
                         {e?.name === "Company Profile" ||
                         e?.name === "Why Pan African Towers?" ? (
                           <>
-                            <div className="py-[1rem]">{e?.data?.text}</div>
-                            <div>{e?.data?.text2}</div>
+                            <div className="py-[1rem]">{e?.text}</div>
+                            <div>{e?.text2}</div>
                           </>
                         ) : (
                           <div>
-                            {e?.data?.text?.map((item, i) => (
+                            {e?.text?.map((item, i) => (
                               <div
                                 key={i}
                                 className="flex gap-2 items-center text-[#d7d7d7] text-[.9rem] py-[.3rem]"
@@ -228,7 +229,7 @@ if (!isLoading && pageDetails) {
                       <div className="w-[400px] px-[1rem] pt-[1rem] md:w-[400px] lg:w-[500px]">
                         <Image
                           className="w-full h-[350px] lg:h-auto"
-                          src={e?.data?.img}
+                          src={e?.img}
                           alt=""
                           preview={false}
                           lazyload={{ threshold: 0.5 }}

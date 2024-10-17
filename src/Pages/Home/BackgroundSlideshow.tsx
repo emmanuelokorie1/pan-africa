@@ -1,8 +1,12 @@
+/** @format */
+
 import React, { useEffect, useState } from "react";
 import styled, { keyframes } from "styled-components";
 import back1 from "../../assets/home/back1.png";
 import back2 from "../../assets/home/back2.png";
 import back3 from "../../assets/home/back3.png";
+import { useQuery } from "react-query";
+import { getAllPages } from "../../lib/apiServices";
 
 // Zoom in and out animation
 const zoomInOut = keyframes`
@@ -52,11 +56,15 @@ const ImageBase = styled.div`
   background-size: cover;
   background-position: center;
   z-index: ${({ isActive }) => (isActive ? 1 : -1)};
-  animation: ${({ isExiting }) => (isExiting ? slideOutLeft : slideInRight)} 2s ease,
+  animation: ${({ isExiting }) => (isExiting ? slideOutLeft : slideInRight)} 2s
+      ease,
     ${zoomInOut} 7s ease-in-out infinite;
   opacity: ${({ isActive }) => (isActive ? 1 : 0)};
   transition: opacity 1s;
-  background-color: ${({ isLoading }) => (isLoading ? "#DED9C9" : "transparent")}; /* Apply black background when loading */
+  background-color: ${({ isLoading }) =>
+    isLoading
+      ? "#DED9C9"
+      : "transparent"}; /* Apply black background when loading */
 `;
 
 // Styled component for the first image
@@ -81,11 +89,11 @@ const TextOverlay = styled.div`
   opacity: ${({ isActive }) => (isActive ? 1 : 0)};
   transition: opacity 1s;
 
-  .text-large{
-font-family: bold1;
+  .text-large {
+    font-family: bold1;
   }
-  .text-large span{
-font-family: bold1;
+  .text-large span {
+    font-family: bold1;
   }
 
   // Media queries for responsive design
@@ -158,73 +166,138 @@ const BackgroundSlideshow = () => {
     setLoading((prev) => ({ ...prev, [index]: false }));
   };
 
+  const BASE_URL = "http://89.38.135.41:9920";
+
+  const getFullImageUrl = (imagePath) => {
+    return imagePath ? `${BASE_URL}${imagePath}` : null;
+  };
+
+  const { data: pageDetails, isLoading } = useQuery({
+    queryKey: ["getAllPages"],
+    queryFn: () => getAllPages(),
+    onError: (err) => {
+      // @ts-ignore
+      setMessage(err?.response?.data?.detail || err.message);
+    },
+  });
+  let heroData = null;
+  let heroData1 = null;
+  let heroData2 = null;
+
+  if (!isLoading && pageDetails) {
+    const homePage = pageDetails.find((page) => page.title === "Home");
+
+    if (homePage) {
+      heroData = homePage.heroes[0];
+      const heroSection = homePage.sections.find(
+        (section) => section.title === "Header" && section.id === 45
+      );
+      if (heroSection) {
+        heroData1 = heroSection.sub_sections.find(
+          (subSection) => subSection.title === "Re-writing the"
+        );
+        heroData2 = heroSection.sub_sections.find(
+          (subSection) => subSection.title === "Cutting edge"
+        );
+      }
+    }
+  }
   return (
     <BackgroundContainer className="h-[100vh] 2xl:h-[40vh]">
       <ImageOne
         isActive={activeImage === 1}
         isExiting={isExiting && activeImage === 1}
-        style={{ backgroundImage: `url(${back1})` }}
+        style={{
+          backgroundImage: `url(${
+            heroData?.image instanceof File
+              ? URL.createObjectURL(heroData?.image)
+              : getFullImageUrl(heroData?.image)
+          })`,
+        }}
         isLoading={loading[1]}
       />
       <img
-        src={back1}
+        src={
+          heroData?.image instanceof File
+            ? URL.createObjectURL(heroData?.image)
+            : getFullImageUrl(heroData?.image)
+        }
         alt="background 1"
         style={{ display: "none" }}
         onLoad={() => handleImageLoad(1)}
       />
       <TextOverlay isActive={activeImage === 1}>
         <div className="text-large">
-          Welcome to <span className="text-textColor">Pan African Towers</span>
+          {heroData?.title}{" "}
+          <span className="text-textColor">{heroData?.subtitle}</span>
         </div>
-        <div className="text-small">
-          A telecommunications infrastructure and wireless service facilitator.
-        </div>
+        <div className="text-small">{heroData?.description}</div>
       </TextOverlay>
 
       <ImageTwo
         isActive={activeImage === 2}
         isExiting={isExiting && activeImage === 2}
-        style={{ backgroundImage: `url(${back2})` }}
+        style={{
+          backgroundImage: `url(${
+            heroData1?.content_blocks[0]?.image instanceof File
+              ? URL.createObjectURL(heroData1?.content_blocks[0]?.image)
+              : getFullImageUrl(heroData1?.content_blocks[0]?.image)
+          })`,
+        }}
         isLoading={loading[2]}
       />
       <img
-        src={back2}
+        src={            heroData1?.content_blocks[0]?.image instanceof File
+          ? URL.createObjectURL(heroData1?.content_blocks[0]?.image)
+          : getFullImageUrl(heroData1?.content_blocks[0]?.image)
+}
         alt="background 2"
         style={{ display: "none" }}
         onLoad={() => handleImageLoad(2)}
       />
       <TextOverlay isActive={activeImage === 2}>
         <div className="text-large">
-          Re-writing the <span className="text-textColor">African</span>{" "}
-          connectivity story
+          {heroData1?.title}{" "}
+          <span className="text-textColor">
+            {heroData1?.content_blocks[0]?.title}
+          </span>{" "}
+          {heroData1?.content_blocks[0]?.subtitle}{" "}
         </div>
         <div className="text-small">
-          We provide sustainable, dynamic and innovative infrastructure
-          solutions and platforms to transform communities through technology in
-          an efficient manner.
+          {heroData1?.content_blocks[0]?.description}{" "}
         </div>
       </TextOverlay>
 
       <ImageThree
         isActive={activeImage === 3}
         isExiting={isExiting && activeImage === 3}
-        style={{ backgroundImage: `url(${back3})` }}
+        style={{ backgroundImage: `url(${
+          heroData2?.content_blocks[0]?.image instanceof File
+          ? URL.createObjectURL(heroData2?.content_blocks[0]?.image)
+          : getFullImageUrl(heroData2?.content_blocks[0]?.image)
+
+        })` }}
         isLoading={loading[3]}
       />
       <img
-        src={back3}
+        src={           
+          
+           heroData2?.content_blocks[0]?.image instanceof File
+          ? URL.createObjectURL(heroData2?.content_blocks[0]?.image)
+          : getFullImageUrl(heroData2?.content_blocks[0]?.image)
+}
         alt="background 3"
         style={{ display: "none" }}
         onLoad={() => handleImageLoad(3)}
       />
       <TextOverlay isActive={activeImage === 3}>
         <div className="text-large">
-          Cutting edge{" "}
-          <span className="text-textColor">telecommunications</span> technology.
+        {heroData2?.title}{" "}
+          <span className="text-textColor">            {heroData2?.content_blocks[0]?.title}          </span>           {heroData1?.content_blocks[0]?.subtitle}{" "}
+
         </div>
         <div className="text-small">
-          We aim to follow an unconventional approach by collaborating with
-          partners in a new ecosystem to meet African data consumption needs.
+        {heroData2?.content_blocks[0]?.description}{" "}
         </div>
       </TextOverlay>
     </BackgroundContainer>

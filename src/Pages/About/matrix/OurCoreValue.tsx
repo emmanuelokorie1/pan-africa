@@ -34,7 +34,7 @@ function OurCoreValue() {
 
   let tabs = [];
 
-  const BASE_URL = "http://89.38.135.41:9920/";
+  const BASE_URL = "http://89.38.135.41:9920";
 
   const getFullImageUrl = (imagePath) => {
     return imagePath ? `${BASE_URL}${imagePath}` : null;
@@ -61,7 +61,7 @@ function OurCoreValue() {
       });
 
       const propositionSection = aboutusPage.sections.find(
-        (section) => section.title === "Header" && section.id === 2
+        (section) => section.title === "Header" && section.id === 34
       );
       if (propositionSection) {
         propositionData = propositionSection.sub_sections.find(

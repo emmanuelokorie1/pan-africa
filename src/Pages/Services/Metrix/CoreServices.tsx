@@ -103,9 +103,10 @@ function CoreServices() {
   let heroData = null; 
   let tabs = [];
 
-  const BASE_URL = "http://89.38.135.41:9920/";
+  const BASE_URL = "http://89.38.135.41:9920";
   
   const getFullImageUrl = (imagePath) => {
+    console.log(`${BASE_URL}${imagePath}`)
     return imagePath ? `${BASE_URL}${imagePath}` : null;
   };
   
@@ -117,11 +118,11 @@ function CoreServices() {
       tabs = subNavs.flatMap((subNav) => {
         return subNav.nav_sections.flatMap((navSection) => {
           return navSection.nav_items.map((navItem) => ({
-            name: navSection.title,
-            title: navItem.title,
+            title: navSection.title,
+            headerText: navItem.title,
             text: navItem.subtitle || "",
             img: getFullImageUrl(navItem.image || ""),
-            desc: navItem.description || "",
+            text2: navItem.description || "",
             btn: "main_btn",
           }));
         });

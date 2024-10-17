@@ -1,3 +1,5 @@
+/** @format */
+
 import HeaderNav from "../Reuseable/UI/HeaderNav";
 import Img from "../../assets/career/careerr.png";
 import joinOurTeam from "../../assets/career/join.png";
@@ -26,28 +28,34 @@ function Career() {
 
   let heroData = null;
   let carriersData = null;
+  let talentData = null;
 
-  const BASE_URL = "http://89.38.135.41:9920/";
+  const BASE_URL = "http://89.38.135.41:9920";
 
   const getFullImageUrl = (imagePath) => {
     return imagePath ? `${BASE_URL}${imagePath}` : null;
   };
 
   if (!isLoading && pageDetails) {
-    const aboutusPage = pageDetails.find(
-      (page) => page.title === "Our core values"
-    );
-    if (aboutusPage) {
-      heroData = aboutusPage.heroes[0];
-      const subNavs = aboutusPage.sub_navs || [];
+    const careerPage = pageDetails.find((page) => page.title === "Career");
+    if (careerPage) {
+      heroData = careerPage.heroes[0];
+      const subNavs = careerPage.sub_navs || [];
 
-
-      const propositionSection = aboutusPage.sections.find(
-        (section) => section.title === "Header" && section.id === 2
+      const carrerSection = careerPage.sections.find(
+        (section) => section.title === "Header" && section.id === 36
       );
-      if (propositionSection) {
-        carriersData = propositionSection.sub_sections.find(
-          (subSection) => subSection.title === "Our Proposition to our clients"
+      if (carrerSection) {
+        carriersData = carrerSection.sub_sections.find(
+          (subSection) => subSection.title === "Careers"
+        );
+      }
+      const talentSection = careerPage.sections.find(
+        (section) => section.title === "Header" && section.id === 37
+      );
+      if (talentSection) {
+        talentData = talentSection.sub_sections.find(
+          (subSection) => subSection.title === "Talent"
         );
       }
     }
@@ -60,41 +68,26 @@ function Career() {
     <div className="overflow-x-hidden">
       <div>
         <HeaderNav
-          // title={"Our career"}
           title={heroData?.title}
-
-          // headerText={"Let's rewrite the African connectivity story together."}
           headerText={heroData?.subtitle}
-
-          // text={
-          //   "Join Nigeria's leading telecom and digital infrastructure provider team and help connect Africa"
-          // }
-          // text2={
-          //   "Pan African Towers connects people across the globe, fostering business growth and bridging digital divides. The work we do here has a meaningful impact on millions of lives."
-          // }
           text={heroData?.description}
-
-          Img={           
-             heroData?.image instanceof File
-            ? URL.createObjectURL(heroData?.image)
-            : getFullImageUrl(heroData?.image)
-}
+          Img={
+            heroData?.image instanceof File
+              ? URL.createObjectURL(heroData?.image)
+              : getFullImageUrl(heroData?.image)
+          }
         />
       </div>
 
       <ImageAndTextGrid
         title={carriersData?.title || ""}
-
-        headerText={      
-          carriersData?.content_blocks[0]?.subtitle || ""
+        headerText={carriersData?.content_blocks[0]?.subtitle || ""}
+        text={carriersData?.content_blocks[0]?.description || ""}
+        img={
+          carriersData?.content_blocks[0]?.image instanceof File
+            ? URL.createObjectURL(carriersData?.content_blocks[0]?.image)
+            : getFullImageUrl(carriersData?.content_blocks[0]?.image)
         }
-        text={
-          carriersData?.content_blocks[0]?.description || ""
-        }
-        img={          carriersData?.content_blocks[0]?.image instanceof File
-          ? URL.createObjectURL(carriersData?.content_blocks[0]?.image)
-          : getFullImageUrl(carriersData?.content_blocks[0]?.image)
-}
       />
 
       <section className="containers mb-[2rem]">
@@ -148,16 +141,18 @@ function Career() {
 
       <div>
         <ImageAndGridTextRight
-          title="Talent"
-          headerText={"Join our network of talents"}
-          text={
-            "Don't see any role that interests you? Join our talent network and we'll get back to you with openings that match your skills."
-          }
+          title={talentData?.title || ""}
+          headerText={talentData?.content_blocks[0]?.subtitle || ""}
+          text={talentData?.content_blocks[0]?.description || ""}
           link2={
             "https://panafricantowers.zohorecruit.com/forms/ddc1e0e00187c6b7505062c10f82e6a8b31fe2fc49278df307bd0dfd95604009"
           }
           linkName={"Join our team"}
-          img={joinOurTeam}
+          img={
+            talentData?.content_blocks[0]?.image instanceof File
+              ? URL.createObjectURL(talentData?.content_blocks[0]?.image)
+              : getFullImageUrl(talentData?.content_blocks[0]?.image)
+          }
         />
       </div>
     </div>

@@ -10,7 +10,7 @@ function OurVision() {
 
   let tabs = [];
 
-  const BASE_URL = "http://89.38.135.41:9920/";
+  const BASE_URL = "http://89.38.135.41:9920";
 
 const getFullImageUrl = (imagePath) => {
   return imagePath ? `${BASE_URL}${imagePath}` : null;
@@ -97,11 +97,13 @@ if (!isLoading && pageDetails) {
                 </h2>
                 {activeIndex === i ? (
                   <ul>
-                    {e?.text?.map((item, j) => (
-                      <li key={j} className="text-sm leading-relaxed">
+                    {/* {e?.text?.map((item, j) => ( */}
+                      {/* <li key={j} className="text-sm leading-relaxed">
                         {item}
-                      </li>
-                    ))}
+                      </li> */}
+                                        {e?.text}
+
+                    {/* ))} */}
                   </ul>
                 ) : (
                   <div></div>

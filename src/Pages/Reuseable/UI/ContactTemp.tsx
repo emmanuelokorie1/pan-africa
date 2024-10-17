@@ -22,7 +22,7 @@ function ContactTemp() {
     },
   });
 
-  const BASE_URL = "http://89.38.135.41:9920/";
+  const BASE_URL = "http://89.38.135.41:9920";
 
   const getFullImageUrl = (imagePath) => {
     return imagePath ? `${BASE_URL}${imagePath}` : null;
@@ -30,15 +30,15 @@ function ContactTemp() {
 
   if (!isLoading && pageDetails) {
     const aboutusPage = pageDetails.find(
-      (page) => page.title === "Our core values"
+      (page) => page.title === "Our focus"
     );
     if (aboutusPage) {
       const contactSection = aboutusPage.sections.find(
-        (section) => section.title === "Header" && section.id === 2
+        (section) => section.title === "Header" && section.id === 33
       );
       if (contactSection) {
         contactData = contactSection.sub_sections.find(
-          (subSection) => subSection.title === "contact"
+          (subSection) => subSection.title === "contact board"
         );
       }
     }

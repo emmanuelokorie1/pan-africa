@@ -1,3 +1,5 @@
+/** @format */
+
 import BackgroundSlideshow from "./BackgroundSlideshow";
 import ZoomImage from "./ZoomImage";
 import zoom1 from "../../assets/home/zooms/zoom1.png";
@@ -41,9 +43,11 @@ import csl from "../../assets/home/marquee/csl.png";
 import LeftHeader from "../Reuseable/Templates/LeftHeader";
 import ImageCard from "../Reuseable/UI/ImageCard";
 import ContactTemp from "../Reuseable/UI/ContactTemp";
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useLocation } from "react-router-dom";
 import Marquee from "react-fast-marquee";
+import { useQuery } from "react-query";
+import { getAllPages } from "../../lib/apiServices";
 
 function Home() {
   const imageUrls = [
@@ -69,15 +73,124 @@ function Home() {
     window.scrollTo(0, 0);
   }, [pathname]);
 
+  const [message, setMessage] = useState("");
+  let followData = null;
+  let activityData = null;
+  let tenantsData = null;
+  let experienceData = null;
+  let whoweareData = null;
+  let servicesData = null;
+  let clientsData = null;
+  let clientsCards = [];
+  let carriersData = null;
+
+  let newsData = null;
+  let ceoData = null;
+  let towersData = null;
+  let africaNewsData = null;
+
+  const BASE_URL = "http://89.38.135.41:9920";
+
+  const getFullImageUrl = (imagePath) => {
+    return imagePath ? `${BASE_URL}${imagePath}` : null;
+  };
+
+  const { data: pageDetails, isLoading } = useQuery({
+    queryKey: ["getAllPages"],
+    queryFn: () => getAllPages(),
+    onError: (err) => {
+      // @ts-ignore
+      setMessage(err?.response?.data?.detail || err.message);
+    },
+  });
+
+  if (!isLoading && pageDetails) {
+    const aboutusPage = pageDetails.find((page) => page.title === "Home");
+    if (aboutusPage) {
+      const followSection = aboutusPage.sections.find(
+        (section) => section.title === "Header" && section.id === 40
+      );
+      const activitySection = aboutusPage.sections.find(
+        (section) => section.title === "Header" && section.id === 41
+      );
+      const WhoAreWeSection = aboutusPage.sections.find(
+        (section) => section.title === "Header" && section.id === 42
+      );
+      const servicesSection = aboutusPage.sections.find(
+        (section) => section.title === "Header" && section.id === 43
+      );
+      const clientsSection = aboutusPage.sections.find(
+        (section) => section.title === "Header" && section.id === 44
+      );
+      const newsSection = aboutusPage.sections.find(
+        (section) => section.title === "Header" && section.id === 45
+      );
+      const carrerSection = aboutusPage.sections.find(
+        (section) => section.title === "Header" && section.id === 46
+      );
+      if (followSection) {
+        followData = followSection.sub_sections.find(
+          (subSection) => subSection.title === "We follow"
+        );
+      }
+      if (activitySection) {
+        activityData = activitySection.sub_sections.find(
+          (subSection) => subSection.title === "Active sites"
+        );
+        tenantsData = activitySection.sub_sections.find(
+          (subSection) => subSection.title === "Tenants"
+        );
+        experienceData = activitySection.sub_sections.find(
+          (subSection) => subSection.title === "Experience"
+        );
+      }
+      if (WhoAreWeSection) {
+        whoweareData = WhoAreWeSection.sub_sections.find(
+          (subSection) => subSection.title === "Who we are"
+        );
+      }
+      if (servicesSection) {
+        servicesData = servicesSection.sub_sections.find(
+          (subSection) => subSection.title === "Our services"
+        );
+      }
+      if (clientsSection) {
+        clientsData = servicesSection.sub_sections.find(
+          (subSection) => subSection.title === "Our clients"
+        );
+        clientsCards = clientsSection.cards;
+      }
+      if (newsSection) {
+        newsData = newsSection.sub_sections.find(
+          (subSection) => subSection.title === "News"
+        );
+        ceoData = newsSection.sub_sections.find(
+          (subSection) => subSection.title === "CEO"
+        );
+        towersData = newsSection.sub_sections.find(
+          (subSection) => subSection.title === "Towers"
+        );
+        africaNewsData = newsSection.sub_sections.find(
+          (subSection) =>
+            subSection.title ===
+            "Pan African Towers becomes one of the leading telecommunication companies in Africa"
+        );
+      }
+      if (carrerSection) {
+        carriersData = carrerSection.sub_sections.find(
+          (subSection) => subSection.title === "Careers"
+        );
+      }
+    }
+  }
   return (
     <div className="overflow-x-hidden">
       <BackgroundSlideshow />
       {/* data-aos="zoom-in" data-aos-once="true" */}
       <div className="flex justify-center bg-gray-50">
         <div className="text-textColor md:py-[3rem] py-[2rem] md:w-[70%] sm:w-[80%] w-[90%] text-[1.3rem] text-center">
-          <span className="text-black">We follow</span> an unconventional
-          approach by collaborating with partners in a new eco system to meet
-          African data consumption needs.
+          <span className="text-black">{followData?.title}</span>{" "}
+          {followData?.content_blocks[0]?.subtitle}
         </div>
       </div>
 
@@ -93,28 +206,71 @@ function Home() {
         </div> */}
         <div>
           <ZoomImage
-            images={[{ url: zoom3 }, { url: zoom4 }]}
-            text="With over 750 active sites across the country, our company ensures unmatched connectivity and coverage. Our robust infrastructure powers reliable communication services, reaching even the most remote areas."
-            header="Active sites"
-            nums="764"
+            images={[
+              {
+                url:
+                  activityData?.image instanceof File
+                    ? URL.createObjectURL(activityData?.image)
+                    : getFullImageUrl(activityData?.image),
+              },
+              {
+                url:
+                  activityData?.content_blocks[0]?.image instanceof File
+                    ? URL.createObjectURL(
+                        activityData?.content_blocks[0]?.image
+                      )
+                    : getFullImageUrl(activityData?.content_blocks[0]?.image),
+              },
+            ]}
+            text={activityData?.content_blocks[0]?.description}
+            header={activityData?.content_blocks[0]?.subtitle}
+            nums={activityData?.content_blocks[0]?.title}
             icon={infra}
           />
         </div>
         <div>
           <ZoomImage
-            images={[{ url: zoom7 }, { url: zoom8 }]}
-            text="Our extensive network and dedicated services empower a diverse range of tenants to stay connected effortlessly. Join our growing community and experience the reliability and innovation that we bring to the telecommunications industry."
-            header="Tenants"
-            nums="1200+"
+            images={[
+              {
+                url:
+                  tenantsData?.image instanceof File
+                    ? URL.createObjectURL(tenantsData?.image)
+                    : getFullImageUrl(tenantsData?.image),
+              },
+              {
+                url:
+                  tenantsData?.content_blocks[0]?.image instanceof File
+                    ? URL.createObjectURL(tenantsData?.content_blocks[0]?.image)
+                    : getFullImageUrl(tenantsData?.content_blocks[0]?.image),
+              },
+            ]}
+            text={tenantsData?.content_blocks[0]?.description}
+            header={tenantsData?.content_blocks[0]?.subtitle}
+            nums={tenantsData?.content_blocks[0]?.title}
             icon={power}
           />
         </div>
         <div>
           <ZoomImage
-            images={[{ url: zoom5 }, { url: zoom6 }]}
-            text="With over five years of experience, our company has been a trusted leader in delivering cutting-edge communication solutions. Our experience and commitment to innovation have kept us at the forefront of the industry, ensuring seamless connectivity for businesses and individuals alike"
-            header="Experience"
-            nums="5+ Years"
+            images={[
+              {
+                url:
+                  experienceData?.image instanceof File
+                    ? URL.createObjectURL(experienceData?.image)
+                    : getFullImageUrl(experienceData?.image),
+              },
+              {
+                url:
+                  experienceData?.content_blocks[0]?.image instanceof File
+                    ? URL.createObjectURL(
+                        experienceData?.content_blocks[0]?.image
+                      )
+                    : getFullImageUrl(experienceData?.content_blocks[0]?.image),
+              },
+            ]}
+            text={experienceData?.content_blocks[0]?.description}
+            header={experienceData?.content_blocks[0]?.subtitle}
+            nums={experienceData?.content_blocks[0]?.title}
             icon={icon4}
           />
         </div>
@@ -122,25 +278,19 @@ function Home() {
 
       <div>
         <ImageAndTextGrid
-          title={"Who we are"}
-          headerText={
-            "Pan African Towers Limited is a Telecommunication Infrastructure and  service Facilitator"
-          }
-          text={
-            "Pan-African Towers is a multiple award-winning telecommunications infrastructure company and wireless service facilitator in Nigeria aimed at catering to the telecommunication needs ranging from broadband, mobile telephony to other local value-added services in Africa."
-          }
+          title={whoweareData?.content_blocks[0]?.title}
+          headerText={whoweareData?.content_blocks[0]?.subtitle}
+          text={whoweareData?.content_blocks[0]?.description}
           linkName="Meet the Team"
           link={"/who-we-are"}
         />
       </div>
 
-      <div className="bg-white" >
+      <div className="bg-white">
         <div>
           <CenteredHeader
-            title={"Our services"}
-            text={
-              "Pan African Towers Limited, is Nigeria's largest indigenous telecom tower infrastructure company and the 10th Largest in Africa. We are “The New Face of Connectivity in Africa."
-            }
+            title={servicesData?.content_blocks[0]?.title}
+            text={servicesData?.content_blocks[0]?.subtitle}
           />
         </div>
 
@@ -152,19 +302,18 @@ function Home() {
       <div className=" md:px-[7rem] s900:px-[10rem] sm:px-[5rem] px-[3rem] py-[3rem]">
         <div className="pb-[2rem]">
           <CenteredHeader
-            title={"Our clients"}
-            text={
-              "We're continually working to change the way people think about and engage with our products"
-            }
+            title={clientsData?.content_blocks[0]?.title}
+            text={clientsData?.content_blocks[0]?.subtitle}
           />
         </div>
 
         {/* <Marquee images={imageUrls} speed={0.5} /> */}
         <Marquee>
-          {imageUrls?.map((e, i) => {
+          {clientsCards?.map((e, i) => {
             return (
-              <div>
-                <img src={e} alt={i + "image"} />
+              <div key={i}>
+                {/* <img src={e} alt={i + "image"} /> */}
+                <img src={getFullImageUrl(e.image)} alt={`${i} image`} />
               </div>
             );
           })}
@@ -173,28 +322,38 @@ function Home() {
 
       <div className="md:w-[55%] w-[100%] md:ps-[7rem] sm:ps-[5rem] ps-[3rem]">
         <LeftHeader
-          title={"News"}
-          text={
-            "The latest industry news, technology, resources and interviews"
-          }
+          title={newsData?.content_blocks[0]?.title}
+          text={newsData?.content_blocks[0]?.subtitle}
         />
       </div>
 
       <div className="containers flex justify-center pb-[2rem]">
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[1rem]">
           <ImageCard
-            image={cardImg1}
-            text="Pan African Towers Appoints Azeez Amida as CEO"
+            image={
+              ceoData?.content_blocks[0]?.image instanceof File
+                ? URL.createObjectURL(ceoData?.content_blocks[0]?.image)
+                : getFullImageUrl(ceoData?.content_blocks[0]?.image)
+            }
+            text={ceoData?.content_blocks[0]?.title}
             link={"/see-news/1"}
           />
           <ImageCard
-            image={cardImg2}
-            text="DPI and Verod Capital partner to back management of Pan African Towers."
+            image={            
+              towersData?.content_blocks[0]?.image instanceof File
+              ? URL.createObjectURL(towersData?.content_blocks[0]?.image)
+              : getFullImageUrl(towersData?.content_blocks[0]?.image)
+}
+            text={towersData?.content_blocks[0]?.title}
             link={"/see-news/2"}
           />
           <ImageCard
-            image={cardImg3}
-            text="Pan African Towers becomes one of the leading telecommunication companies in Africa"
+            image={              africaNewsData?.content_blocks[0]?.image instanceof File
+              ? URL.createObjectURL(africaNewsData?.content_blocks[0]?.image)
+              : getFullImageUrl(africaNewsData?.content_blocks[0]?.image)
+}
+            text={africaNewsData?.content_blocks[0]?.title}
+
             link={"/see-news/3"}
           />
         </div>
@@ -202,14 +361,13 @@ function Home() {
 
       <div className="bg-gray-50">
         <ImageAndTextGrid
-          title={"Careers"}
-          headerText={"Let's rewrite the African connectivity story together"}
+        title={carriersData?.title || ""}
+        headerText={carriersData?.content_blocks[0]?.title || ""}
           text={
-            "Join Nigeria's leading telecom and digital infrastructure provider team and help connect Africa"
-          }
+            carriersData?.content_blocks[0]?.subtitle || ""     
+               }
           text2={
-            "We are always open to new talent joining our team of experts operating in Nigeria and across Africa. We are looking for people to help us grow our business, join our team"
-          }
+            carriersData?.content_blocks[0]?.description || ""          }
           img={careerr}
           link={"/career"}
         />

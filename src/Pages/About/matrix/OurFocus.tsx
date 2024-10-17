@@ -41,7 +41,7 @@ function OurFocus() {
   // let focus = [];
   let patStrategyData  = null;
 
-  const BASE_URL = "http://89.38.135.41:9920/";
+  const BASE_URL = "http://89.38.135.41:9920";
 
   const getFullImageUrl = (imagePath) => {
     return imagePath ? `${BASE_URL}${imagePath}` : null;
@@ -67,7 +67,7 @@ function OurFocus() {
   
   
       const patStrategySection = aboutusPage.sections.find(
-        (section) => section.title === "Header" && section.id === 2
+        (section) => section.title === "Header" && section.id === 32
       );
       if (patStrategySection) {
         patStrategyData = patStrategySection.sub_sections.find(

@@ -5,8 +5,20 @@ import { useState } from "react";
 import { RxDotFilled } from "react-icons/rx";
 import { RiMenu3Fill } from "react-icons/ri";
 import { LiaTimesSolid } from "react-icons/lia";
+import { useQuery } from "react-query";
+import { getAllPages } from "../lib/apiServices";
 
 function NavBar() {
+    const [message, setMessage] = useState("");
+    const { data: pageDetails, isLoading } = useQuery({
+      queryKey: ["getAllPages"],
+      queryFn: () => getAllPages(),
+      onError: (err) => {
+        // @ts-ignore
+        setMessage(err?.response?.data?.detail || err.message);
+      },
+    });
+
   const Links1 = [
     {
       name: "About Us",
