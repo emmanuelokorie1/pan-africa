@@ -91,6 +91,16 @@ function Career() {
             link="https://panafricantowers.zohorecruit.com/jobs/Careers/773673000000521005/General-Manager-Financial-Planning-Analysis?source=CareerSite"
           />
         </div>
+        <div className="py-[2rem]">
+          <OpenRoleTemplate
+            category="Communication"
+            location="Nigeria"
+            jobType="Full-time"
+            description="We are looking for Develop Communication Strategy as well as Collaborate to produce and implement a comprehensive communication strategy for PAT"
+            header="Corporate Communication Officer"
+            link="https://panafricantowers.zohorecruit.com/jobs/Careers/773673000001106001/Corporate-Communication-Officer?source=CareerSite"
+          />
+        </div>
       </section>
 
       <div>
@@ -107,6 +117,8 @@ function Career() {
           img={joinOurTeam}
         />
       </div>
+
+  
     </div>
   );
 }
